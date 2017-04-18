@@ -1,0 +1,30 @@
+{
+  "name": "query",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "profile_pic": {
+      "type": "String",
+      "required": true
+    },
+    "comment": {
+      "type": "string",
+      "required": true
+    },
+    "date_time": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

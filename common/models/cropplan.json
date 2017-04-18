@@ -1,0 +1,58 @@
+{
+  "name": "cropplan",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cropname": {
+      "type": "string",
+      "required": true
+    },
+    "croptype": {
+      "type": "string",
+      "required": true
+    },
+    "seeddate": {
+      "type": "string",
+      "required": true
+    },
+    "maturitydays": {
+      "type": "number",
+      "required": true
+    },
+    "landrequired": {
+      "type": "number"
+    },
+    "no_beds": {
+      "type": "number"
+    },
+    "rowperbed": {
+      "type": "number"
+    },
+    "rowfeet": {
+      "type": "number"
+    },
+    "soiltype": {
+      "type": "string",
+      "required": true
+    },
+    "weather": {
+      "type": "string"
+    },
+    "seedingmonth": {
+      "type": "string"
+    },
+    "transdate": {
+      "type": "string"
+    },
+    "locations": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "farmercommunity": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "",
+    "database": "postgres",
+    "password": "krishna",
+    "name": "farmercommunity",
+    "user": "postgres",
+    "connector": "postgresql"
+  },
+   "storage": {
+   "name": "storage",
+   "connector": "loopback-component-storage",
+   "provider": "filesystem",
+   "root": "./server/storage"
+ }
+}

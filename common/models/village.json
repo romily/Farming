@@ -1,0 +1,28 @@
+{
+  "name": "village",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "village_id": {
+      "type": "number",
+      "id": true,
+      "generated": true,
+      "required": true
+    },
+    "village_name": {
+      "type": "string",
+      "required": true
+    },
+    "district_id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

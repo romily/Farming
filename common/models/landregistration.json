@@ -1,0 +1,62 @@
+{
+  "name": "landregistration",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "landtype": {
+      "type": "string",
+      "required": true
+    },
+    "squarefeet": {
+      "type": "number",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "district": {
+      "type": "string",
+      "required": true
+    },
+    "village": {
+      "type": "string",
+      "required": true
+    },
+    "pincode": {
+      "type": "number",
+      "required": true
+    },
+    "user_id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "stateInfo": {
+     "type": "belongsTo",
+     "model": "state",
+     "foreignKey": "state"
+   },
+    "districtInfo": {
+     "type": "belongsTo",
+     "model": "district",
+     "foreignKey": "district"
+   },
+    "villageInfo": {
+     "type": "belongsTo",
+     "model": "village",
+     "foreignKey": "village"
+   }
+  },
+  "acls": [],
+  "methods": {}
+}

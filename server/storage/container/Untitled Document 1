@@ -1,0 +1,89 @@
+<div class="container">
+      <form class="form-signin"  >
+          <h2 class="form-signin-heading">Please sign in</h2>
+       <!--<label >Email address</label>-->
+       <input type="email" name="email"  placeholder="Email address"  ng-model="user.email" required><br><br>   
+         <!--<label >Password</label>-->       
+        <input type="password" name="password" placeholder="Password" ng-model="user.password" required><br>     
+
+         <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me<br>
+          </label>
+        </div>
+        
+        <button class="btn btn-lg btn-primary " ng-click="login()">Sign in</button><br>
+        <button ng-click="reset()">Reset</button>
+
+
+                  <a ui-sref="login">Create Account</a>  
+
+      </form>
+
+    </div> 
+
+
+
+
+angular.module('app')
+  .controller('NextControllers', ['$scope', 'Authservice','$state',
+    function($scope,Authservice,$state) {
+    	
+    	$scope.user={
+
+    	email:'krishna@gmail.com'
+    	password:'krishna'
+    	};
+    	
+        $scope.login=function(){
+    Authservice.login($scope.user.email, $scope.user.password)
+    		.then(function(){
+    			
+    			$state.go('login');
+            }
+            $scope.login();
+    		});
+     
+    	
+
+        $scope.reset=function(){
+
+    		$scope.email="";
+    		$scope.password="";
+    	}
+    	$scope.reset();
+    	
+    		         
+  }]);
+
+
+
+
+
+
+
+
+      <form class="form-signin" ng-submit="login()"  >
+          <h2 class="form-signin-heading">Please sign in</h2>
+       <!--<label >Email address</label>-->
+       <input type="email" name="email"  placeholder="Email address"  ng-model="user.email" required><br><br>   
+         <!--<label >Password</label>-->       
+        <input type="password" name="password" placeholder="Password" ng-model="user.password" required><br>     
+
+         <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me<br>
+          </label>
+        </div>
+        
+        <button class="btn btn-lg btn-primary " >Sign in</button><br>
+        <button ng-click="reset()">Reset</button>
+
+
+                  <a ui-sref="login">Create Account</a>  
+
+      </form>
+
+    </div> 
+
+

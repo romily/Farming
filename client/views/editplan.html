@@ -1,0 +1,130 @@
+ <div ng-include src="'views/carousel.html'"></div>
+<div class="panel panel-primary" style="margin:20px;">
+    <div class="panel-heading">
+            <h3 class="panel-title">Edit Crop Plan</h3>
+    </div>
+    <div class="panel-body">
+   <form name="addForm" >
+<div class="col-md-12 col-sm-12" ng-init="load()">
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="cropname"> Crop Name <span style="color:red">*</span></label>
+           
+             <input type="text" class="form-control input-sm" name="cropname"  ng-model="plan.cropname" ng-pattern="/^[a-zA-Z]+$/" placeholder="" required/>
+             <span style="color:red" ng-show="addForm.cropname.$error.pattern">Crop name Should not contain digits</span>
+        </span>
+    </div>
+        
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="croptype">Crop Type <span style="color:red">*</span></label>
+           <input type="text" class="form-control input-sm" name="croptype"  required ng-model="plan.croptype"  placeholder=""/>
+           
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="seeddate">Seeding Date <span style="color:red">*</span></label>
+
+<div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input type="text" class="form-control input-sm datepicker" value=""  name="seeddate" ng-model="plan.seeddate" required>
+                <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span></div>
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+          <label for="transdate">Transplanting Date</label>
+    <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input type="text" class="form-control input-sm datepicker" value="" readonly ng-model="plan.transdate" name="transdate"/>
+                <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span></div>
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="soiltype">Type Of Soil <span style="color:red">*</span></label>
+             <input type="text" class="form-control input-sm" name="soiltype" placeholder="" required ng-model="plan.soiltype" ng-pattern="/^[a-zA-Z]+$/"/>
+              <span style="color:red" ng-show="addForm.soiltype.$error.pattern">Soil Type Should not contain digits</span>
+        </span>
+            
+    </div>
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="weather">Weather</label>
+            <input type="text" class="form-control input-sm" name="weather" placeholder="" ng-model="plan.weather"/>
+    </div>
+       
+    <div class="form-group col-md-6 col-sm-6">
+                <label for="no_beds">Number of Beds</label>
+                <input type="text" class="form-control input-sm" name="no_beds" placeholder=""  ng-pattern="/[0-9]+$/" ng-model="plan.no_beds"/>
+                <span style="color:red" ng-show="addForm.no_beds.$error.pattern">Number of Beds Should not contain characters</span>
+        </span>
+       <span style="color:red" ng-show="nobedflag">Enter Number of Beds</span>    
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="rowperbed">Row per Bed</label>
+            <input type="text" class="form-control input-sm" name="rowperbed" placeholder="" ng-pattern="/[0-9]+$/" ng-model="plan.rowperbed"/>
+    <span style="color:red" ng-show="addForm.rowperbed.$error.pattern">Row per Bed Should not contain characters</span>
+        </span><span style="color:red" ng-show="rowperbedflag">Enter Row Per Bed</span>    
+</div>
+    <div class="row">
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="maturitydays">Maturity Days <span style="color:red">*</span></label>
+            <input type="text" class="form-control input-sm" name="maturitydays" placeholder="" ng-pattern="/[0-9]+$/" required ng-model="plan.maturitydays"/>
+            <span style="color:red" ng-show="addForm.maturitydays.$error.pattern">Maturity Days Should not contain characters</span>
+        </span>
+        </div>
+    
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="landrequired">Land Required</label>
+            <input type="text" class="form-control input-sm" name="landrequired" placeholder="" ng-pattern="/[0-9]+$/" ng-model="plan.landrequired"/>
+            <span style="color:red" ng-show="addForm.landrequired.$error.pattern">Land Required Should not contain characters</span>
+        </span>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="locations">Location</label>
+            <input type="text" class="form-control input-sm" name="locations" placeholder="" ng-pattern="/^[a-zA-Z]+$/" ng-model="plan.locations"/>
+            <span style="color:red" ng-show="addForm.locations.$error.pattern">Locations Should not contain digits</span>
+        </span>
+        </div>
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="seedingmonth">Seeding Month</label>
+          <select class="form-control input-sm" id="seedingmonth" ng-model="plan.seedingmonth">
+        
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+          </select>
+            
+        </div>
+        <div class="form-group col-md-12 col-sm-12">
+        <div class="form-group col-md-3 col-sm-3">   
+       <button class="btn btn-primary btn-block glyphicon glyphicon-edit" ng-click="edit(plan.id)"></button>
+    </div>
+</div>
+<span style="color:red">*</span>This Fields are mandatory
+</div></form>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+$('.form_date').datetimepicker({
+       
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+</script>

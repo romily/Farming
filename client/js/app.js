@@ -53,14 +53,20 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
         templateUrl: 'views/userprofile.html',
         controller: 'UserprofileController'
       });
-       $stateProvider
+
+      $stateProvider
       .state('banner', {
         url: '/banner',
         templateUrl: 'views/banner.html'
        
       });
 
-
+       $stateProvider
+      .state('cropplantab', {
+        url: '/cropplantab',
+        templateUrl: 'views/cropplantab.html',
+        controller: 'cropplantabcontroller'
+      });
 
 
     $urlRouterProvider.otherwise('sam');

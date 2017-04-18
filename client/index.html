@@ -1,148 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+	<title>Organic Farming</title> 
+  
+   
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+   <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <link href="css/clean-blog.css" rel="stylesheet">
+   <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+   <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">     
+   <link href="css/styles.css" rel="stylesheet">
+   <link href="css/round-about.css" rel="stylesheet">
+   <link href="css/login.css" rel="stylesheet">
+   <link href="css/landreg.css" rel="stylesheet">
+   <link href="css/userprofile.css" rel="stylesheet">
+   <link href="css/logout.css" rel="stylesheet">
+    
 
-    <title>Organic Farming</title>
-    <link rel="shortcut icon" href="/img/tit.jpg"/>
-    <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
-  <link href="css/modern-business.css" rel="stylesheet">
-   <link href="css/orfarming.css" rel="stylesheet">
+
 
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   
-
-    <!-- Custom Fonts -->
-   
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
 
 </head>
 
 <body ng-app="app">
-   
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    Menu <i class="fa fa-bars"></i>
                 </button>
-                
+                <a class="navbar-brand" href="index.html">Organic Farming</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                   <li>
-                        <a href="" ui-sref="main">Home</a>
-                    </li>
-
                     <li>
-                        <a href="" ui-sref="cropplantab">Crop Planning</a></li>
-                        <li>
-                        <a href="" ui-sref="cropexpensetab">Crop Expense</a>
-                    </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Queries <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="" ui-sref="viewquery">View Queries</a>
-                            </li>
-                            
-                            <li>
-                                <a href="" ui-sref="postquery">Post a Query</a>
-                            </li>
-                        </ul>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="" ui-sref="organicfarming">Why Organic Farming</a>
+                        <a href="" ui-sref="about">About</a>
                     </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpful Information<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="" ui-sref="seedtest">Seed Testing</a>
-                            </li>
-                            <li>
-                                <a href=""ui-sref="cropplanning">Crop Planning</a>
-                            </li>
-                            <li>
-                                <a href="" ui-sref="plantsandmgnt">Plant Sand Management</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="" ui-sref="reg">Registration</a>
                     </li>
-                     
-                   
+                    <li>
+                        <a href="login.html" ui-sref="login" target="_blank">Log In</a>
+                    </li>
                 </ul>
             </div>
-            
+           
         </div>
-        
-    </nav>
+       
+ </nav>
+       
+     <header class="intro-header"  style="background-image: url('img/main.jpeg')">
+        <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                        <h1>Farming</h1>
+                        <hr class="small">
+                        <span class="subheading">Organic Farming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    
-<div class="container">
+
       <div ui-view></div>
-    </div>
-    <script src="vendor/jquery/dist/jquery.js"></script>
-   
-    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="vendor/angular/angular.js"></script>
-    <script src="vendor/angular-resource/angular-resource.js"></script>
-    <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="js/bootstrap-datetimepicker.js"></script>
+  
 
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                   <!--  <p class="copyright text-muted">Copyright &copy; Your Website 2016</p> -->
+                </div>
+            </div>
+        </div>
+    </footer>
    
+
+     
+
+      
+ 
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>   
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script> 
+    <script src="lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>  
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="js/bootstrap-datetimepicker.js" ></script>
     <script src="js/services/lb-services.js"></script>
-    
+    <script src="js/clean-blog.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controllers/maincontroller.js"></script>
-    <script src="js/controllers/registercontroller.js"></script>
-    <script src="js/controllers/logincontroller.js"></script>
-   <!-- <script src="js/controllers/addplancontroller.js"></script>-->
-    <script src="js/controllers/viewplancontroller.js"></script>
-    
-         <script src="js/controllers/cropplantabcontroller.js"></script>
-          <script src="js/controllers/editplancontroller.js"></script>
-           <script src="js/controllers/editexpensecontroller.js"></script>
-            <script src="js/controllers/cropexpensetabcontroller.js"></script>
-         <script src="js/controllers/viewquerycontroller.js"></script>
-          <!--<script src="js/controllers/carouselcontroller.js"></script>-->
-           <script src="js/services/AddPlanService.js"></script>
-<script src="js/services/EditPlanService.js"></script>
+    <script src="js/angular-validation-match.js"></script>
+    <script src="js/angular-file-upload.js"></script>
+    <script src="js/controllers/sam.js"></script>
+    <script src="js/controllers/registerController.js"></script> 
+    <script src="js/controllers/loginController.js"></script> 
+    <script src="js/controllers/logout.js"></script> 
+    <script src="js/controllers/landreg.js"></script> 
+    <script src="js/controllers/userprofileController.js"></script> 
+    <script src="js/services/userregistration.js"></script>
+    <script src="js/services/userauthentication.js"></script>
+     <script src="js/services/userprofileService.js"></script>
 
-         
-    <script src="js/services/RegisterService.js"></script>
-    <script src="js/services/LoginService.js"></script>
-    
-    
-    
-  </body>
-   <!--<script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>-->
+
+       
+
+</body>
 </html>

@@ -2,6 +2,8 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+//var path = require('path');
+//app.use(loopback.static(path.resolve(__dirname, '../client')));
 
 var app = module.exports = loopback();
 

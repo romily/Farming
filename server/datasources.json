@@ -3,24 +3,20 @@
     "name": "db",
     "connector": "memory"
   },
-  "mydatasource": {
+  "farmercommunity": {
     "host": "localhost",
     "port": 5432,
     "url": "",
     "database": "postgres",
-    "password": "root",
-    "name": "mydatasource",
+    "password": "krishna",
+    "name": "farmercommunity",
     "user": "postgres",
     "connector": "postgresql"
   },
-  "farmingdatasource": {
-    "host": "localhost",
-    "port": 5432,
-    "url": "",
-    "database": "farmingdb",
-    "password": "root",
-    "name": "farmingdatasource",
-    "user": "postgres",
-    "connector": "postgresql"
-  }
+   "storage": {
+   "name": "storage",
+   "connector": "loopback-component-storage",
+   "provider": "filesystem",
+   "root": "./server/storage"
+ }
 }

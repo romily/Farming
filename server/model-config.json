@@ -32,16 +32,32 @@
     "dataSource": "db",
     "public": false
   },
-  "register": {
-    "dataSource": "mydatasource",
+  "container":{
+    "dataSource": "storage",
     "public": true
   },
-  "cropplan": {
-    "dataSource": "farmingdatasource",
+  "farmersdetail": {
+    "dataSource": "farmercommunity",
     "public": true
   },
-  "query": {
-    "dataSource": "farmingdatasource",
+  "farmpersonal": {
+    "dataSource": "farmercommunity",
+    "public": true
+  },
+  "state": {
+    "dataSource": "farmercommunity",
+    "public": true
+  },
+  "district": {
+    "dataSource": "farmercommunity",
+    "public": true
+  },
+  "village": {
+    "dataSource": "farmercommunity",
+    "public": true
+  },
+  "landregistration": {
+    "dataSource": "farmercommunity",
     "public": true
   }
 }

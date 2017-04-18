@@ -1,0 +1,381 @@
+
+<div class="usercontainer"  ng-init="init()" >
+    <div class="row">
+	   	<div class="col-md-12">
+			   <h3>Welcome  {{profileInfo.firstname}}{{profileInfo.lastname}}!</h3>
+
+			<div class="tabbable-panel">
+				<div class="tabbable-line">
+					<ul class="nav nav-tabs ">
+						<li class="active">
+							<a data-target="#tab_default_1" data-toggle="tab">
+							<i class="glyphicon glyphicon-user"></i> 
+							User Info 
+              </a>
+						</li>
+						<li>
+							<a data-target="#tab_default_2" data-toggle="tab">
+							<i class="glyphicon glyphicon-ok"></i>
+							Land Registration </a>
+						</li>
+						<li>
+							<a data-target="#tab_default_3" data-toggle="tab">
+							Edit Profile </a>
+						</li>
+						<li>
+							<a  href="" ui-sref="login" data-toggle="tab">
+							Logout </a>
+						</li>
+					</ul>
+
+<div class="tab-content">
+			<div class="tab-pane active" id="tab_default_1">
+
+<!-- <div class="head"></div> -->
+<div class="userprofilecontainer">
+<div class="col-lg-12">
+  <div class="row profile">
+   <div class="row">
+     <div class="col-md-3">
+       <div class="profile-sidebar">           
+            <div class="form-group">
+
+              <div class="main-img-preview">
+                <img class="thumbnail img-preview" src="img/avatar.png" title="Profile Picture">
+              </div>
+                <div class="input-group-btn">
+                  <div class="fileUpload btn btn-danger fake-shadow">
+                    <span><i class="glyphicon glyphicon-upload"></i>EditProfile</span>
+                    <input id="logo-id" name="img" ngf-select type="file" class="attachment_upload" ng-model="img">
+                  </div>
+                </div>
+              
+              </div>
+     </div>
+    </div>
+       
+        
+      <div class="col-md-9">
+        <div class="profile-content">
+           <h3>User Information</h3><br>
+           <div class="col-md-5">
+          <b>Name          </b><br>
+          <b>Father's Name </b><br>
+          <b>Address       </b><br>
+          <b>PhoneNumber   </b><br>
+          <b>EmailID       </b>
+          </div>
+          <div class="col-md-5">
+             <b> :</b><span> {{profileInfo.firstname}}{{profileInfo.lastname}}<br></span>
+             <b> :</b> {{profileInfo.fathername}} <br>
+             <b> :</b> {{profileInfo.address}}<br>
+             <b> :</b> {{profileInfo.phoneno}}<br>
+             <b> :</b> {{profileInfo.email}}
+          </div>             
+        </div>
+      </div>
+
+     
+     
+
+  <div class="landregister">
+   <div class="col-lg-12">
+         <h3>Land Information</h3><br>
+    <table>
+      <thead>
+         <tr>
+         <th>Landtype</th>
+         <th>Squarefeet</th>
+         <th>Address</th>
+         <th>state</th>
+         <th>District</th>
+         <th>Village</th>
+         <th>Pincode</th>
+        <tr>
+      </thead>
+      <tbody>       
+         <tr ng-repeat="data in profileInfo.landreg">
+         <td>{{data.landtype}}</td>
+         <td>{{data.squarefeet}}</td>
+         <td>{{data.address}}</td>
+         <td>{{data.state}}</td>
+         <td>{{data.district}}</td>
+         <td>{{data.village}}</td>
+         <td>{{data.pincode}}</td>
+         </tr>
+      </tbody>
+    </table>         
+   </div>
+  </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="tab-pane" id="tab_default_2">
+							
+<div class="container">
+ <h3 class="col-lg-10 well">Farmers Land Registration </h3>
+   
+  <div class="col-lg-10 well">
+  <div class="row-reg">
+        <form name="landform" ng-submit=" landregister(newregister)">
+          <div class="col-sm-12">
+             <div class="row">          
+             <div class=" col-sm-6 form-group">
+                     <label>Land Type</label>                   
+                     <select id="selectbasic" name="selectbasic" class="form-control" ng-model="newregister.landtype" required>
+                         <option value="">Select Landtype</option>
+                         <option value="Cropland">Cropland</option>
+                         <option value="Arableland">Arableland</option>
+                          <option value="Shrubland">Shrubland</option>
+                           <option value="Cultivableland">Cultivableland</option>
+                     </select>
+             </div>
+          
+             <div class=" col-sm-6 form-group">
+                  <label>Square feet</label><br>
+                  <input type="text" name="squarefeet" id="squarefeet" ng-model="newregister.squarefeet" ng-pattern="/^(0|[1-9][0-9]*)$/" class="form-control" required> 
+                  <span class="help-inline" ng-show="submitted && landform.squarefeet.$error.required">Required</span>
+                  <span class="help-inline" ng-show="submitted && landform.squarefeet.$error.pattern">Squarefeet contain only  digits</span>               
+             </div>
+         </div>
+                       
+
+        <div class="form-group">
+          <label>Address<span style="color:red">*</span></label>
+          <textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="address" ng-minlength="14" ng-model="newregister.address" required></textarea>
+          <span class="help-inline" ng-show="submitted && landform.address.$error.required">Required</span>
+          <span class="help-inline" ng-show="landform.address.$error.minlength">
+          Enter valid Address</span>
+        </div>  
+            
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <label>State</label>
+                 <select id="state" ng-change="getdistrict(newregister.state)" ng-model="newregister.state"  class="form-control"  ng-options="item.state_id as item.state_name for item in states"  required>
+              
+                 <option value="">Select State</option>
+                      
+                </select>
+            </div>  
+
+              <div class="col-sm-6 form-group">
+                <label>District</label>
+                <select id="district" ng-disabled="!newregister.state" ng-change="getvillage(newregister.district)" ng-model="newregister.district" ng-options="item.district_id as item.district_name for item in districts" class="form-control" required>
+            <option value="">Select District</option> 
+                        
+                        </select>
+              </div>  
+              </div>
+
+        <div class="row">
+
+              <div class="col-sm-6 form-group">
+                <label>Village</label>
+                 <select id="village"  ng-disabled="!newregister.district || !newregister.state" ng-model="newregister.village" class="form-control" ng-options="item.village_id as item.village_name for item in villages" required>
+                <option value=''>Select Village</option> 
+                </select>
+          </div>  
+
+              <div class="col-sm-6 form-group">
+                        <label>Pincode<span style="color:red">*</span></label>
+                        <input type="text" placeholder="Pincode" class="form-control" name="pincode"  ng-model="newregister.pincode" ng-minlength="6" ng-maxlength="6" ng-pattern="/^\d{6}(\.\d{6})?$/"  required>
+                        <span class="help-inline" ng-show="submitted && landform.pincode.$error.required">Required</span>
+                        <span class="help-inline" ng-show="submitted && landform.pincode.$error.pattern">Pincode contain only 6 digits</span>
+              </div>  
+        </div>
+                            
+           
+          <br>
+
+          <!--<button type="button" class="btn btn-lg btn-info">Submit</button>-->
+           <div class="other">
+              <input type="submit" id="LoginButton"  class="button"  value="Submit" ng-click="submitted=true" style="background-color: #009245; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" />
+            </div>         
+          </div>
+         </form> 
+        </div>
+  </div>
+  </div>
+						</div>
+						<div class="tab-pane" id="tab_default_3">
+		<div class="container">
+     <h3 class="col-lg-10 well">Edit Profile</h3>
+   
+	   <div class="col-lg-10 well">
+				 <form ng-submit="editprofile(profileInfo)">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>FirstName</label>
+								<input type="text" value="{{profileInfo.firstname}}" class="form-control" name="firstname" ng-pattern="/^[a-zA-Z ]*$/" ng-model="profileInfo.firstname"  required>
+               <span class="help-inline" ng-show="submitted && regform.firstname.$error.required">Required</span>
+                <span class="help-inline" ng-show="submitted && regform.firstname.$error.pattern">Nameshould not contain digits</span>
+							</div>
+
+							<div class="col-sm-6 form-group">
+								<label>LastName</label>
+								<input type="text" value="{{profileInfo.lastname}}"  class="form-control" name="lastname"  ng-pattern="/^[a-zA-Z ]*$/"  required>
+                <span class="help-inline" ng-show="submitted && regform.lastname.$error.required">Required</span>
+                <span class="help-inline" ng-show="submitted && regform.lastname.$error.pattern">Nameshould not contain digits</span>
+							</div>
+		              
+            </div>
+                                        
+
+						<div class="form-group">
+							<label>Address</label>
+							<input type="text" value="{{profileInfo.address}}" rows="3" class="form-control" name="address" ng-minlength="14" required>
+              <span class="help-inline" ng-show="submitted && regform.address.$error.required">Required</span>
+              <span class="help-inline" ng-show="regform.address.$error.minlength">
+              Enter valid Address</span>
+
+					</div>	
+						
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>State</label>
+								<select id="selectbasic" name="selectbasic" value="{{profileInfo.state}}" class="form-control">
+                    <option value="">Select State</option>                         
+                </select>
+						</div>	
+
+							<div class="col-sm-6 form-group">
+								<label>District</label>
+								<select id="selectbasic" name="selectbasic" value="{{profileInfo.district}}" class="form-control">
+                    <option value="">Select District</option>                         
+                </select>
+							</div>	
+							</div>
+							<div class="row">
+
+							<div class="col-sm-6 form-group">
+								<label>Village</label>
+								<select id="selectbasic" name="selectbasic" value="{{profileInfo.village}}"  class="form-control">
+                         <option value="">Select Village</option>
+                         
+                     </select>
+							</div>	
+
+							<div class="col-sm-6 form-group">
+								<label>Pincode</label>
+								<input type="text" value="{{profileInfo.pincode}}" class="form-control" name="pincode"  ng-minlength="6" ng-maxlength="6" ng-pattern="/^\d{6}(\.\d{6})?$/"  required>
+                <span class="help-inline" ng-show="submitted && regform.pincode.$error.required">Required</span>
+                <span class="help-inline" ng-show="submitted && regform.pincode.$error.pattern">Pincode contain only 6 digits</span>
+							</div>	
+						</div>
+
+
+        <div class="form-group">
+						<label>Phone Number</label>
+						<input type="text" value="{{profileInfo.phoneno}}" class="form-control" name="phoneno" ng-pattern="/^\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})$/" ng-minlength="10" ng-maxlength="10"   required>
+            <span class="help-inline" ng-show="submitted && regform.phoneno.$error.required">Required</span>
+            <span class="help-inline" ng-show="submitted && regform.phoneno.$error.pattern">PhoneNumber contain only 10 digits</span>
+				</div>	
+
+					<div class="form-group">
+						<label>EmailAddress</label>
+						<input type="email" value="{{profileInfo.email}}" class="form-control" name="email" required>
+            <span class="help-inline" ng-show="submitted && regform.email.$error.required">Required</span>
+				  </div>	
+
+					
+
+
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>BankAccount Number</label>
+								<input type="text" value="{{profileInfo.bankaccno}}" placeholder="BankAccNo" class="form-control">
+							</div>		
+							<div class="col-sm-6 form-group">
+								<label>AadhaarCard Number</label>
+								<input type="text" value="{{profileInfo.aadhaarno}}" placeholder="AadhaarCard Number" class="form-control">
+							</div>	
+						</div>
+
+                        
+
+						<!--  <div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Choose Your Username</label>
+								<input type="text" value="{{profileInfo.username}}" class="form-control">
+							</div>
+							
+						</div>	
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Create Password</label>
+								<input type="text" placeholder="Password" class="form-control">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Confirm Password</label>
+								<input type="text" placeholder="ConfirmPassword" class="form-control">
+							</div>
+						</div>	 -->
+       
+					<br>
+
+					
+					 <div class="other">
+            <input type="submit" id="LoginButton" class="button" value="Save" style="background-color: #009245; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" />
+
+             <input type="submit" id="LoginButton" class="button" value="Cancel" style="background-color: #8B0000; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" />
+       
+
+               </div>					
+					</div>
+				</form> 
+				</div>
+	</div>
+	</div>
+
+						</div>
+
+                   
+                       
+
+
+					</div>
+				</div>
+			</div>
+
+			
+			
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+  
+$(document).ready(function() {
+    var brand = document.getElementById('logo-id');
+    brand.className = 'attachment_upload';
+    brand.onchange = function() {
+        document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+    };
+
+    // Source: http://stackoverflow.com/a/4459419/6396981
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                $('.img-preview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#logo-id").change(function() {
+        readURL(this);
+    });
+});
+</script>
+
+
+
+<!-- </body>
+</html> -->

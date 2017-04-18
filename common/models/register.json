@@ -10,11 +10,7 @@
       "type": "string",
       "required": true
     },
-    "mailid": {
-      "type": "string",
-      "required": true
-    },
-    "username": {
+    "email": {
       "type": "string",
       "id": "true",
       "required": true
@@ -23,7 +19,7 @@
       "type": "string",
       "required": true
     },
-    "phno": {
+    "phone": {
       "type": "string",
       "required": true
     }

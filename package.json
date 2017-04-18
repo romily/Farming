@@ -1,5 +1,5 @@
 {
-  "name": "sample",
+  "name": "sammm",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "loopback-connector-postgresql": "^2.7.0",
+    "ng-file-upload": "^12.2.13",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^1.0.1"
   },
@@ -28,5 +29,5 @@
     "url": ""
   },
   "license": "UNLICENSED",
-  "description": "sample"
+  "description": "sammm"
 }

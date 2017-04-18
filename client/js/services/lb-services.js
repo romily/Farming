@@ -973,7 +973,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object} postData Request data.
              *
-             *  - `access_token` – `{string=}` - Do not supply this argument, it is automatically extracted from request headers.
+             *  - `access_token` – `{string}` - Do not supply this argument, it is automatically extracted from request headers.
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1413,13 +1413,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name lbServices.Register
- * @header lbServices.Register
+ * @name lbServices.Sam
+ * @header lbServices.Sam
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Register` model.
+ * A $resource object for interacting with the `Sam` model.
  *
  * ## Example
  *
@@ -1429,19 +1429,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
  *
  */
   module.factory(
-    "Register",
+    "Sam",
     [
       'LoopBackResource', 'LoopBackAuth', '$injector', '$q',
       function(LoopBackResource, LoopBackAuth, $injector, $q) {
         var R = LoopBackResource(
-        urlBase + "/registers/:id",
+        urlBase + "/sams/:id",
           { 'id': '@id' },
           {
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#create
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#create
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1470,18 +1470,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "create": {
-              url: urlBase + "/registers",
+              url: urlBase + "/sams",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#createMany
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#createMany
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1510,19 +1510,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "createMany": {
               isArray: true,
-              url: urlBase + "/registers",
+              url: urlBase + "/sams",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#patchOrCreate
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#patchOrCreate
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1546,18 +1546,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "patchOrCreate": {
-              url: urlBase + "/registers",
+              url: urlBase + "/sams",
               method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#replaceOrCreate
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#replaceOrCreate
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1586,18 +1586,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "replaceOrCreate": {
-              url: urlBase + "/registers/replaceOrCreate",
+              url: urlBase + "/sams/replaceOrCreate",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#upsertWithWhere
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#upsertWithWhere
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1625,18 +1625,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "upsertWithWhere": {
-              url: urlBase + "/registers/upsertWithWhere",
+              url: urlBase + "/sams/upsertWithWhere",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#exists
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#exists
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1663,14 +1663,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `exists` – `{boolean=}` -
              */
             "exists": {
-              url: urlBase + "/registers/:id/exists",
+              url: urlBase + "/sams/:id/exists",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#findById
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#findById
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1696,18 +1696,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "findById": {
-              url: urlBase + "/registers/:id",
+              url: urlBase + "/sams/:id",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#replaceById
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#replaceById
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1735,18 +1735,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "replaceById": {
-              url: urlBase + "/registers/:id/replace",
+              url: urlBase + "/sams/:id/replace",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#find
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#find
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1770,19 +1770,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "find": {
               isArray: true,
-              url: urlBase + "/registers",
+              url: urlBase + "/sams",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#findOne
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#findOne
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1806,18 +1806,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "findOne": {
-              url: urlBase + "/registers/findOne",
+              url: urlBase + "/sams/findOne",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#updateAll
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#updateAll
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1846,14 +1846,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * Information related to the outcome of the operation
              */
             "updateAll": {
-              url: urlBase + "/registers/update",
+              url: urlBase + "/sams/update",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#deleteById
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#deleteById
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1877,18 +1877,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "deleteById": {
-              url: urlBase + "/registers/:id",
+              url: urlBase + "/sams/:id",
               method: "DELETE",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#count
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#count
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1915,14 +1915,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `count` – `{number=}` -
              */
             "count": {
-              url: urlBase + "/registers/count",
+              url: urlBase + "/sams/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#prototype$patchAttributes
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#prototype$patchAttributes
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1930,7 +1930,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - register id
+             *  - `id` – `{*}` - sam id
              *
              *  - `options` – `{object=}` -
              *
@@ -1950,18 +1950,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
             "prototype$patchAttributes": {
-              url: urlBase + "/registers/:id",
+              url: urlBase + "/sams/:id",
               method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#createChangeStream
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#createChangeStream
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -1991,7 +1991,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `changes` – `{ReadableStream=}` -
              */
             "createChangeStream": {
-              url: urlBase + "/registers/change-stream",
+              url: urlBase + "/sams/change-stream",
               method: "POST",
             },
           }
@@ -2001,8 +2001,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#upsert
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#upsert
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2026,15 +2026,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
         R["upsert"] = R["patchOrCreate"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#updateOrCreate
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#updateOrCreate
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2058,15 +2058,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
         R["updateOrCreate"] = R["patchOrCreate"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#patchOrCreateWithWhere
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#patchOrCreateWithWhere
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2094,15 +2094,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
         R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#update
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#update
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2134,8 +2134,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#destroyById
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#destroyById
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2159,15 +2159,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
         R["destroyById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#removeById
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#removeById
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2191,15 +2191,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
         R["removeById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Register#updateAttributes
-             * @methodOf lbServices.Register
+             * @name lbServices.Sam#updateAttributes
+             * @methodOf lbServices.Sam
              *
              * @description
              *
@@ -2207,7 +2207,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - register id
+             *  - `id` – `{*}` - sam id
              *
              *  - `options` – `{object=}` -
              *
@@ -2227,7 +2227,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Register` object.)
+             * This usually means the response is a `Sam` object.)
              * </em>
              */
         R["updateAttributes"] = R["prototype$patchAttributes"];
@@ -2235,13 +2235,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
         /**
         * @ngdoc property
-        * @name lbServices.Register#modelName
-        * @propertyOf lbServices.Register
+        * @name lbServices.Sam#modelName
+        * @propertyOf lbServices.Sam
         * @description
         * The name of the model represented by this $resource,
-        * i.e. `Register`.
+        * i.e. `Sam`.
         */
-        R.modelName = "Register";
+        R.modelName = "Sam";
 
 
 

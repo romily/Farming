@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head><style type="text/css">
+
+
+
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+</style>
+
+</head>
+<div class="container">
+    <div ng-include src="'views/carousel.html'"></div>
+    <hr>
+    
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">View Plan</h3>
+                
+            </div>
+           <div class="panel-body" >
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                      
+                        <th >Crop Name</th>
+                        <th>Crop Type</th>
+                         <th>Seeding Date</th>
+                        <th>Transplanting Date</th>
+                        <th>Soil Type</th>
+                        <th>Weather</th>
+                        <th>Number of Beds</th>
+                        <th>Row Per Bed</th>
+                        <th>Row Feet</th>
+                        <th>Maturity Days</th>
+                        <th>Land Required</th>
+                        <th >Seeding Month</th>
+                        <th>Location</th>
+<th colspan="2"><button  class="btn btn-primary btn-block" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th>
+<th><button type="button" class="btn btn-info btn-circle glyphicon glyphicon-plus" ng-click="gotoadd()"></button></th>
+                   
+                    </tr>
+                </thead><tbody>
+
+<div>
+  
+<tr ng-show="s">
+	<td><input class="form-control input-sm" ng-model="f.cropname"></td>
+	<td><input  class="form-control input-sm" ng-model="f.croptype"></td>
+	<td><input class="form-control input-sm" ng-model="f.seeddate"></td>
+	<td><input class="form-control input-sm" ng-model="f.transdate"></td>
+	<td><input class="form-control input-sm" ng-model="f.soiltype"></td>
+	<td><input class="form-control input-sm" ng-model="f.weather"></td>
+	<td><input class="form-control input-sm" ng-model="f.no_beds"></td>
+	<td><input class="form-control input-sm" ng-model="f.rowperbed"></td>
+	<td><input class="form-control input-sm" ng-model="f.rowfeet"></td>
+	<td><input class="form-control input-sm" ng-model="f.maturitydays"></td>
+	<td><input class="form-control input-sm" ng-model="f.landrequired"></td>
+	<td><input class="form-control input-sm" ng-model="f.seedmonth"></td>
+	<td><input class="form-control input-sm" ng-model="f.locations"></td>
+</tr>
+</div>
+<tr ng-repeat="r in records | filter:f">
+	<td>{{r.cropname}}</td>
+	<td>{{r.croptype}}</td>
+	<td>{{r.seeddate}}</td>
+	<td>{{r.transdate}}</td>
+	<td>{{r.soiltype}}</td>
+	<td>{{r.weather}}</td>
+
+<td>
+								<div ng-if="r.no_beds==0">####</div>
+								<div ng-if="r.no_beds!=0">{{r.no_beds}}</div>
+								</td>
+							<td><div ng-if="r.rowperbed==0">####</div>
+								<div ng-if="r.rowperbed!=0">{{r.rowperbed}}</div></td>
+							<td><div ng-if="r.rowfeet==0">####</div>
+								<div ng-if="r.rowfeet!=0">{{r.rowfeet}}</div></td>
+							<td>{{r.maturitydays}}</td>
+							<td><div ng-if="r.landrequired==0">####</div>
+								<div ng-if="r.landrequired!=0">{{r.landrequired}}</div></td>
+							
+							<td>{{r.seedingmonth}}</td>
+							<td>{{r.locations}}</td>
+					   <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ng-click="editgo(r.id)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+
+              <td>
+            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" ng-click="delete(r.id)"  data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+          </td>
+
+
+</tr>
+</table></div>
+</div>
+								</div>
+					
+</div>				
+	</div>
+
+
+<p  align="right">
+</p>
+
+</html>
+
+
+
+
+
+
+
+
+

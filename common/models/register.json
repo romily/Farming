@@ -1,0 +1,35 @@
+{
+  "name": "register",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "mailid": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "id": "true",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "phno": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

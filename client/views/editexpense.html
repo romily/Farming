@@ -1,0 +1,188 @@
+ <div ng-include src="'views/carousel.html'"></div>
+<div class="panel panel-primary" style="margin:20px;">
+    <div class="panel-heading">
+            <h3 class="panel-title">Edit Crop Expense</h3>
+    </div>
+    <div class="panel-body">
+    <form>
+<div class="col-md-12 col-sm-12">
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="seed">Amount for Seeding</label>
+             <input type="text" class="form-control input-sm" id="seed" placeholder="">
+    </div>
+        
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="fertilizer">Amount for Fertilizer</label>
+           <input type="text" class="form-control input-sm" id="fertilizer" placeholder="">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="pesticide">Amount for Pesticide</label>
+            <input type="text" class="form-control input-sm" id="pesticide" placeholder="">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+          <label for="soiltest">Amount to Test Soil</label>
+          <input type="text" class="form-control input-sm" id="soiltest" placeholder="">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="machine">Amount for Machinery</label>
+             <input type="text" class="form-control input-sm" id="machine" placeholder="">
+            
+    </div>
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="labour">Labour Cost</label>
+            <input type="text" class="form-control input-sm" id="labour" placeholder="">
+    </div>
+       
+    <div class="form-group col-md-6 col-sm-6">
+                <label for="water">Amount for Watering</label>
+                <input type="text" class="form-control input-sm" id="water" placeholder="">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="plantprotect">Amount for Plant Protection</label>
+            <input type="text" class="form-control input-sm" id="plantprotect" placeholder="">
+    </div>
+   
+<div class="row">
+    <div class="form-group col-md-12 col-sm-12">
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="afterharvest">After Harvesting Cost</label>
+            <input type="text" class="form-control input-sm" id="afterharvest" placeholder="">
+        </div>
+    
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="storage">Amount for Storage</label>
+            <input type="text" class="form-control input-sm" id="storage" placeholder="">
+        </div>
+
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="otherexpense">Amount for Other Expenses</label>
+            <input type="text" class="form-control input-sm" id="otherexpense" placeholder="">
+        </div>
+        <div>
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="otherexpense">Total Amount</label>
+            <input type="text" class="form-control input-sm" name="amount" placeholder="">
+        </div></div>
+        <div class="form-group col-md-3 col-sm-3">
+            <label for="paymode">Payment Mode</label>
+         <select class="form-control input-sm" id="paymode" ng-model="paymode" ng-change="call(paymode)">
+        
+            <option value="cash">Cash</option>
+        <option value="cheque">Cheque</option>
+        <option value="dd">Demand Draft</option>
+
+</select></div>
+
+<div ng-show="cheflag">
+    <div class="col-md-12 col-sm-12">
+<div class="form-group col-md-6 col-sm-6">
+            <label for="chequeno">Cheque Number</label>
+            <input type="text" class="form-control input-sm" name="chequeno" placeholder=""></div>
+        
+
+<div class="form-group col-md-6 col-sm-6">
+            <label for="accno">Account Number</label>
+            <input type="text" class="form-control input-sm" name="accno" placeholder=""></div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="payto">Pay To</label>
+            <input type="text" class="form-control input-sm" name="payto" placeholder=""></div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="bank">Bank</label>
+            <input type="text" class="form-control input-sm" name="bank" placeholder=""></div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="branch">Branch</label>
+            <input type="text" class="form-control input-sm" name="branch" placeholder=""></div>
+        
+        
+<div class="form-group col-md-6 col-sm-6">
+          <label for="issuedate">Issue Date</label>
+    <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input type="text" class="form-control input-sm datepicker" value="" readonly  name="issuedate"/>
+                <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span></div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div ng-show="ddflag">
+    <div class="col-md-12 col-sm-12">
+<div class="form-group col-md-6 col-sm-6">
+            <label for="ddno">Demand Draft Number</label>
+            <input type="text" class="form-control input-sm" name="ddno" placeholder=""></div>
+        
+
+<div class="form-group col-md-6 col-sm-6">
+            <label for="micr">MICR Code</label>
+            <input type="text" class="form-control input-sm" name="micr" placeholder=""></div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="payto">Pay To</label>
+            <input type="text" class="form-control input-sm" name="payto" placeholder=""></div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="bank">Bank</label>
+            <input type="text" class="form-control input-sm" name="bank" placeholder=""></div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="branch">Branch</label>
+            <input type="text" class="form-control input-sm" name="branch" placeholder=""></div>
+        
+        
+<div class="form-group col-md-6 col-sm-6">
+          <label for="issuedate">Date</label>
+    <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input type="text" class="form-control input-sm datepicker" value="" readonly  name="issuedate"/>
+                <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span></div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group col-md-12 col-sm-12">
+        <div class="form-group col-md-3 col-sm-3">  
+       <input type="submit" class="btn btn-primary btn-lg btn-block " value="Clear"/>
+    </div>
+    <div class="form-group col-md-3 col-sm-3">  
+       <input type="submit" class="btn btn-primary btn-lg btn-block" value="Add Expense"/>
+    </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+$('.form_date').datetimepicker({
+       
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+</script>

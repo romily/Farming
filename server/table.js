@@ -1,7 +1,7 @@
 var server = require('./server');
 var ds = server.dataSources.farmercommunity;
 
-var lbTables = ['farmersdetail','farmpersonal','state','district','village','landregistration'];
+var lbTables = ['farmersdetail','farmpersonal','state','district','village','landregistration','cropplan'];
 
 
 ds.automigrate(lbTables, function(er) {

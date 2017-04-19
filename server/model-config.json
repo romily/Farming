@@ -59,5 +59,10 @@
   "landregistration": {
     "dataSource": "farmercommunity",
     "public": true
+  },
+  "cropplan": {
+    "dataSource": "farmercommunity",
+    "public": true
   }
+
 }

@@ -1,6 +1,6 @@
 <html>
 
- <div ng-include src="'views/carousel.html'"></div>
+<div ng-include src="'views/carousel.html'"></div>
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
             <h3 class="panel-title">Add Crop Expense</h3>
@@ -71,8 +71,8 @@
 
 </div>
     
-<div class="row">
-<div class="form-group col-md-3 col-sm-3">
+<div class="form-group col-md-12 col-sm-12">
+<div class="form-group col-md-6 col-sm-6">
  <label for="paymentmode">Mode of Payment <span style="color:red">*</span></label>
             <div class="checkrow" ng-checked="radio(paymode)">
                 <div class="form-group col-md-3 col-sm-3">
@@ -107,22 +107,9 @@
 
 <div class="form-group col-md-3 col-sm-3">
             <label for="reference">Select Expense Category<span style="color:red">*</span></label>
+<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model"></div>
 
- <select id="e"  multiple="multiple" class="multiselect">
-  <option value="m">Mustard</option>
-  <option value="k">Ketchup</option>
-  <option value="r">Relish</option>
-</select> 
-
-
-<select>
-  <option value="m">Mustard</option>
-  <option value="k">Ketchup</option>
-  <option value="r">Relish</option>
-</select> 
-
-
-</div>
+ </div>
 
 
 </div>
@@ -166,14 +153,14 @@
 <button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
     </div>
     <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan()">Add Crop Plan</button>
+       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan()">Add Crop Expense</button>
     </div>
 
 </div>
 <span style="color:red">*</span>This Fields are mandatory
 </form>
 </div>
-</div>
+</div> -->
 
 
 
@@ -190,9 +177,4 @@ $('.form_date').datetimepicker({
         forceParse: 0
 
     });
-
-$(document).ready(function() {
-    $('#e').multiselect();
-    
-});
 </script>

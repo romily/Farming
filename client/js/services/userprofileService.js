@@ -43,7 +43,7 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
     
     function  deleteland(id) {
         console.log("veni")
-        console.log(id)
+        
         var deferred = $q.defer();
         $http.delete('/api/landregistrations',+id).then(function(response) {
             console.log(response)            

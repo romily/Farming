@@ -1,73 +1,6 @@
 <html>
-<head><style type="text/css">
 
-.radio label {
-    display: inline-block;
-    position: relative;
-    padding-left: 5px; }
-.radio label::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    width: 17px;
-    height: 17px;
-    left: 0;
-    margin-left: -20px;
-    border: 1px solid #cccccc;
-    border-radius: 50%;
-    background-color: #fff;
-    -webkit-transition: border 0.15s ease-in-out;
-    -o-transition: border 0.15s ease-in-out;
-    transition: border 0.15s ease-in-out; }
-.radio label::after {
-    display: inline-block;
-    position: absolute;
-    content: " ";
-    width: 11px;
-    height: 11px;
-    left: 3px;
-    top: 3px;
-    margin-left: -20px;
-    border-radius: 50%;
-    background-color: #555555;
-    -webkit-transform: scale(0, 0);
-    -ms-transform: scale(0, 0);
-    -o-transform: scale(0, 0);
-    transform: scale(0, 0);
-    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
-.radio input[type="radio"] {
-    opacity: 0; }
-.radio input[type="radio"]:focus + label::before {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px; }
-.radio input[type="radio"]:checked + label::after {
-    -webkit-transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
-    -o-transform: scale(1, 1);
-    transform: scale(1, 1); }
-.radio input[type="radio"]:disabled + label {
-    opacity: 0.65; }
-.radio input[type="radio"]:disabled + label::before {
-    cursor: not-allowed; }
-.radio.radio-inline {
-    margin-top: 0; }
-
-.radio-primary input[type="radio"] + label::after {
-    background-color: #428bca; }
-.radio-primary input[type="radio"]:checked + label::before {
-    border-color: #428bca; }
-.radio-primary input[type="radio"]:checked + label::after {
-    background-color: #428bca; }
-    .checkrow{
-        padding-left:10px; 
-    }
-
-</style></head>
- <div ng-include src="'views/carousel.html'"></div>
+<div ng-include src="'views/carousel.html'"></div>
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
             <h3 class="panel-title">Add Crop Expense</h3>
@@ -138,40 +71,49 @@
 
 </div>
     
+<div class="form-group col-md-12 col-sm-12">
 <div class="form-group col-md-6 col-sm-6">
  <label for="paymentmode">Mode of Payment <span style="color:red">*</span></label>
-            <div class="checkrow">
+            <div class="checkrow" ng-checked="radio(paymode)">
                 <div class="form-group col-md-3 col-sm-3">
     
 <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" value="cash" ng-model="paymode" ng-value="cash" id="cash">
+            <input type="radio" name="paymentmode" ng-model="paymode" value="cash" id="cash" >
            <label for="cash">Cash</label>
         </div></div>
 <div class="form-group col-md-3 col-sm-3">
 <div class="radio radio-primary">
-            <input type="radio" name="paymentmode"  ng-model="paymode" ng-value="cheque" value="cheque" id="cheque">
+            <input type="radio" name="paymentmode" ng-model="paymode" id="cheque" value="cheque" >
            <label for="cheque">Cheque</label>
         </div></div>
-        {{paymode}}
-        
 <div class="form-group col-md-3 col-sm-3">
 <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" value="neft" id="neft">
+            <input type="radio" name="paymentmode" ng-model="paymode" value="neft" id="neft" >
            <label for="neft">NEFT</label>
         </div></div>
 <div class="form-group col-md-3 col-sm-3">
         <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" value="nb" id="nb">
+            <input type="radio" name="paymentmode" ng-model="paymode" value="nb" id="nb" >
             <label for="nb">Net Banking</label>
         </div></div>
     </div>
 
 </div>
-<div class="form-group col-md-6 col-sm-6">
+<div class="form-group col-md-3 col-sm-3">
             <label for="reference">Reference <span style="color:red">*</span></label>
 <input type="file" />
-<span style="color:red" ng-show="">Please Upload reference</span>
+<!--<span style="color:red" >Please Upload reference</span>-->
 </div>
+
+<div class="form-group col-md-3 col-sm-3">
+            <label for="reference">Select Expense Category<span style="color:red">*</span></label>
+<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model"></div>
+
+ </div>
+
+
+</div>
+
 <div class="form-group col-md-12 col-sm-12">
     <div class="form-group col-md-6 col-sm-6" ng-show="cheflag">
             <label for="chequeno">Cheque No<span style="color:red">*</span></label>
@@ -188,27 +130,42 @@
            
     </div>
 </div>
+
+<div class="form-group col-md-12 col-sm-12">
+    <div class="form-group col-md-6 col-sm-6" ng-show="neftflag">
+            <label for="accno">Account No<span style="color:red">*</span></label>
+           
+             <input type="text" class="form-control input-sm" name="accno" ng-pattern="/^[0-9]+$/" placeholder="" required/>
+             <span style="color:red" ng-show="addForm.accno.$error.pattern">Account No Should not contain Characters</span>
+        
     </div>
-
-
-
+        
+   <div class="form-group col-md-6 col-sm-6" ng-show="neftflag">
+            <label for="neftbank">Bank<span style="color:red">*</span></label>
+           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="neftbank"  required  placeholder="" />
+           <span style="color:red" ng-show="addForm.neftbank.$error.pattern">Bank Name Should not contain Digits</span>
+           
+    </div>
+</div>
+</div>
 <div class="form-group col-md-12 col-sm-12">
         <div class="form-group col-md-3 col-sm-3">  
 <button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
     </div>
     <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan()">Add Crop Plan</button>
+       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan()">Add Crop Expense</button>
     </div>
 
 </div>
 <span style="color:red">*</span>This Fields are mandatory
 </form>
 </div>
-</div>
+</div> -->
 
 
 
 <script type="text/javascript">
+
 $('.form_date').datetimepicker({
        
         weekStart: 1,
@@ -220,9 +177,4 @@ $('.form_date').datetimepicker({
         forceParse: 0
 
     });
-</script>
-
-<script type="text/javascript">
-
-
 </script>

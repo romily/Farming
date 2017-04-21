@@ -4,7 +4,8 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
     return({ 
         getprofile:getprofile,
         landregister:landregister, 
-        editprofile:editprofile     
+        editprofile:editprofile,
+        deleteland:deleteland     
     }); 
 
     function  getprofile(id) {
@@ -31,7 +32,7 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
     function  editprofile(data) {
         console.log(data)
         var deferred = $q.defer();
-        $http.put('/api/farmpersonals/'+data.id,data).then(function(response) {
+        $http.put('/api/farmpersonals/',data).then(function(response) {
             console.log(response)            
             deferred.resolve(response);
         }, function(error){
@@ -39,7 +40,20 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
         })
          return deferred.promise;    
     };   
+    
+    function  deleteland(id) {
+        console.log("veni")
+        console.log(id)
+        var deferred = $q.defer();
+        $http.delete('/api/landregistrations',+id).then(function(response) {
+            console.log(response)            
+            deferred.resolve(response);
+        }, function(error){
 
+            deferred.reject(error);
+        })
+         return deferred.promise;    
+    }; 
   
 
 }])

@@ -6,11 +6,12 @@ $scope.init = function(){
 };
 
 $scope.getprofile = function(){
-	console.log($stateParams)
 	if($stateParams.id){
 		userprofileService.getprofile($stateParams.id).then(function(data){
 			$scope.profileInfo = data.data[0];
-			console.log($scope.profileInfo)
+			console.log("eniya")
+		    $scope.profileInfo.state_id = $scope.profileInfo.state;
+			console.log($scope.profileInfo.state)
 		}).catch(function(data){
 			console.log(data);
 		}); 
@@ -45,7 +46,8 @@ $scope.landregister=function(newregister){
     console.log(newregister)
     newregister.user_id = $stateParams.id;
 	userprofileService.landregister(newregister).then(function(data) {
-   	console.log(data) 
+		$state.reload();
+    console.log(data) 
    	alert("Landregistered Successfully");     
     }).catch(function(data) {
       console.log(data)
@@ -54,11 +56,24 @@ $scope.landregister=function(newregister){
 };
 
 $scope.editprofile=function(profileInfo){
-    console.log(profileInfo)
-    // newregister.user_id = $stateParams.id;
 	userprofileService.editprofile(profileInfo).then(function(data) {
-   	console.log(data) 
+   		$scope.profileInfo = data;
+   		$state.reload();
+   		console.log(data);
    	alert("edit Successfully");     
+    }).catch(function(data) {
+      console.log(data)
+	});
+
+};
+
+$scope.deleteland=function(id){
+    console.log(id)
+    // $scope.data.user_id = $stateParams.id;
+	userprofileService.deleteland(id).then(function(data) {
+		$state.reload();
+    console.log(data) 
+   	alert("Deleted Successfully");     
     }).catch(function(data) {
       console.log(data)
 	});

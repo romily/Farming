@@ -41,7 +41,7 @@
             <div class="form-group">
 
               <div class="main-img-preview">
-                <img class="thumbnail img-preview" src="img/avatar.png" title="Profile Picture">
+                <img class="thumbnail img-preview" ng-src="server/storage/container/{{profileInfo.img}}" title="Profile Picture">
               </div>
                 <div class="input-group-btn">
                   <div class="fileUpload btn btn-danger fake-shadow">
@@ -71,7 +71,7 @@
              <b> :</b> {{profileInfo.address}}<br>
              <b> :</b> {{profileInfo.phoneno}}<br>
              <b> :</b> {{profileInfo.email}}                                           
-          </div>             
+          </div>              
         </div>
       </div>
 
@@ -159,7 +159,7 @@
                 <label>State</label>
                  <select id="state" ng-change="getdistrict(newregister.state)" ng-model="newregister.state"  class="form-control"  ng-options="item.state_id as item.state_name for item in states"  required>
               
-                 <option value="">Select State</option>
+                 <option value="profileInfo.state">{{profileInfo.state}}</option>
                       
                 </select>
             </div>  
@@ -242,14 +242,14 @@
                 <select id="state"  ng-change="getdistrict(profileInfo.state)" 
                 ng-model="profileInfo.state"  class="form-control"  ng-options="item.state_id as item.state_name for item in states"  required>
                      <!-- <option value="{{profileInfo.state}}">{{profileInfo.state}}</option> -->
-                    <option value>Select State</option>
+                    <option value="{{$scope.profileInfo.state}}">{{profileInfo.state}}</option>
                 </select>
 						</div>	
-
+              
 							<div class="col-sm-6 form-group">
 								<label>District</label>
 								<select id="district" ng-disabled="!profileInfo.state" ng-change="getvillage(profileInfo.district)" ng-model="profileInfo.district" ng-options="item.district_id as item.district_name for item in districts" class="form-control" required>
-                    <option value="">Select District</option>                         
+                    <option value="" >Select District</option>                         
                 </select>
 							</div>	
 							</div>

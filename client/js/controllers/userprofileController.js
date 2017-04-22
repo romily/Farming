@@ -3,6 +3,7 @@ angular.module('app').controller('UserprofileController',['$scope','$state','$st
 $scope.init = function(){
 	$scope.getstate();	
 	$scope.getprofile();
+	$scope.getimage();
 };
 
 $scope.getprofile = function(){
@@ -68,7 +69,7 @@ $scope.editprofile=function(profileInfo){
 };
 
 $scope.deleteland=function(id){
-    console.log(id)
+    console.log(id)   
     // $scope.data.user_id = $stateParams.id;
 	userprofileService.deleteland(id).then(function(data) {
 		$state.reload();
@@ -79,5 +80,18 @@ $scope.deleteland=function(id){
 	});
 
 };
+
+$scope.getimage=function(data){
+    console.log(data)   
+    // $scope.data.user_id = $stateParams.id;
+	userprofileService.getimage(data).then(function(data) {		
+    console.log(data) 
+   	}).catch(function(data) {
+      console.log(data)
+	});
+
+};
+
+
 
 }])

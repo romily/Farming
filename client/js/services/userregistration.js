@@ -15,6 +15,7 @@ function  getstate() {
 	var deferred = $q.defer();
 	 $http.get('/api/states/').then(function(data) {
 	 	deferred.resolve(data);
+	 	console.log(data)
 	 }, function(error){
 	 	deferred.reject(error);
 	 })

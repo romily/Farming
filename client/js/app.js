@@ -36,8 +36,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
        $stateProvider
       .state('about', {
         url: '/about',
-        templateUrl: 'views/about.html',
-        controller: 'AboutController'
+        templateUrl: 'views/about.html'        
       });
 
       $stateProvider
@@ -61,11 +60,61 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
        
       });
 
-       $stateProvider
+      $stateProvider
       .state('cropplantab', {
         url: '/cropplantab',
         templateUrl: 'views/cropplantab.html',
-        controller: 'cropplantabcontroller'
+        controller: 'CropPlanTabController'
+      });    
+
+
+      $stateProvider
+      .state('editplan', {
+        url: '/editplan/:Myid',
+        templateUrl: 'views/editplan.html',
+        controller: 'EditPlanController'
+      });
+
+      $stateProvider
+      .state('addplan', {
+        url: '/addplan',
+        templateUrl: 'views/addplan.html',
+        controller: 'CropPlanTabController'
+      });
+
+      $stateProvider
+      .state('editexpense', {
+        url: '/editexpense/:Myid',
+        templateUrl: 'views/editexpense.html',
+        controller: 'EditExpenseController'
+      });
+
+      $stateProvider
+      .state('addexpense', {
+        url: '/addexpense',
+        templateUrl: 'views/addexpense.html',
+        controller: 'CropExpenseTabController'
+      });
+
+      $stateProvider
+      .state('expensecategory', {
+        url: '/expensecategory',
+        templateUrl: 'views/expensecategory.html',
+        controller: 'ExpenseCategoryController'
+      });
+
+      $stateProvider
+      .state('postquery', {
+        url: '/postquery',
+        templateUrl: 'views/postquery.html',
+        controller: 'PostQueryController'
+      });
+
+       $stateProvider
+      .state('cropexpensetab', {
+        url: '/cropexpensetab',
+        templateUrl: 'views/cropexpensetab.html',
+        controller: 'CropExpenseTabController'
       });
 
 

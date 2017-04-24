@@ -18,6 +18,7 @@ $scope.calculateAge = function(birthday) { // pass in player.dateOfBirth
 $scope.getstate = function(){
 	userregistration.getstate().then(function(data){
 			$scope.states = data.data;
+			// console.log(data.data)
 	}).catch(function(data){
 		console.log(data);
 	}); 
@@ -54,18 +55,22 @@ $scope.addregister = function(newregister){
    	}).then(function(response) {
         newregister.img = response.data.result.files.file[0].name;
         userregistration.addregister(newregister).then(function(data) {
+        	$scope.alert = false;
+        	$scope.alertemail = false;
+        	$scope.alertuser = false;
+        	$scope.alertsuccess = false;
 	        console.log(data) 
 	        $scope.result = data.data.data;
 	        angular.forEach($scope.result, function(value){
 	        	console.log(value)	        	      	
-            	if(newregister.email == value.email && newregister.username == value.username){
-            		alert("Username and email is already exit");            		
-            	}else if(newregister.email == value.email){            		
-            		alert("Email is already exit");
-            	}else if(newregister.username == value.username){
-            		alert("Username is already exit");
-            	}else{
-                    alert("Registered Successfully");
+            	if(newregister.email == value.email && newregister.username == value.username){            		  
+            		$scope.alert = true;          		
+            	}else if(newregister.email == value.email){          	
+            		$scope.alertemail = true;
+            	}else if(newregister.username == value.username){            		
+            		$scope.alertuser = true;
+            	}else{                    
+                    $scope.alertsuccess = true;
             	}
         	});     
         }).catch(function(data) {

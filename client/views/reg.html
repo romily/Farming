@@ -1,7 +1,9 @@
  
 <div class="container" ng-init="init()">
     <h3 class="col-lg-10 well">Farmers Registration</h3>
+    
 	 <div class="col-lg-10 well"> 
+
 	   <!-- <div class="row-reg"> -->
 				 <form  name="regform" ng-submit="addregister(newregister)">
 					<!-- <div class="col-sm-12"> -->
@@ -141,7 +143,10 @@
 						<input type="email" placeholder="Enter EmailAddress Here.." class="form-control" name="email"  ng-model="newregister.email" required>
 
 						<span class="help-inline" ng-show="submitted && regform.email.$error.required">Required</span>
-			</div>	
+			</div>
+			<div class="alert alert-warning" ng-show="alertemail">
+		    Email<strong>Already Exist</strong>
+		    </div>	
 
 			<div class="row">
 					  <div class="col-sm-6 form-group">
@@ -193,7 +198,10 @@
 								 Minimum 12 characters</span>
 							</div>
 							
-						</div>	
+						</div>
+						 <div class="alert alert-warning" ng-show="alertuser">
+					    Username<strong>Already Exist</strong>
+					    </div>	
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Create Password<span style="color:red">*</span></label>
@@ -219,8 +227,14 @@
               <input type="submit" id="LoginButton" class="button" value="Submit" ng-click="submitted=true" style="background-color: #009245; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" />
 
               <input type="submit" id="ResetButton" class="button" value="Reset" ng-click="reset()" style="background-color: #8B0000; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" />
-            </div>	    
+            </div>	 <br>   
+            <div class="alert alert-warning" ng-show="alert">
+		    Username and Email<strong> Already Exist</strong>
+		    </div>
      
+      <div class="alert alert-success" ng-show="alertsuccess">
+    <strong>Registered Successfully</strong>
+    </div>
 	</form> 
 				
 	</div>

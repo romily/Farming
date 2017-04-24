@@ -59,7 +59,7 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
     function  getimage(data) {
         console.log("veni")        
         var deferred = $q.defer();
-        $http.get('/api/containers',data).then(function(response) {
+        $http.get('/api/containers/{container}/files'+data).then(function(response) {
             console.log(response)            
             deferred.resolve(response);
         }, function(error){

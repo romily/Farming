@@ -12,7 +12,7 @@ $scope.getprofile = function(){
 			$scope.profileInfo = data.data[0];
 			console.log("eniya")
 		    $scope.profileInfo.state_id = $scope.profileInfo.state;
-			console.log($scope.profileInfo.state)
+			console.log($scope.profileInfo.state)			
 		}).catch(function(data){
 			console.log(data);
 		}); 
@@ -22,6 +22,7 @@ $scope.getprofile = function(){
 $scope.getstate = function(){
 	userregistration.getstate().then(function(data){
 			$scope.states = data.data;
+			// console.log(data.data)
 	}).catch(function(data){
 		console.log(data);
 	}); 
@@ -45,15 +46,18 @@ $scope.getvillage = function(districtID){
 
 $scope.landregister=function(newregister){
     console.log(newregister)
+    $scope.alert = false;
     newregister.user_id = $stateParams.id;
 	userprofileService.landregister(newregister).then(function(data) {
-		$state.reload();
-    console.log(data) 
-   	alert("Landregistered Successfully");     
+	// $state.reload();  		
+    console.log(data)     
+    $scope.alert = true;
+       
+   	// alert("Landregistered Successfully");     
     }).catch(function(data) {
       console.log(data)
 	});
-
+        
 };
 
 $scope.editprofile=function(profileInfo){
@@ -69,19 +73,19 @@ $scope.editprofile=function(profileInfo){
 };
 
 $scope.deleteland=function(id){
-    console.log(id)   
+    console.log(id) 
+     $scope.alertland = false;  
     // $scope.data.user_id = $stateParams.id;
-	userprofileService.deleteland(id).then(function(data) {
-		$state.reload();
-    console.log(data) 
-   	alert("Deleted Successfully");     
+	userprofileService.deleteland(id).then(function(data) {	
+    console.log(data)    	
+   	$state.reload()    
     }).catch(function(data) {
       console.log(data)
 	});
-
+     $scope.alertland = true; 
 };
 
-$scope.getimage=function(data){
+$scope.getimage = function(data){
     console.log(data)   
     // $scope.data.user_id = $stateParams.id;
 	userprofileService.getimage(data).then(function(data) {		

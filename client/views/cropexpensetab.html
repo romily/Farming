@@ -30,58 +30,113 @@
   line-height: 1.33;
   border-radius: 35px;
 }
-.panel{
-  font-size: 15px;
-  width:90%;
-}
+
 </style>
 
 </head>
+<div class="container">
+    <div ng-include src="'views/carousel.html'"></div>
+    <hr>
+    
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">View Expense</h3>
+                
+            </div>
+           <div class="panel-body" >
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                      
+                        <th >Plan Id</th>
+                        <th>Voucher No</th>
+                         <th>Date</th>
+                        <th>Activity</th>
+                        <th>Labour</th>
+                        <th>Amount</th>
+                        <th>Paid To</th>
+                        <th>Spender</th>
+                        <th>Payment Mode</th>
+                        <th>reference</th>
+                      <!--  <th>Land Required</th>
+                        <th >Seeding Month</th>
+                        <th>Location</th>-->
+<th colspan="2"><button  class="btn btn-primary btn-block" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th>
+<th><button type="button" class="btn btn-info btn-circle glyphicon glyphicon-plus" ng-click="gotoadd()"></button></th>
+                   
+                    </tr>
+                </thead><tbody>
 
- <div ng-include src="'views/carousel.html'"></div>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-    <h3 class="panel-title">View All Expenses</h3>
-    <div class="pull-right">
-    <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-    <i class="glyphicon glyphicon-filter"></i>
-    </span>
-    </div>
-    </div>
-    <div class="panel-body">
-    <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#view-table"/>
-    </div>
-                    <table class="table table-hover" id="view-table">
-                        <thead>
-                            <tr>
-                                <th>Seeding</th>
-                                <th>Fertilizing</th>
-                                <th>Pesticides </th>
-                                <th>Soil Testing</th>
-                                <th>Machinery</th>
-                                <th>Labour Cost</th>
-                                <th>Watering</th>
-                                <th>Plant Protection</th>
-                                <th>After Harvesting</th>
-                                <th>Storage Cost</th>
-                                <th>Other Expenses</th>
-                                <th>Payment Mode</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-<button class="btn btn-primary" ng-click="editgo(r.id)">Edit</button></td><td>
-                            
-                            </div>
-                            <button class="btn btn-primary" ng-click="delete(r.id)">Delete</button>
-</div>              
-    </div></div></div>
+<div>
+  
+<tr ng-show="s">
+  <td><input class="form-control input-sm" ng-model="f.planid"></td>
+  <td><input  class="form-control input-sm" ng-model="f.voucher"></td>
+  <td><input class="form-control input-sm" ng-model="f.date"></td>
+  <td><input class="form-control input-sm" ng-model="f.activity"></td>
+  <td><input class="form-control input-sm" ng-model="f.labour"></td>
+  <td><input class="form-control input-sm" ng-model="f.amount"></td>
+  <td><input class="form-control input-sm" ng-model="f.paidto"></td>
+  <td><input class="form-control input-sm" ng-model="f.spender"></td>
+  <td><input class="form-control input-sm" ng-model="f.paymentmode"></td>
+  <td><input class="form-control input-sm" ng-model="f.reference"></td>
+  <!-- <td><input class="form-control input-sm" ng-model="f.landrequired"></td>
+  <td><input class="form-control input-sm" ng-model="f.seedmonth"></td>
+  <td><input class="form-control input-sm" ng-model="f.locations"></td> -->
+</tr>
+</div>
+<tr ng-repeat="r in records | filter:f">
+  <td>{{r.planid}}</td>
+  <td>{{r.voucher}}</td>
+  <td>{{r.date}}</td>
+  <td>{{r.activity}}</td>
+  <td>{{r.labour}}</td>
+  <td>{{r.amount}}</td>
+  <td>{{r.paidto}}</td>
+  <td>{{r.spender}}</td>
+
+<td>{{r.paymode}} </td>
+<td>{{r.reference}} </td>
+                
+               
+             <!-- <td><div ng-if="r.rowperbed==0">####</div>
+                <div ng-if="r.rowperbed!=0">{{r.rowperbed}}</div></td>
+              <td><div ng-if="r.rowfeet==0">####</div>
+                <div ng-if="r.rowfeet!=0">{{r.rowfeet}}</div></td>
+              <td>{{r.maturitydays}}</td>
+              <td><div ng-if="r.landrequired==0">####</div>
+                <div ng-if="r.landrequired!=0">{{r.landrequired}}</div></td>
+              
+              <td>{{r.seedingmonth}}</td>
+              <td>{{r.locations}}</td>-->
+             <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ng-click="editgo(r.id)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+
+              <td>
+            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" ng-click="delete(r.id)"  data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+          </td>
 
 
+</tr>
+</table></div>
+</div>
+                </div>
+          
+</div>        
+  </div>
 
-    <p  align="right">
-<button type="button" class="btn btn-info btn-circle btn-xl" ng-click="gotoadd()">+</button></p>
+
+<p  align="right">
+</p>
 
 </html>
+
+
+
+
+
+
+
+
+

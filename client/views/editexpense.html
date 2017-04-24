@@ -1,180 +1,171 @@
- <div ng-include src="'views/carousel.html'"></div>
-<div class="panel panel-primary" style="margin:20px;">
+<html>
+
+<div ng-include src="'views/carousel.html'"></div>
+<div class="panel panel-primary" style="margin:20px;" ng-init="load()">
     <div class="panel-heading">
             <h3 class="panel-title">Edit Crop Expense</h3>
     </div>
-    <div class="panel-body">
-    <form>
-<div class="col-md-12 col-sm-12">
-    <div class="form-group col-md-6 col-sm-6">
-            <label for="seed">Amount for Seeding</label>
-             <input type="text" class="form-control input-sm" id="seed" placeholder="">
+<div class="panel-body">
+   <form name="addForm" novalidate>
+   <div class="col-md-12 col-sm-12">
+     <div class="form-group col-md-6 col-sm-6">
+            <label for="planid">Project Id<span style="color:red">*</span></label>
+           
+             <input type="text" class="form-control input-sm" name="planid"  ng-model="expense.planid" ng-pattern="/^[0-9]+$/" placeholder="" required/>
+             <span style="color:red" ng-show="addForm.planid.$error.pattern">Project Id Should not contain Characters</span>
+        
     </div>
         
     <div class="form-group col-md-6 col-sm-6">
-            <label for="fertilizer">Amount for Fertilizer</label>
-           <input type="text" class="form-control input-sm" id="fertilizer" placeholder="">
+            <label for="voucherno">Voucher<span style="color:red">*</span></label>
+           <input type="text" class="form-control input-sm" ng-pattern="/^[0-9]+$/" name="voucherno"  required ng-model="expense.voucher"  placeholder=""/>
+           <span style="color:red" ng-show="addForm.voucher.$error.pattern">Voucher Should not contain Characters</span>
+           
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
-            <label for="pesticide">Amount for Pesticide</label>
-            <input type="text" class="form-control input-sm" id="pesticide" placeholder="">
+            <label for="date">Date <span style="color:red">*</span></label>
+
+<div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input type="text" class="form-control input-sm datepicker" value=""  readonly name="date" ng-model="expense.date" required>
+                
+                    <span class="add-on"><i class="icon-th"></i></span></div>
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
-          <label for="soiltest">Amount to Test Soil</label>
-          <input type="text" class="form-control input-sm" id="soiltest" placeholder="">
+            <label for="activity">Activity<span style="color:red">*</span></label>
+             <input type="text" class="form-control input-sm" name="activity" placeholder="" required ng-model="expense.activity" ng-pattern="/^[a-zA-Z ]+$/"/>
+              <span style="color:red" ng-show="addForm.activity.$error.pattern">Activity Should not contain digits</span>
+  
     </div>
 
-    <div class="form-group col-md-6 col-sm-6">
-            <label for="machine">Amount for Machinery</label>
-             <input type="text" class="form-control input-sm" id="machine" placeholder="">
+ <!--   <div class="form-group col-md-6 col-sm-6">
+            <label for="soiltype">Type Of Soil <span style="color:red">*</span></label>
+             <input type="text" class="form-control input-sm" name="soiltype" placeholder="" required ng-model="plan.soiltype" ng-pattern="/^[a-zA-Z ]+$/"/>
+              <span style="color:red" ng-show="addForm.soiltype.$error.pattern">Soil Type Should not contain digits</span>
+        </span>
             
-    </div>
+    </div>-->
     <div class="form-group col-md-6 col-sm-6">
-            <label for="labour">Labour Cost</label>
-            <input type="text" class="form-control input-sm" id="labour" placeholder="">
+            <label for="labour">Labour <span style="color:red">*</label>
+            <input type="text" class="form-control input-sm" name="labour" required placeholder="" ng-model="expense.labour"/>
     </div>
        
     <div class="form-group col-md-6 col-sm-6">
-                <label for="water">Amount for Watering</label>
-                <input type="text" class="form-control input-sm" id="water" placeholder="">
+                <label for="amount">Amount <span style="color:red">*</span></label>
+                <input type="text" class="form-control input-sm" name="amount" placeholder=""  ng-pattern="/[0-9]+$/" ng-model="expense.amount" required/>
+                <span style="color:red" ng-show="addForm.amount.$error.pattern">Amount Should not contain characters</span>
+        
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
-            <label for="plantprotect">Amount for Plant Protection</label>
-            <input type="text" class="form-control input-sm" id="plantprotect" placeholder="">
-    </div>
-   
-<div class="row">
-    <div class="form-group col-md-12 col-sm-12">
-        <div class="form-group col-md-3 col-sm-3">
-            <label for="afterharvest">After Harvesting Cost</label>
-            <input type="text" class="form-control input-sm" id="afterharvest" placeholder="">
-        </div>
+            <label for="paidto">Paidto <span style="color:red">*</span></label>
+            <input type="text" class="form-control input-sm" name="paidto" placeholder="" ng-pattern="/[a-zA-Z ]+$/" ng-model="expense.paidto" required/>
+    <span style="color:red" ng-show="addForm.paidto.$error.pattern">Name Should not contain digits</span>
+
+</div>
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="spend">Spend By <span style="color:red">*</span></label>
+            <input type="text" class="form-control input-sm" name="spend" placeholder="" ng-pattern="/[a-zA-Z ]+$/" ng-model="expense.spender" required/>
+    <span style="color:red" ng-show="addForm.spend.$error.pattern">Name Should not contain digits</span>
+
+</div>
     
-        <div class="form-group col-md-3 col-sm-3">
-            <label for="storage">Amount for Storage</label>
-            <input type="text" class="form-control input-sm" id="storage" placeholder="">
-        </div>
-
-        <div class="form-group col-md-3 col-sm-3">
-            <label for="otherexpense">Amount for Other Expenses</label>
-            <input type="text" class="form-control input-sm" id="otherexpense" placeholder="">
-        </div>
-        <div>
-        <div class="form-group col-md-3 col-sm-3">
-            <label for="otherexpense">Total Amount</label>
-            <input type="text" class="form-control input-sm" name="amount" placeholder="">
+<div class="form-group col-md-12 col-sm-12">
+<div class="form-group col-md-6 col-sm-6">
+ <label for="paymentmode">Mode of Payment <span style="color:red">*</span></label>
+            <div class="checkrow" ng-checked="radio(expense.paymode)">
+                <div class="form-group col-md-3 col-sm-3">
+    
+<div class="radio radio-primary">
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" value="cash" id="cash" >
+           <label for="cash">Cash</label>
         </div></div>
-        <div class="form-group col-md-3 col-sm-3">
-            <label for="paymode">Payment Mode</label>
-         <select class="form-control input-sm" id="paymode" ng-model="paymode" ng-change="call(paymode)">
-        
-            <option value="cash">Cash</option>
-        <option value="cheque">Cheque</option>
-        <option value="dd">Demand Draft</option>
+<div class="form-group col-md-3 col-sm-3">
+<div class="radio radio-primary">
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" id="cheque" value="cheque" >
+           <label for="cheque">Cheque</label>
+        </div></div>
+<div class="form-group col-md-3 col-sm-3">
+<div class="radio radio-primary">
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" value="neft" id="neft" >
+           <label for="neft">NEFT</label>
+        </div></div>
+<div class="form-group col-md-3 col-sm-3">
+        <div class="radio radio-primary">
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" value="nb" id="nb" >
+            <label for="nb">Net Banking</label>
+        </div></div>
+    </div>
 
-</select></div>
+</div>
+<div class="form-group col-md-3 col-sm-3">
+            <label for="reference">Reference <span style="color:red">*</span></label>
+<input type="file" id="idfile" ngf-select/>
+<!--<span style="color:red" >Please Upload reference</span>-->
+</div>
 
-<div ng-show="cheflag">
-    <div class="col-md-12 col-sm-12">
-<div class="form-group col-md-6 col-sm-6">
-            <label for="chequeno">Cheque Number</label>
-            <input type="text" class="form-control input-sm" name="chequeno" placeholder=""></div>
-        
+<div class="form-group col-md-3 col-sm-3">
+            Select Expense Category<span style="color:red">*</span></label>
+<div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category"></div>
 
-<div class="form-group col-md-6 col-sm-6">
-            <label for="accno">Account Number</label>
-            <input type="text" class="form-control input-sm" name="accno" placeholder=""></div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="payto">Pay To</label>
-            <input type="text" class="form-control input-sm" name="payto" placeholder=""></div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="bank">Bank</label>
-            <input type="text" class="form-control input-sm" name="bank" placeholder=""></div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="branch">Branch</label>
-            <input type="text" class="form-control input-sm" name="branch" placeholder=""></div>
+<!-- {{example1model}} -->
+ </div>
+
+
+</div>
+
+<div class="form-group col-md-12 col-sm-12">
+    <div class="form-group col-md-6 col-sm-6" ng-show="cheflag">
+            <label for="chequeno">Cheque No<span style="color:red">*</span></label>
+           
+             <input type="text" class="form-control input-sm" name="chequeno" ng-pattern="/^[0-9]+$/" placeholder="" ng-model="expense.chequeno" required/>
+             <span style="color:red" ng-show="addForm.chequeno.$error.pattern">Cheque No Should not contain Characters</span>
         
+    </div>
         
-<div class="form-group col-md-6 col-sm-6">
-          <label for="issuedate">Issue Date</label>
-    <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input type="text" class="form-control input-sm datepicker" value="" readonly  name="issuedate"/>
-                <span class="add-on"><i class="icon-remove"></i></span>
-                    <span class="add-on"><i class="icon-th"></i></span></div>
+   <div class="form-group col-md-6 col-sm-6" ng-show="cheflag">
+            <label for="bank">Bank<span style="color:red">*</span></label>
+           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="bank"  required  placeholder="" ng-model="expense.bank"/>
+           <span style="color:red" ng-show="addForm.chequeno.$error.pattern">Bank Name Should not contain Digits</span>
+           
+    </div>
+</div>
+
+<div class="form-group col-md-12 col-sm-12">
+    <div class="form-group col-md-6 col-sm-6" ng-show="neftflag">
+            <label for="accno">Account No<span style="color:red">*</span></label>
+           
+             <input type="text" class="form-control input-sm" name="accno" ng-pattern="/^[0-9]+$/" placeholder="" required ng-model="expense.accno"/>
+             <span style="color:red" ng-show="addForm.accno.$error.pattern">Account No Should not contain Characters</span>
+        
+    </div>
+        
+   <div class="form-group col-md-6 col-sm-6" ng-show="neftflag">
+            <label for="neftbank">Bank<span style="color:red">*</span></label>
+           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="neftbank"  required  placeholder="" ng-model="expense.bank"/>
+           <span style="color:red" ng-show="addForm.neftbank.$error.pattern">Bank Name Should not contain Digits</span>
+           
     </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-<div ng-show="ddflag">
-    <div class="col-md-12 col-sm-12">
-<div class="form-group col-md-6 col-sm-6">
-            <label for="ddno">Demand Draft Number</label>
-            <input type="text" class="form-control input-sm" name="ddno" placeholder=""></div>
-        
-
-<div class="form-group col-md-6 col-sm-6">
-            <label for="micr">MICR Code</label>
-            <input type="text" class="form-control input-sm" name="micr" placeholder=""></div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="payto">Pay To</label>
-            <input type="text" class="form-control input-sm" name="payto" placeholder=""></div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="bank">Bank</label>
-            <input type="text" class="form-control input-sm" name="bank" placeholder=""></div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="branch">Branch</label>
-            <input type="text" class="form-control input-sm" name="branch" placeholder=""></div>
-        
-        
-<div class="form-group col-md-6 col-sm-6">
-          <label for="issuedate">Date</label>
-    <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input type="text" class="form-control input-sm datepicker" value="" readonly  name="issuedate"/>
-                <span class="add-on"><i class="icon-remove"></i></span>
-                    <span class="add-on"><i class="icon-th"></i></span></div>
-    </div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="form-group col-md-12 col-sm-12">
+<div class="form-group col-md-12 col-sm-12">
         <div class="form-group col-md-3 col-sm-3">  
-       <input type="submit" class="btn btn-primary btn-lg btn-block " value="Clear"/>
+<button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
     </div>
-    <div class="form-group col-md-3 col-sm-3">  
-       <input type="submit" class="btn btn-primary btn-lg btn-block" value="Add Expense"/>
+<div class="form-group col-md-3 col-sm-3">  
+       <button class="btn btn-primary btn-lg btn-block" ng-click="gotoeditexpensecategory()">Edit Crop Expense</button>
     </div>
 </div>
+<span style="color:red">*</span>This Fields are mandatory
 </form>
 </div>
 </div>
-</div>
-</div>
-</div>
+
+
 
 <script type="text/javascript">
+
 $('.form_date').datetimepicker({
        
         weekStart: 1,
@@ -184,5 +175,9 @@ $('.form_date').datetimepicker({
         startView: 2,
         minView: 2,
         forceParse: 0
+
     });
+
+
 </script>
+

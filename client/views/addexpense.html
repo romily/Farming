@@ -6,7 +6,7 @@
             <h3 class="panel-title">Add Crop Expense</h3>
     </div>
 <div class="panel-body">
-   <form name="addForm" >
+   <form name="addForm" novalidate>
    <div class="col-md-12 col-sm-12">
      <div class="form-group col-md-6 col-sm-6">
             <label for="planid">Project Id<span style="color:red">*</span></label>
@@ -18,7 +18,7 @@
         
     <div class="form-group col-md-6 col-sm-6">
             <label for="voucherno">Voucher<span style="color:red">*</span></label>
-           <input type="text" class="form-control input-sm" ng-pattern="/^[0-9]+$/" name="voucherno"  required ng-model="expense.voucherno"  placeholder=""/>
+           <input type="text" class="form-control input-sm" ng-pattern="/^[0-9]+$/" name="voucherno"  required ng-model="expense.voucher"  placeholder=""/>
            <span style="color:red" ng-show="addForm.voucher.$error.pattern">Voucher Should not contain Characters</span>
            
     </div>
@@ -66,7 +66,7 @@
 </div>
     <div class="form-group col-md-6 col-sm-6">
             <label for="spend">Spend By <span style="color:red">*</span></label>
-            <input type="text" class="form-control input-sm" name="spend" placeholder="" ng-pattern="/[a-zA-Z ]+$/" ng-model="expense.spend" required/>
+            <input type="text" class="form-control input-sm" name="spend" placeholder="" ng-pattern="/[a-zA-Z ]+$/" ng-model="expense.spender" required/>
     <span style="color:red" ng-show="addForm.spend.$error.pattern">Name Should not contain digits</span>
 
 </div>
@@ -74,26 +74,26 @@
 <div class="form-group col-md-12 col-sm-12">
 <div class="form-group col-md-6 col-sm-6">
  <label for="paymentmode">Mode of Payment <span style="color:red">*</span></label>
-            <div class="checkrow" ng-checked="radio(paymode)">
+            <div class="checkrow" ng-checked="radio(expense.paymode)">
                 <div class="form-group col-md-3 col-sm-3">
     
 <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" ng-model="paymode" value="cash" id="cash" >
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" value="cash" id="cash" >
            <label for="cash">Cash</label>
         </div></div>
 <div class="form-group col-md-3 col-sm-3">
 <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" ng-model="paymode" id="cheque" value="cheque" >
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" id="cheque" value="cheque" >
            <label for="cheque">Cheque</label>
         </div></div>
 <div class="form-group col-md-3 col-sm-3">
 <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" ng-model="paymode" value="neft" id="neft" >
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" value="neft" id="neft" >
            <label for="neft">NEFT</label>
         </div></div>
 <div class="form-group col-md-3 col-sm-3">
         <div class="radio radio-primary">
-            <input type="radio" name="paymentmode" ng-model="paymode" value="nb" id="nb" >
+            <input type="radio" name="paymentmode" ng-model="expense.paymode" value="nb" id="nb" >
             <label for="nb">Net Banking</label>
         </div></div>
     </div>
@@ -101,14 +101,15 @@
 </div>
 <div class="form-group col-md-3 col-sm-3">
             <label for="reference">Reference <span style="color:red">*</span></label>
-<input type="file" />
+<input type="file" id="idfile" ngf-select/>
 <!--<span style="color:red" >Please Upload reference</span>-->
 </div>
 
 <div class="form-group col-md-3 col-sm-3">
-            <label for="reference">Select Expense Category<span style="color:red">*</span></label>
-<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model"></div>
+            Select Expense Category<span style="color:red">*</span></label>
+<div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category"></div>
 
+<!-- {{example1model}} -->
  </div>
 
 
@@ -118,14 +119,14 @@
     <div class="form-group col-md-6 col-sm-6" ng-show="cheflag">
             <label for="chequeno">Cheque No<span style="color:red">*</span></label>
            
-             <input type="text" class="form-control input-sm" name="chequeno" ng-pattern="/^[0-9]+$/" placeholder="" required/>
+             <input type="text" class="form-control input-sm" name="chequeno" ng-pattern="/^[0-9]+$/" placeholder="" ng-model="expense.chequeno" required/>
              <span style="color:red" ng-show="addForm.chequeno.$error.pattern">Cheque No Should not contain Characters</span>
         
     </div>
         
    <div class="form-group col-md-6 col-sm-6" ng-show="cheflag">
             <label for="bank">Bank<span style="color:red">*</span></label>
-           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="bank"  required  placeholder="" />
+           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="bank"  required  placeholder="" ng-model="expense.bank"/>
            <span style="color:red" ng-show="addForm.chequeno.$error.pattern">Bank Name Should not contain Digits</span>
            
     </div>
@@ -135,14 +136,14 @@
     <div class="form-group col-md-6 col-sm-6" ng-show="neftflag">
             <label for="accno">Account No<span style="color:red">*</span></label>
            
-             <input type="text" class="form-control input-sm" name="accno" ng-pattern="/^[0-9]+$/" placeholder="" required/>
+             <input type="text" class="form-control input-sm" name="accno" ng-pattern="/^[0-9]+$/" placeholder="" required ng-model="expense.accno"/>
              <span style="color:red" ng-show="addForm.accno.$error.pattern">Account No Should not contain Characters</span>
         
     </div>
         
    <div class="form-group col-md-6 col-sm-6" ng-show="neftflag">
             <label for="neftbank">Bank<span style="color:red">*</span></label>
-           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="neftbank"  required  placeholder="" />
+           <input type="text" ng-pattern="/^[a-zA-Z ]+$/" class="form-control input-sm" name="neftbank"  required  placeholder="" ng-model="expense.bank"/>
            <span style="color:red" ng-show="addForm.neftbank.$error.pattern">Bank Name Should not contain Digits</span>
            
     </div>
@@ -152,10 +153,9 @@
         <div class="form-group col-md-3 col-sm-3">  
 <button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
     </div>
-    <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan()">Add Crop Expense</button>
+<div class="form-group col-md-3 col-sm-3">  
+       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan(expense)">Add Crop Expense</button>
     </div>
-
 </div>
 <span style="color:red">*</span>This Fields are mandatory
 </form>
@@ -177,4 +177,7 @@ $('.form_date').datetimepicker({
         forceParse: 0
 
     });
+
+
 </script>
+

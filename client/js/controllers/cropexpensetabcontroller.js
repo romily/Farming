@@ -1,32 +1,55 @@
-angular.module('app').controller('CropExpenseTabController', ['$scope', '$state',function($scope,
-      $state) {
-console.log("CROP Expense TAB CONTROLLER")
+angular.module('app').controller('CropExpenseTabController', ['$scope', '$state','AddExpenseService',function($scope,
+      $state,AddExpenseService) {
+console.log("CROP Expense TAB CONTROLLER");
+$scope.expense={};
+//console.log(f)
 $scope.cheflag=false;
 $scope.neftflag=false;
 $scope.nbflag=false;
 $scope.paymode=""
-$scope.example1model = []; 
-$scope.example1data = [ 
-{id: 1, label: "Seed"},
- {id: 2, label: "Fertilizer"}, 
- {id: 3, label: "Pesticides"},
-{id: 4, label: "Soil Test"},
-{id: 5, label: "Machinery"},
-{id: 6, label: "Labour"},
-{id: 7, label: "Watering"},													
-{id: 8, label: "Plant Protection"},
-{id: 9, label: "After Harvest"},													
-{id: 10, label: "Storage"}
+$scope.expense.expense_category = []; 
+$scope.list = [
+{id: 1, label: "Seed", amount:0},
+ {id: 2, label: "Fertilizer",amount:0}, 
+ {id: 3, label: "Pesticides" ,amount:0},
+{id: 4, label: "Soil Test",amount:0},
+{id: 5, label: "Machinery" ,amount:0},
+{id: 6, label: "Labour" ,amount:0},
+{id: 7, label: "Watering" ,amount:0},													
+{id: 8, label: "Plant Protection" ,amount:0},
+{id: 9, label: "After Harvest",amount:0},													
+{id: 10, label: "Storage" ,amount:0},
+{id: 11, label: "Other Expenses" ,amount:0}
 ];
+console.log($scope.expense.list)
+$scope.f=[false,false,false,false,false,false,false,false,false,false,false]
+$scope.item=function(items)
+{
+	console.log("HI")
+	
+	
+//console.log(value)
 
+};
+$scope.addexpense=function(selectitems,data){
+$scope.expense.reference=document.getElementById('idfile').files[0].name;
+AddExpenseService.putData(selectitems,data).then(function(data){
+    
+    console.log(data)
+  }).catch(function(error){
+    console.log(error)
+  });
+
+	$state.go('expensecategory')
+
+
+
+};
 $scope.gotoadd=function(){
 	$state.go('addexpense')
 };
 
-
 $scope.radio=function(item){
-//console.log("I am radio")
-//console.log(item)
 	switch(item)
 	{
 		
@@ -57,4 +80,58 @@ $scope.radio=function(item){
 	//default:
 }
 };
+
+
+
+
+$scope.f={};
+
+$scope.s=false;
+$scope.viewexpense=function(){
+
+  AddExpenseService.viewExpense().then(function(data){
+    $scope.records=data;
+  }).catch(function(error){
+    console.log("Error in view records: "+error)
+  });
+
+  };
+$scope.viewexpense();
+
+$scope.clear=function(){
+ $scope.expense={};
+};
+
+$scope.delete=function(id){
+
+AddExpenseService.deleteExpense(id).then(function(data){
+  $state.reload();
+
+}).catch(function(error){
+  console.log("Error in delete expense: "+error)
+})
+  };
+$scope.editgo=function(id){
+$state.go('editexpense',{Myid:id});
+};
+$scope.search=function(){
+  console.log("Search")
+  console.log($scope.s)
+  $scope.s=true;
+   console.log($scope.s)
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   	}])

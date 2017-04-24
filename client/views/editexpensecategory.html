@@ -1,0 +1,96 @@
+ <div ng-include src="'views/carousel.html'"></div>
+<div class="panel panel-primary" style="margin:20px;">
+    <div class="panel-heading">
+            <h3 class="panel-title">Crop Expense Category</h3>
+    </div>
+	<div class="panel-body">
+    <form>
+
+	<div class="form-group col-md-6 col-sm-6" ng-show="f[0]">
+            <label for="seed">Amount for Seeding</label>
+             <input type="text" class="form-control input-sm" ng-model="seed" placeholder="">
+    </div>
+        
+    <div class="form-group col-md-6 col-sm-6" ng-show="f[1]">
+            <label for="fertilizer">Amount for Fertilizer</label>
+           <input type="text" class="form-control input-sm" id="fertilizer" placeholder="" ng-model="fertilizer" >
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6" ng-show="f[2]">
+            <label for="pesticide">Amount for Pesticide</label>
+            <input type="text" class="form-control input-sm" id="pesticide" placeholder="" ng-model="pesticide" >
+    </div>
+
+	<div class="form-group col-md-6 col-sm-6" ng-show="f[3]">
+	      <label for="soiltest">Amount to Test Soil</label>
+	      <input type="text" class="form-control input-sm" id="soiltest" placeholder="" ng-model="soiltest" >
+	</div>
+
+	<div class="form-group col-md-6 col-sm-6" ng-show="f[4]">
+            <label for="machine">Amount for Machinery</label>
+             <input type="text" class="form-control input-sm" id="machine" placeholder="" ng-model="machinery" >
+            
+    </div>
+    <div class="form-group col-md-6 col-sm-6" ng-show="f[5]">
+            <label for="labour">Labour Cost</label>
+            <input type="text" class="form-control input-sm" id="labour" placeholder="" ng-model="labour" >
+    </div>
+       
+    <div class="form-group col-md-6 col-sm-6" ng-show="f[6]">
+				<label for="water">Amount for Watering</label>
+            	<input type="text" class="form-control input-sm" id="water" placeholder="" ng-model="watering" >
+    </div>
+
+	<div class="form-group col-md-6 col-sm-6" ng-show="f[7]">
+			<label for="plantprotect">Amount for Plant Protection</label>
+            <input type="text" class="form-control input-sm" id="plantprotect" placeholder="" ng-model="plant" >
+    </div>
+   
+
+
+		<div class="form-group col-md-6 col-sm-6" ng-show="f[8]">
+            <label for="afterharvest">After Harvesting Cost</label>
+            <input type="text" class="form-control input-sm" id="afterharvest" placeholder="" ng-model="afterharvest" >
+        </div>
+	
+		<div class="form-group col-md-6 col-sm-6" ng-show="f[9]">
+            <label for="storage">Amount for Storage</label>
+            <input type="text" class="form-control input-sm" id="storage" placeholder="" ng-model="storage" >
+        </div>
+
+		<div class="form-group col-md-6 col-sm-6" ng-show="f[10]">
+            <label for="otherexpense">Amount for Other Expenses</label>
+            <input type="text" class="form-control input-sm" id="otherexpense" placeholder="" ng-model="otherexpense" >
+        </div>
+        <div>
+        </div>
+
+</div>
+</div>
+<div class="form-group col-md-12 col-sm-12">
+        <div class="form-group col-md-3 col-sm-3">	
+       <input type="submit" class="btn btn-primary btn-lg btn-block " value="Clear"/>
+    </div>
+    <div class="form-group col-md-3 col-sm-3">	
+       <input type="submit" class="btn btn-primary btn-lg btn-block" ng-click="edit(expense.id)" value="Edit Expense Category"/>
+    </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+$('.form_date').datetimepicker({
+       
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+</script>

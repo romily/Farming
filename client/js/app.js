@@ -1,5 +1,5 @@
 
-angular.module('app', ['lbServices','ui.router','validation.match','angularFileUpload','ngFileUpload']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
+angular.module('app', ['lbServices','ui.router','validation.match','angularFileUpload','ngFileUpload','angularjs-dropdown-multiselect']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
       .state('sam', {
@@ -88,13 +88,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
         templateUrl: 'views/editexpense.html',
         controller: 'EditExpenseController'
       });
-
-      $stateProvider
-      .state('addexpense', {
-        url: '/addexpense',
-        templateUrl: 'views/addexpense.html',
-        controller: 'CropExpenseTabController'
-      });
+    
 
       $stateProvider
       .state('expensecategory', {
@@ -114,6 +108,13 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
       .state('cropexpensetab', {
         url: '/cropexpensetab',
         templateUrl: 'views/cropexpensetab.html',
+        controller: 'CropExpenseTabController'
+      });
+
+      $stateProvider
+      .state('addexpense', {
+        url: '/addexpense/:planId',
+        templateUrl: 'views/addexpense.html',
         controller: 'CropExpenseTabController'
       });
 

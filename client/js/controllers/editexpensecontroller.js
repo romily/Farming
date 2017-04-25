@@ -20,7 +20,7 @@ $scope.cheflag=false;
 $scope.neftflag=false;
 $scope.nbflag=false;
 $scope.paymode=""
-$scope.expense.expense_category = []; 
+/*$scope.expense.expense_category = []; 
 $scope.list = [
 {id: 1, label: "Seed", amount:0},
  {id: 2, label: "Fertilizer",amount:0}, 
@@ -37,18 +37,18 @@ $scope.list = [
 console.log($scope.expense.list)
 $scope.f=[false,false,false,false,false,false,false,false,false,false,false]
 
+*/
+$scope.gotoeditexpensecategory=function(data){
 
-$scope.gotoeditexpensecategory=function(){
 
-$scope.expense.reference=document.getElementById('idfile').files[0].name;
-EditExpenseService.putData(selectitems,data).then(function(data){
+EditExpenseService.putData(data).then(function(data){
     
     console.log(data)
   }).catch(function(error){
     console.log(error)
   });
 
-  $stateParams.go('editexpensecategory')
+ // $stateParams.go('editexpensecategory')
 
 
   //$stateParams.go('editexpensecategory')
@@ -58,8 +58,8 @@ EditExpenseService.putData(selectitems,data).then(function(data){
 
 
 $scope.edit=function(id){
-
-EditPlanService.edit($scope.plan,id).then(function(response){
+$scope.expense.reference=document.getElementById('idfile').files[0].name;
+EditExpenseService.edit($scope.expense,id).then(function(response){
  $state.go('cropexpensetab')
     })
 

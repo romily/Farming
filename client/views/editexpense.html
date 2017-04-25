@@ -11,7 +11,7 @@
      <div class="form-group col-md-6 col-sm-6">
             <label for="planid">Project Id<span style="color:red">*</span></label>
            
-             <input type="text" class="form-control input-sm" name="planid"  ng-model="expense.planid" ng-pattern="/^[0-9]+$/" placeholder="" required/>
+             <input type="text" class="form-control input-sm" name="planid"  ng-model="expense.planid" ng-pattern="/^[0-9]+$/" placeholder="" required disabled/>
              <span style="color:red" ng-show="addForm.planid.$error.pattern">Project Id Should not contain Characters</span>
         
     </div>
@@ -27,7 +27,7 @@
             <label for="date">Date <span style="color:red">*</span></label>
 
 <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input type="text" class="form-control input-sm datepicker" value=""  readonly name="date" ng-model="expense.date" required>
+                    <input type="text" class="form-control input-sm datepicker" value=""  readonly name="date" ng-model="expense.date" required placeholder="Pick Date">
                 
                     <span class="add-on"><i class="icon-th"></i></span></div>
     </div>
@@ -101,13 +101,13 @@
 </div>
 <div class="form-group col-md-3 col-sm-3">
             <label for="reference">Reference <span style="color:red">*</span></label>
-<input type="file" id="idfile" ngf-select/>
+<input type="file" id="idfile" ngf-select ngf-model="expense.reference"/>
 <!--<span style="color:red" >Please Upload reference</span>-->
 </div>
 
-<div class="form-group col-md-3 col-sm-3">
+<!--<div class="form-group col-md-3 col-sm-3">
             Select Expense Category<span style="color:red">*</span></label>
-<div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category"></div>
+<div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category"></div>-->
 
 <!-- {{example1model}} -->
  </div>
@@ -150,11 +150,9 @@
 </div>
 </div>
 <div class="form-group col-md-12 col-sm-12">
-        <div class="form-group col-md-3 col-sm-3">  
-<button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
-    </div>
-<div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg btn-block" ng-click="gotoeditexpensecategory()">Edit Crop Expense</button>
+        
+<div class="form-group col-md-3 col-sm-3">   
+       <button class="btn btn-primary btn-block glyphicon glyphicon-edit" ng-click="edit(expense.id)"></button>
     </div>
 </div>
 <span style="color:red">*</span>This Fields are mandatory

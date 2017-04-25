@@ -1,7 +1,10 @@
 angular.module('app').controller('CropPlanTabController',['$scope','$state','AddPlanService','$http',function($scope,$state,AddPlanService,$http) {
 $scope.f={};
-
+$scope.id=0;
 $scope.s=false;
+$scope.successstatus=false;
+$scope.errorstatus=false;
+$scope.form=true;
 $scope.viewplan=function(){
 
   AddPlanService.viewPlan().then(function(data){
@@ -74,8 +77,17 @@ else if($scope.plan.no_beds==undefined || $scope.plan.no_beds==0)
   return;
 }
     AddPlanService.addPlan($scope.plan).then(function(data) {
+
+      console.log(data.data.id)
+      $scope.form=false;
+      $scope.successstatus=true;
+      $scope.id=data.data.id;
+      //$state.go('addexpense',{planId:data.data.id});
        }).catch(function(error) {
         console.log("Error in Add Plan: "+error)
+        $scope.farm=false;
+        $scope.errorstatus=true;
+        
        })
 
  
@@ -95,6 +107,13 @@ AddPlanService.deletePlan(id).then(function(data){
   };
 $scope.editgo=function(id){
 $state.go('editplan',{Myid:id});
+};
+$scope.back=function(id){
+$state.go('cropplantab');
+};
+$scope.addexpense=function(){
+console.log($scope.id)
+$state.go('addexpense',{planId:$scope.id});
 };
 $scope.search=function(){
   console.log("Search")

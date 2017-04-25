@@ -1,4 +1,20 @@
+<script type="text/css">
+hr.message-inner-separator
+{
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+</script>
+
  <div ng-include src="'views/carousel.html'"></div>
+ <div ng-show="form">
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
             <h3 class="panel-title">Add Crop Plan</h3>
@@ -24,7 +40,7 @@
             <label for="seeddate">Seeding Date <span style="color:red">*</span></label>
 
 <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input type="text" class="form-control input-sm datepicker" value=""  readonly name="seeddate" ng-model="plan.seeddate" required>
+                    <input type="text" class="form-control input-sm datepicker" value=""  readonly name="seeddate" ng-model="plan.seeddate" required placeholder="Pick Date">
                 
                     <span class="add-on"><i class="icon-th"></i></span></div>
     </div>
@@ -32,7 +48,7 @@
     <div class="form-group col-md-6 col-sm-6">
           <label for="transdate">Transplanting Date</label>
     <div class="date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input type="text" class="form-control input-sm datepicker" value="" readonly ng-model="plan.transdate" name="transdate"/>
+                    <input type="text" class="form-control input-sm datepicker" value="" placeholder="Pick Date" readonly ng-model="plan.transdate" name="transdate"/>
                 
                     <span class="add-on"><i class="icon-th"></i></span>
                 </div>
@@ -65,7 +81,7 @@
 </div>
     <div class="row">
         <div class="form-group col-md-3 col-sm-3">
-            <label for="maturitydays">Maturity Days</label>
+            <label for="maturitydays">Maturity Days  <span style="color:red">*</span></label>
             <input type="text" class="form-control input-sm" name="maturitydays" placeholder="" ng-pattern="/[0-9]+$/" required ng-model="plan.maturitydays"/>
             <span style="color:red" ng-show="addForm.maturitydays.$error.pattern">Maturity Days Should not contain characters</span>
         </span>
@@ -118,7 +134,34 @@
 </div>
 </div>
 </div>
+</div><div ng-show="successstatus">
+ <div class="alert alert-success" >
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+               <span class="glyphicon glyphicon-ok"></span> <strong>Success Message</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    Crop Plan Added Successfully with Plan Id{{id}} </p></div>
 
+<div class="form-group col-md-12 col-sm-12">
+        <div class="form-group col-md-3 col-sm-3">  
+<button class="btn btn-primary btn-lg btn-block" ng-click="addexpense()">Add Crop Expense</button>
+    </div>
+<div class="form-group col-md-3 col-sm-3">  
+       <button class="btn btn-primary btn-lg btn-block" ng-click="back()">Back</button>
+    </div>
+</div>
+</div>
+
+<div class="alert alert-danger" ng-show="errorstatus">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Danger Message</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    Adding Crop 
+                    plan Fails. Change a few things up and try submitting again.</p>
+            </div>
 
 <script type="text/javascript">
 $('.form_date').datetimepicker({

@@ -1,8 +1,10 @@
-angular.module('app').controller('CropExpenseTabController', ['$scope', '$state','AddExpenseService',function($scope,
-      $state,AddExpenseService) {
+angular.module('app').controller('CropExpenseTabController', ['$scope','$stateParams','$state','AddExpenseService',function($scope,$stateParams,$state,AddExpenseService) {
 console.log("CROP Expense TAB CONTROLLER");
+var id=$stateParams.planId;
 $scope.expense={};
 //console.log(f)
+$scope.expense.planid=id;
+console.log($scope.expense.planid)
 $scope.cheflag=false;
 $scope.neftflag=false;
 $scope.nbflag=false;
@@ -23,14 +25,6 @@ $scope.list = [
 ];
 console.log($scope.expense.list)
 $scope.f=[false,false,false,false,false,false,false,false,false,false,false]
-$scope.item=function(items)
-{
-	console.log("HI")
-	
-	
-//console.log(value)
-
-};
 $scope.addexpense=function(selectitems,data){
 $scope.expense.reference=document.getElementById('idfile').files[0].name;
 AddExpenseService.putData(selectitems,data).then(function(data){
@@ -45,10 +39,6 @@ AddExpenseService.putData(selectitems,data).then(function(data){
 
 
 };
-$scope.gotoadd=function(){
-	$state.go('addexpense')
-};
-
 $scope.radio=function(item){
 	switch(item)
 	{
@@ -120,18 +110,4 @@ $scope.search=function(){
   $scope.s=true;
    console.log($scope.s)
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  	}])
+}])

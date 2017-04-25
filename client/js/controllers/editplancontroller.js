@@ -1,5 +1,5 @@
 angular.module('app').controller('EditPlanController', ['$scope','$stateParams', '$state','EditPlanService',function($scope,$stateParams
-,      $state,EditPlanService) {
+,$state,EditPlanService) {
   var id=$stateParams.Myid;
 $scope.plan={};
 

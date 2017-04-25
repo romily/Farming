@@ -4,12 +4,14 @@ angular.module('app').controller('EditExpenseController', ['$scope','$stateParam
 
   var id=$stateParams.Myid;
 $scope.expense={};
-
+var ref;
 $scope.load=function(){
 
   EditExpenseService.editexpense(id).then (function (data){
 
   $scope.expense=data;
+ref=$scope.expense.reference;
+console.log(ref)
   }).catch(function(error){
     console.log("Error in fetching record: "+error)
   });
@@ -58,7 +60,11 @@ EditExpenseService.putData(data).then(function(data){
 
 
 $scope.edit=function(id){
-$scope.expense.reference=document.getElementById('idfile').files[0].name;
+if(document.getElementById('idfile').files[0]==undefined)
+  $scope.expense.reference=$scope.expense.reference;
+else
+  $scope.expense.reference=document.getElementById('idfile').files[0].name;
+console.log($scope.expense.reference)
 EditExpenseService.edit($scope.expense,id).then(function(response){
  $state.go('cropexpensetab')
     })

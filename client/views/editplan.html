@@ -39,7 +39,7 @@
 
     <div class="form-group col-md-6 col-sm-6">
             <label for="soiltype">Type Of Soil <span style="color:red">*</span></label>
-             <input type="text" class="form-control input-sm" name="soiltype" placeholder="" required ng-model="plan.soiltype" ng-pattern="/^[a-zA-Z]+$/"/>
+             <input type="text" class="form-control input-sm" name="soiltype" placeholder="" required ng-model="plan.soiltype" ng-pattern="/^[a-zA-Z ]+$/"/>
               <span style="color:red" ng-show="addForm.soiltype.$error.pattern">Soil Type Should not contain digits</span>
         </span>
             

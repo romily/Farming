@@ -71,13 +71,14 @@ hr.message-inner-separator
                 <input type="text" class="form-control input-sm" name="no_beds" placeholder=""  ng-pattern="/[0-9]+$/" ng-model="plan.no_beds"/>
                 <span style="color:red" ng-show="addForm.no_beds.$error.pattern">Number of Beds Should not contain characters</span>
         </span>
+       <span style="color:red" ng-show="nobedflag">Enter Number of Beds</span>    
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
             <label for="rowperbed">Row per Bed</label>
             <input type="text" class="form-control input-sm" name="rowperbed" placeholder="" ng-pattern="/[0-9]+$/" ng-model="plan.rowperbed"/>
     <span style="color:red" ng-show="addForm.rowperbed.$error.pattern">Row per Bed Should not contain characters</span>
-        </span>
+        </span><span style="color:red" ng-show="rowperbedflag">Enter Row Per Bed</span>    
 </div>
     <div class="row">
         <div class="form-group col-md-3 col-sm-3">
@@ -141,7 +142,7 @@ hr.message-inner-separator
                <span class="glyphicon glyphicon-ok"></span> <strong>Success Message</strong>
                 <hr class="message-inner-separator">
                 <p>
-                    Crop Plan Added Successfully with Plan Id{{id}} </p></div>
+                    Crop Plan Added Successfully with Plan Id {{id}} </p></div>
 
 <div class="form-group col-md-12 col-sm-12">
         <div class="form-group col-md-3 col-sm-3">  

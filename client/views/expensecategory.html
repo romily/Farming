@@ -4,63 +4,75 @@
             <h3 class="panel-title">Crop Expense Category</h3>
     </div>
 	<div class="panel-body">
-    <form>
+    <form name="form">
 
 	<div class="form-group col-md-6 col-sm-6" ng-show="f[0]">
-            <label for="seed">Amount for Seeding</label>
-             <input type="text" class="form-control input-sm" ng-model="seed" placeholder="">
+            <label for="seed">Amount for Seeding <span style="color:red">*</span></label>
+             <input type="text" class="form-control input-sm" ng-model="seed" placeholder="" ng-pattern="/[0-9]+$/" name="seed" required >
+              <span style="color:red" ng-show="form.seed.$error.pattern">Amount Should not contain characters</span>
     </div>
         
     <div class="form-group col-md-6 col-sm-6" ng-show="f[1]">
-            <label for="fertilizer">Amount for Fertilizer</label>
-           <input type="text" class="form-control input-sm" id="fertilizer" placeholder="" ng-model="fertilizer" >
+            <label for="fertilizer">Amount for Fertilizer <span style="color:red">*</span></label>
+           <input type="text" class="form-control input-sm" id="fertilizer" placeholder="" ng-pattern="/[0-9]+$/" name="fertilizer" required  ng-model="fertilizer" >
+            <span style="color:red" ng-show="form.fertilizer.$error.pattern">Amount Should not contain characters</span>
     </div>
 
     <div class="form-group col-md-6 col-sm-6" ng-show="f[2]">
-            <label for="pesticide">Amount for Pesticide</label>
-            <input type="text" class="form-control input-sm" id="pesticide" placeholder="" ng-model="pesticide" >
+            <label for="pesticide">Amount for Pesticide <span style="color:red">*</span></label>
+            <input type="text" name="pesticide" class="form-control input-sm" id="pesticide" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="pesticide" >
+             <span style="color:red" ng-show="form.pesticide.$error.pattern">Amount Should not contain characters</span>
     </div>
 
 	<div class="form-group col-md-6 col-sm-6" ng-show="f[3]">
-	      <label for="soiltest">Amount to Test Soil</label>
-	      <input type="text" class="form-control input-sm" id="soiltest" placeholder="" ng-model="soiltest" >
+	      <label for="soiltest">Amount to Test Soil <span style="color:red">*</span></label>
+	      <input type="text" name="soiltest" class="form-control input-sm" id="soiltest" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="soiltest" >
+           <span style="color:red" ng-show="form.soiltest.$error.pattern">Amount Should not contain characters</span>
 	</div>
 
 	<div class="form-group col-md-6 col-sm-6" ng-show="f[4]">
-            <label for="machine">Amount for Machinery</label>
-             <input type="text" class="form-control input-sm" id="machine" placeholder="" ng-model="machinery" >
+            <label for="machine">Amount for Machinery <span style="color:red">*</span></label>
+             <input type="text" name="machine" class="form-control input-sm" id="machine" placeholder="" ng-pattern="/[0-9]+$/" required ng-model="machinery" >
+              <span style="color:red" ng-show="form.machine.$error.pattern">Amount Should not contain characters</span>
             
     </div>
     <div class="form-group col-md-6 col-sm-6" ng-show="f[5]">
-            <label for="labour">Labour Cost</label>
-            <input type="text" class="form-control input-sm" id="labour" placeholder="" ng-model="labour" >
+            <label for="labour">Labour Cost <span style="color:red">*</span></label>
+            <input type="text" name="labour" class="form-control input-sm" id="labour" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="labour" >
+             <span style="color:red" ng-show="form.labour.$error.pattern">Amount Should not contain characters</span>
     </div>
        
     <div class="form-group col-md-6 col-sm-6" ng-show="f[6]">
-				<label for="water">Amount for Watering</label>
-            	<input type="text" class="form-control input-sm" id="water" placeholder="" ng-model="watering" >
+				<label for="water">Amount for Watering <span style="color:red">*</span></label>
+            	<input type="text" name="water" class="form-control input-sm" id="water" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="watering" >
+                 <span style="color:red" ng-show="form.water.$error.pattern">Amount Should not contain characters</span>
     </div>
 
 	<div class="form-group col-md-6 col-sm-6" ng-show="f[7]">
-			<label for="plantprotect">Amount for Plant Protection</label>
-            <input type="text" class="form-control input-sm" id="plantprotect" placeholder="" ng-model="plant" >
+			<label for="plantprotect">Amount for Plant Protection <span style="color:red">*</span></label>
+            <input type="text" name="plantprotect" class="form-control input-sm" id="plantprotect" placeholder=""  ng-pattern="/[0-9]+$/" required  ng-model="plant" >
+             <span style="color:red" ng-show="form.plantprotect.$error.pattern">Amount Should not contain characters</span>
     </div>
    
 
 
 		<div class="form-group col-md-6 col-sm-6" ng-show="f[8]">
-            <label for="afterharvest">After Harvesting Cost</label>
-            <input type="text" class="form-control input-sm" id="afterharvest" placeholder="" ng-model="afterharvest" >
+            <label for="afterharvest">After Harvesting Cost <span style="color:red">*</span></label>
+            <input type="text" name="afterharvest" class="form-control input-sm" id="afterharvest" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="afterharvest" >
+             <span style="color:red" ng-show="form.afterharvest.$error.pattern">Amount Should not contain characters</span>
         </div>
 	
 		<div class="form-group col-md-6 col-sm-6" ng-show="f[9]">
-            <label for="storage">Amount for Storage</label>
-            <input type="text" class="form-control input-sm" id="storage" placeholder="" ng-model="storage" >
+            <label for="storage">Amount for Storage <span style="color:red">*</span></label>
+            <input type="text" name="storage" class="form-control input-sm" id="storage" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="storage" >
+             <span style="color:red" ng-show="form.storage.$error.pattern">Amount Should not contain characters</span>
         </div>
 
 		<div class="form-group col-md-6 col-sm-6" ng-show="f[10]">
-            <label for="otherexpense">Amount for Other Expenses</label>
-            <input type="text" class="form-control input-sm" id="otherexpense" placeholder="" ng-model="otherexpense" >
+            <label for="otherexpense">Amount for Other Expenses <span style="color:red">*</span></label>
+            <input type="text" name="otherexpense" class="form-control input-sm" id="otherexpense" placeholder="" ng-pattern="/[0-9]+$/" required  ng-model="otherexpense
+            " >
+             <span style="color:red" ng-show="form.otherexpense.$error.pattern">Amount Should not contain characters</span>
         </div>
         <div>
         </div>
@@ -68,11 +80,9 @@
 </div>
 </div>
 <div class="form-group col-md-12 col-sm-12">
-        <div class="form-group col-md-3 col-sm-3">	
-       <input type="submit" class="btn btn-primary btn-lg btn-block " value="Clear"/>
-    </div>
+       
     <div class="form-group col-md-3 col-sm-3">	
-       <input type="submit" class="btn btn-primary btn-lg btn-block" ng-click="addexpensecategory()" value="Add ExpenseCategory"/>
+       <input type="submit" class="btn btn-primary" ng-click="addexpensecategory()" value="Add ExpenseCategory"/>
     </div>
 </div>
 </form>

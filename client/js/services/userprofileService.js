@@ -5,8 +5,8 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
         getprofile:getprofile,
         landregister:landregister, 
         editprofile:editprofile,
-        deleteland:deleteland,
-        getimage:getimage    
+        deleteland:deleteland
+        // getimage:getimage    
     }); 
 
     function  getprofile(id) {
@@ -56,18 +56,18 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
          return deferred.promise;    
     }; 
 
-    function  getimage(data) {
-        console.log("veni")        
-        var deferred = $q.defer();
-        $http.get('/api/containers/{container}/files'+data).then(function(response) {
-            console.log(response)            
-            deferred.resolve(response);
-        }, function(error){
+    // function  getimage(data) {
+    //     console.log("veni")        
+    //     var deferred = $q.defer();
+    //     $http.get('/api/containers/{container}/files'+data).then(function(response) {
+    //         console.log(response)            
+    //         deferred.resolve(response);
+    //     }, function(error){
 
-            deferred.reject(error);
-        })
-         return deferred.promise;    
-    }; 
+    //         deferred.reject(error);
+    //     })
+    //      return deferred.promise;    
+    // }; 
   
 
 }])

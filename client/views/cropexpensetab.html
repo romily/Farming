@@ -2,9 +2,6 @@
 <html>
 <head><style type="text/css">
 
-
-
-
 .btn-circle {
   width: 30px;
   height: 30px;
@@ -30,12 +27,21 @@
   line-height: 1.33;
   border-radius: 35px;
 }
+.excontainer{
+  width:100%;
+  font-size:15px;
+  padding-left:50px;
+  padding-right:50px;
+}
+.back{
+  padding-left:97%;
+}
 
 </style>
 
 </head>
-<div class="container">
-    <div ng-include src="'views/carousel.html'"></div>
+<div class="excontainer">
+   <!--  <div ng-include src="'views/carousel.html'"></div> -->
     <hr>
     
     <div class="row">
@@ -121,7 +127,8 @@
 </tr>
 </table></div>
 </div>
-                </div>
+</div>
+<a class="back" href="" ui-sref="userprofile">Back</a>
           
 </div>        
   </div>

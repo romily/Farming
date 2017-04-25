@@ -30,12 +30,22 @@
   line-height: 1.33;
   border-radius: 35px;
 }
+.viewcontainer{
+  width:100%;
+  font-size:15px;
+  padding-left:50px;
+  padding-right:50px;
+
+}
+.back{
+  color:blue;
+  padding-left:97%;
 
 </style>
 
 </head>
-<div class="container">
-    <div ng-include src="'views/carousel.html'"></div>
+<div class="viewcontainer">
+    <!-- <div ng-include src="'views/carousel.html'"></div> -->
     <hr>
     
     <div class="row">
@@ -117,13 +127,17 @@
 
 
 </tr>
-</table></div>
+</table>
+
 </div>
-								</div>
+</div>
+</div>
+<a class="back" href="" ui-sref="userprofile">Back</a>
+
 					
 </div>				
 	</div>
-
+ 
 
 <p  align="right">
 </p>

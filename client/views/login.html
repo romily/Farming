@@ -1,56 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head> 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-    <!-- Website CSS style -->
-    <link href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Website Font style -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
-    <title>Admin</title>
-  </head>
-  <body>
-     <div class="container">
-      <div class="row main">
-        <div class="main-login main-center">
-        <h5>Login into Your Account</h5>
-          <form name="loginForm"class="" method="post" ng-submit="Login()">
-            
-            <div class="form-group">
-              <label for="uname" class="cols-sm-2 control-label">UserName</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="uname" placeholder="Enter your User Name" required ng-model="newRegister.username"/>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="pswd" class="cols-sm-2 control-label">Your Password</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" name="pswd" placeholder="Enter your Password" required ng-model="newRegister.password"/>
-                </div>
-              </div>
-            </div>
-             <div class="form-group ">
-              <button class=" btn btn-primary btn-lg btn-block login-button" type="submit">Login</button>
-            </div>
-           
-          </form>
-              <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-  </body>
-</html>
+   <section>
+      <div class="contenedor">
+        <header>
+          <div class="ti">
+            <h3>Farmers Login</h3>
+          </div>
+        </header><br>
+        <form  ng-submit="login(newregister)">
+          <div class="wallpaper">
+            <img src="img/avatar.png" alt="imagen-usuario" title="Usuario"/>
+          </div>
+          <div class="ti">
+            <label>Username</label><br>
+            <input type="text" name="username" id="username" class="fail" ng-model="newregister.username" placeholder="Username"/>
+          </div>
+          <div class="ti">
+            <label>Password</label><br>
+            <input type="password" name="password" id="password" class="fail" ng-model="newregister.password" placeholder="Password" />
+          </div>
+          <div ng-if="(statusCode == 400)" class="alert alert-danger text-center ">{{statusMessage}}</div>
+          <div ng-if="(statusCode == 200)" class="alert alert-success text-center">{{statusMessage}}</div>
+          <div class="ti">
+            <input type="submit" name="login" id="login" value="Login"  />
+            <a href="" ui-sref="" ><b>Forgot password?</b></a>
+          </div>
+        </form>
+      </div>
+      <div class="ti">
+        <a href="" ui-sref="reg" ><h3>CreateNewAccount</h3></a>
+      </div>
+  </section>  
+ 

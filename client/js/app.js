@@ -1,5 +1,5 @@
 
-angular.module('app', ['lbServices','ui.router','validation.match','angularFileUpload','ngFileUpload']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
+angular.module('app', ['lbServices','ui.router','validation.match','angularFileUpload','ngFileUpload','angularjs-dropdown-multiselect']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
       .state('sam', {
@@ -87,7 +87,8 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
         url: '/editexpense/:Myid',
         templateUrl: 'views/editexpense.html',
         controller: 'EditExpenseController'
-      });      
+      });
+    
 
       $stateProvider
       .state('expensecategory', {

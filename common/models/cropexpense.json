@@ -1,0 +1,71 @@
+{
+  "name": "cropexpense",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "planid": {
+      "type": "number",
+      "required": true
+    },
+    "voucher": {
+      "type": "number",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "activity": {
+      "type": "string",
+      "required": true
+    },
+    "labour": {
+      "type": "number",
+      "required": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true
+    },
+    "paidto": {
+      "type": "string",
+      "required": true
+    },
+    "spender": {
+      "type": "string",
+      "required": true
+    },
+    "paymode": {
+      "type": "string",
+      "required": true
+    },
+    "chequeno": {
+      "type": "number",
+      "required": false
+    },
+
+    "accno": {
+      "type": "number",
+      "required": false
+    },
+    "bank": {
+      "type": "string",
+      "required": false
+    },
+    "reference": {
+      "type": "string",
+      "required": true
+    },
+    "expense_category": {
+      "type": "Object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

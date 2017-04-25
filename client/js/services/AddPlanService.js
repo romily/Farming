@@ -9,9 +9,11 @@ return ( {
 function  addPlan(data) {
     var deferred = $q.defer();
      $http.post('/api/cropplans', data).then(function(data) {
-     $state.go('cropplantab')
+     //$state.go('cropplantab')
+     console.log(data.data.id)
          if (data.status === 200) {
              deferred.resolve(data);
+
 
          } else {
              deferred.reject(data);

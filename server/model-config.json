@@ -63,6 +63,11 @@
   "cropplan": {
     "dataSource": "farmercommunity",
     "public": true
+  },
+  "cropexpense": {
+    "dataSource": "farmercommunity",
+    "public": true
   }
+ 
 
 }

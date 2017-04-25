@@ -1,43 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><style type="text/css">
-
-
-
-
-/*.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-.btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
-}*/
-
-</style>
-
-</head>
 <div class="container">
-    <div ng-include src="'views/carousel.html'"></div>
+   <!-- <div ng-include src="'views/carousel.html'"></div>-->
     <hr>
-    
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
@@ -60,14 +25,9 @@
                         <th>Spender</th>
                         <th>Payment Mode</th>
                         <th>reference</th>
-                      <!--  <th>Land Required</th>
-                        <th >Seeding Month</th>
-                        <th>Location</th>-->
 <th colspan="2"><button  class="btn btn-primary btn-block" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th>
-
-                   
-                    </tr>
-                </thead><tbody>
+</tr>
+</thead><tbody>
 
 <div>
   
@@ -81,12 +41,8 @@
   <td><input class="form-control input-sm" ng-model="f.paidto"></td>
   <td><input class="form-control input-sm" ng-model="f.spender"></td>
   <td><input class="form-control input-sm" ng-model="f.paymentmode"></td>
-
-
   <td><input class="form-control input-sm" ng-model="f.reference"></td>
-  <!-- <td><input class="form-control input-sm" ng-model="f.landrequired"></td>
-  <td><input class="form-control input-sm" ng-model="f.seedmonth"></td>
-  <td><input class="form-control input-sm" ng-model="f.locations"></td> -->
+
 </tr>
 </div>
 <tr ng-repeat="r in records | filter:f">
@@ -111,15 +67,10 @@
 </tr>
 </table></div>
 </div>
-                </div>
+</div>
           
 </div>        
   </div>
-
-
-<p  align="right">
-</p>
-
 </html>
 
 

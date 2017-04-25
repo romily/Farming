@@ -1,13 +1,13 @@
 <html>
 
-<div ng-include src="'views/carousel.html'"></div>
+<!--<div ng-include src="'views/carousel.html'"></div>-->
 
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
             <h3 class="panel-title">Add Crop Expense</h3>
     </div>
 <div class="panel-body">
-   <form name="addForm" novalidate>
+   <form name="addForm">
    <div class="col-md-12 col-sm-12">
      <div class="form-group col-md-6 col-sm-6">
             <label for="planid">Project Id<span style="color:red">*</span></label>
@@ -18,8 +18,8 @@
     </div>
         
     <div class="form-group col-md-6 col-sm-6">
-            <label for="voucherno">Voucher<span style="color:red">*</span></label>
-           <input type="text" class="form-control input-sm" ng-pattern="/^[0-9]+$/" name="voucherno"  required ng-model="expense.voucher"  placeholder=""/>
+            <label for="voucher">Voucher<span style="color:red">*</span></label>
+           <input type="text" class="form-control input-sm" ng-pattern="/^[0-9]+$/" name="voucher"  required ng-model="expense.voucher"  placeholder=""/>
            <span style="color:red" ng-show="addForm.voucher.$error.pattern">Voucher Should not contain Characters</span>
            
     </div>
@@ -39,14 +39,6 @@
               <span style="color:red" ng-show="addForm.activity.$error.pattern">Activity Should not contain digits</span>
   
     </div>
-
- <!--   <div class="form-group col-md-6 col-sm-6">
-            <label for="soiltype">Type Of Soil <span style="color:red">*</span></label>
-             <input type="text" class="form-control input-sm" name="soiltype" placeholder="" required ng-model="plan.soiltype" ng-pattern="/^[a-zA-Z ]+$/"/>
-              <span style="color:red" ng-show="addForm.soiltype.$error.pattern">Soil Type Should not contain digits</span>
-        </span>
-            
-    </div>-->
     <div class="form-group col-md-6 col-sm-6">
             <label for="labour">Labour <span style="color:red">*</label>
             <input type="text" class="form-control input-sm" name="labour" required placeholder="" ng-pattern="/[0-9]+$/" ng-model="expense.labour"/>
@@ -111,11 +103,7 @@
 <div class="form-group col-md-3 col-sm-3">
             Select Expense Category<span style="color:red">*</span></label>
 <div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category"></div>
-
-<!-- {{example1model}} -->
  </div>
-
-
 </div>
 
 <div class="form-group col-md-12 col-sm-12">
@@ -157,7 +145,7 @@
 <button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
     </div>
 <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg btn-block" ng-click="addexpense(expense)">Add Crop Expense</button>
+       <button class="btn btn-primary btn-lg btn-block" ng-click="addexpense(expense)">Submit</button>
     </div>
 </div>
 <span style="color:red">*</span>This Fields are mandatory
@@ -177,7 +165,4 @@ $('.form_date').datetimepicker({
         forceParse: 0
 
     });
-
-
 </script>
-

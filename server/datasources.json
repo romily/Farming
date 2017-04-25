@@ -8,7 +8,7 @@
     "port": 5432,
     "url": "",
     "database": "postgres",
-    "password": "krishna",
+    "password": "root",
     "name": "farmercommunity",
     "user": "postgres",
     "connector": "postgresql"

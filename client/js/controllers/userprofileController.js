@@ -85,16 +85,16 @@ $scope.deleteland=function(id){
      $scope.alertland = true; 
 };
 
-$scope.getimage = function(data){
-    console.log(data)   
-    // $scope.data.user_id = $stateParams.id;
-	userprofileService.getimage(data).then(function(data) {		
-    console.log(data) 
-   	}).catch(function(data) {
-      console.log(data)
-	});
+// $scope.getimage = function(data){
+//     console.log(data)   
+//     // $scope.data.user_id = $stateParams.id;
+// 	userprofileService.getimage(data).then(function(data) {		
+//     console.log(data) 
+//    	}).catch(function(data) {
+//       console.log(data)
+// 	});
 
-};
+// };
 
 
 

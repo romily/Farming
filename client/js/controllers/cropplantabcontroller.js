@@ -125,5 +125,10 @@ $scope.gotomyprofile=function()
   console.log($scope.userid)
   $state.go('userprofile',{id:$scope.userid})
 };
+$scope.gotomyexpense=function()
+{
+  console.log($scope.userid)
+  $state.go('cropexpensetab',{UserId:$scope.userid})
+};
   	}])
 

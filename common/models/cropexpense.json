@@ -52,7 +52,7 @@
     },
 
     "accno": {
-      "type": "number",
+      "type": "string",
       "required": false
     },
     "bank": {

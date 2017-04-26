@@ -1,25 +1,29 @@
-angular.module('app').controller('CropPlanTabController',['$scope','$state','AddPlanService','$http',function($scope,$state,AddPlanService,$http) {
-$scope.f={};
+angular.module('app').controller('CropPlanTabController',['$scope','$state','$stateParams','AddPlanService','$http',function($scope,$state,$stateParams,AddPlanService,$http) {
+$scope.f=[];
 $scope.id=0;
 $scope.s=false;
+$scope.userid=$stateParams.UserId;
+//console.log(id)
 $scope.successstatus=false;
 $scope.errorstatus=false;
 $scope.form=true;
-$scope.viewplan=function(){
-
-  AddPlanService.viewPlan().then(function(data){
+$scope.viewplan=function(id){
+console.log(id)
+  AddPlanService.viewPlan(id).then(function(data){
     $scope.records=data;
   }).catch(function(error){
     console.log("Error in view records: "+error)
   });
 
   };
-$scope.viewplan();
+$scope.viewplan($scope.userid);
 $scope.gotoadd=function(){
-    $state.go('addplan')
+  console.log($scope.userid)
+    $state.go('addplan',{UserId:$scope.userid})
 };
 $scope.addplan=function(){
-    
+$scope.plan.userid=$scope.userid;
+console.log($scope.plan.userid)    
  $scope.nobedflag=false;
 $scope.rowperbedflag=false;
 if($scope.plan.landrequired==undefined)

@@ -23,9 +23,9 @@ function  addPlan(data) {
      });
      return deferred.promise;    
 };
-function viewPlan(){
+function viewPlan(id){
     var deferred = $q.defer();
-    $http.get('/api/cropplans/')
+    $http.get('/api/cropplans/?filter[where][userid]='+id)
     .then(function(response)
     {
         if (response.status === 200) {

@@ -62,7 +62,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
 
       $stateProvider
       .state('cropplantab', {
-        url: '/cropplantab',
+        url: '/cropplantab/:UserId',
         templateUrl: 'views/cropplantab.html',
         controller: 'CropPlanTabController'
       });    
@@ -77,7 +77,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
 
       $stateProvider
       .state('addplan', {
-        url: '/addplan',
+        url: '/addplan/:UserId',
         templateUrl: 'views/addplan.html',
         controller: 'CropPlanTabController'
       });

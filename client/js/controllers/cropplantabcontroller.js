@@ -20,20 +20,8 @@ $scope.gotoadd=function(){
 };
 $scope.addplan=function(){
     
-/*var cropname=$scope.plan.cropname;
-
-var croptype=$scope.plan.croptype;
-var seeddate=$scope.plan.seeddate;
-var transdate=$scope.plan.transdate;
-var soiltype=$scope.plan.soiltype;
-var weather=$scope.plan.weather;
-var no_beds=$scope.plan.no_beds;
-var rowperbed=$scope.plan.rowperbed;
-var maturitydays=$scope.plan.maturitydays;
-
-var landrequired=$scope.plan.landrequired;
-var locations=$scope.plan.locations;
-var seedingmonth=$scope.plan.seedingmonth;*/
+ $scope.nobedflag=false;
+$scope.rowperbedflag=false;
 if($scope.plan.landrequired==undefined)
 {
   $scope.plan.landrequired="";
@@ -62,31 +50,37 @@ $scope.plan.rowperbed=0;
     }
     else if(($scope.plan.no_beds!=undefined && $scope.plan.rowperbed!=undefined)&& ($scope.plan.no_beds!=0 && $scope.plan.rowperbed!=0))
 {
-var bedL=$scope.plan.no_beds.length;
-var row_per_bedL=$scope.plan.rowperbed.length;
  $scope.plan.rowfeet=$scope.plan.no_beds*$scope.plan.rowperbed;  
 }
-    else if($scope.plan.rowperbed==undefined || $scope.plan.rowperbed==0 )
+  else if(($scope.plan.rowperbed==undefined || $scope.plan.rowperbed==0)&&($scope.plan.no_beds!=undefined && $scope.plan.no_beds!=0) )
 {
-  alert("Enter rowperbed")
+ // alert("Enter rowperbed")
+ $scope.rowperbedflag=true;
+  $scope.plan.rowfeet=0;
 return;
 }
-else if($scope.plan.no_beds==undefined || $scope.plan.no_beds==0)
+else if(($scope.plan.no_beds==undefined || $scope.plan.no_beds==0)&&($scope.plan.rowperbed!=undefined && $scope.plan.rowperbed!=0))
 {
-  alert("Enter number of bed")
+  //alert("Enter number of bed")
+  $scope.nobedflag=true;
+   $scope.plan.rowfeet=0;
   return;
 }
+
     AddPlanService.addPlan($scope.plan).then(function(data) {
 
       console.log(data.data.id)
       $scope.form=false;
+      $scope.errorstatus=false;
       $scope.successstatus=true;
+
       $scope.id=data.data.id;
       //$state.go('addexpense',{planId:data.data.id});
        }).catch(function(error) {
         console.log("Error in Add Plan: "+error)
         $scope.farm=false;
         $scope.errorstatus=true;
+
         
        })
 

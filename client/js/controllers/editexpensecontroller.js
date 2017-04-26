@@ -78,25 +78,25 @@ $scope.radio=function(item){
   switch(item)
   {
     
-    case 'cash':
+    case 'Cash':
     $scope.cheflag=false;
     $scope.neftflag=false;
     $scope.nbflag=false;
     console.log(item)
   break;
-  case 'cheque':
+  case 'Cheque':
   console.log(item)
   $scope.neftflag=false;
   $scope.cheflag=true;
   $scope.nbflag=false;
   break;
-  case 'neft':
+  case 'Neft':
   console.log(item)
   $scope.cheflag=false;
   $scope.neftflag=true;
   $scope.nbflag=false;
   break;
-  case 'nb':
+  case 'Net Banking':
   console.log(item)
   $scope.cheflag=false;
   $scope.neftflag=false;

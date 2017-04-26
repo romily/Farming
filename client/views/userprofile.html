@@ -280,7 +280,7 @@
 							<div class="col-sm-6 form-group">
 								<label>Village</label>
 								<select id="village"  ng-disabled="!profileInfo.district || !profileInfo.state" ng-model="profileInfo.village" class="form-control" ng-options="item.village_id as item.village_name for item in villages" required>
-                          <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.state" value="">{{data.villageInfo.village_name}}</option>
+                          <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.village" value="">{{data.villageInfo.village_name}}</option>
                          
                      </select>
 							</div>	

@@ -46,13 +46,12 @@ $scope.getvillage = function(districtID){
 
 $scope.landregister=function(newregister){
     console.log(newregister)
-    $scope.alert = false;
+    $scope.alert = false;  
     newregister.user_id = $stateParams.id;
 	userprofileService.landregister(newregister).then(function(data) {
 	// $state.reload();  		
     console.log(data)     
-    $scope.alert = true;
-       
+    $scope.alert = true;   
    	// alert("Landregistered Successfully");     
     }).catch(function(data) {
       console.log(data)

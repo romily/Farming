@@ -57,9 +57,10 @@ console.log(data.expense_category.label)
 
 
 
-function viewExpense(){
+function viewExpense(id){
     var deferred = $q.defer();
-    $http.get('/api/cropexpenses/')
+    console.log(id)
+    $http.get('/api/cropexpenses/?filter[where][userid]='+id)
     .then(function(response)
     {
         if (response.status === 200) {

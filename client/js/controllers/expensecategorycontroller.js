@@ -110,7 +110,7 @@ angular.forEach($scope.expense.expense_category,function(value,key){
 
 AddExpenseService.addExpense($scope.expense).then (function(response){
 	console.log("Response from Controller:"+response)
-	$state.go('cropexpensetab')
+	$state.go('cropexpensetab',{UserId:$scope.expense.userid})
 }).catch (function(error){
 	console.log("Error from Controller:"+error)
 });

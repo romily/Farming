@@ -6,6 +6,10 @@
     "validateUpsert": true
   },
   "properties": {
+    "userid": {
+      "type": "number",
+      "required": true
+    },
     "planid": {
       "type": "number",
       "required": true

@@ -84,7 +84,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
 
       $stateProvider
       .state('editexpense', {
-        url: '/editexpense/:Myid',
+        url: '/editexpense/:UserId/:Myid',
         templateUrl: 'views/editexpense.html',
         controller: 'EditExpenseController'
       });
@@ -106,14 +106,14 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
 
        $stateProvider
       .state('cropexpensetab', {
-        url: '/cropexpensetab',
+        url: '/cropexpensetab/:UserId',
         templateUrl: 'views/cropexpensetab.html',
         controller: 'CropExpenseTabController'
       });
 
       $stateProvider
       .state('addexpense', {
-        url: '/addexpense/:planId',
+        url: '/addexpense/:UserId/:planId',
         templateUrl: 'views/addexpense.html',
         controller: 'CropExpenseTabController'
       });

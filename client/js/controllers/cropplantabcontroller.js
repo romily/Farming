@@ -111,7 +111,7 @@ $state.go('cropplantab',{UserId:$scope.userid});
 };
 $scope.addexpense=function(){
 console.log($scope.id)
-$state.go('addexpense',{planId:$scope.id});
+$state.go('addexpense',{UserId:$scope.userid,planId:$scope.id});
 };
 $scope.search=function(){
   console.log("Search")

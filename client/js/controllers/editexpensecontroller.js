@@ -60,13 +60,15 @@ EditExpenseService.putData(data).then(function(data){
 
 
 $scope.edit=function(id){
+ // console.log($scope.expense.userid)
 if(document.getElementById('idfile').files[0]==undefined)
   $scope.expense.reference=$scope.expense.reference;
 else
   $scope.expense.reference=document.getElementById('idfile').files[0].name;
 console.log($scope.expense.reference)
 EditExpenseService.edit($scope.expense,id).then(function(response){
- $state.go('cropexpensetab')
+  console.log($scope.expense.userid)
+ $state.go('cropexpensetab',{UserId:$scope.expense.userid})
     })
 
    .catch(function (error){

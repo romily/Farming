@@ -4,7 +4,9 @@ var id=$stateParams.planId;
 $scope.expense={};
 //console.log(f)
 $scope.expense.planid=id;
+$scope.expense.userid=$stateParams.UserId;
 console.log($scope.expense.planid)
+console.log($scope.expense.userid)
 $scope.cheflag=false;
 $scope.neftflag=false;
 $scope.nbflag=false;
@@ -77,16 +79,16 @@ $scope.radio=function(item){
 $scope.f={};
 
 $scope.s=false;
-$scope.viewexpense=function(){
+$scope.viewexpense=function(id){
 
-  AddExpenseService.viewExpense().then(function(data){
+  AddExpenseService.viewExpense(id).then(function(data){
     $scope.records=data;
   }).catch(function(error){
     console.log("Error in view records: "+error)
   });
 
   };
-$scope.viewexpense();
+$scope.viewexpense($scope.expense.userid);
 
 $scope.clear=function(){
  $scope.expense={};
@@ -111,6 +113,6 @@ $scope.search=function(){
    console.log($scope.s)
 };
 $scope.gotomyprofile=function(){
-	$state.go('userprofile')
+	$state.go('userprofile',{id:$scope.expense.userid})
 }
 }])

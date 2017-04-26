@@ -114,5 +114,9 @@ $scope.search=function(){
 };
 $scope.gotomyprofile=function(){
 	$state.go('userprofile',{id:$scope.expense.userid})
-}
+};
+$scope.gotoviewplan=function(){
+$state.go('cropplantab',{UserId:$scope.expense.userid})
+
+};
 }])

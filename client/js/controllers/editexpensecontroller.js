@@ -49,11 +49,6 @@ EditExpenseService.putData(data).then(function(data){
   }).catch(function(error){
     console.log(error)
   });
-
- // $stateParams.go('editexpensecategory')
-
-
-  //$stateParams.go('editexpensecategory')
 };
 
 

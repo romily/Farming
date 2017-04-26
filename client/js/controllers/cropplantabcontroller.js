@@ -104,10 +104,10 @@ AddPlanService.deletePlan(id).then(function(data){
 })
   };
 $scope.editgo=function(id){
-$state.go('editplan',{Myid:id});
+$state.go('editplan',{UserId:$scope.userid,Myid:id});
 };
-$scope.back=function(id){
-$state.go('cropplantab');
+$scope.back=function(){
+$state.go('cropplantab',{UserId:$scope.userid});
 };
 $scope.addexpense=function(){
 console.log($scope.id)
@@ -118,6 +118,12 @@ $scope.search=function(){
   console.log($scope.s)
   $scope.s=true;
    console.log($scope.s)
+};
+
+$scope.gotomyprofile=function()
+{
+  console.log($scope.userid)
+  $state.go('userprofile',{id:$scope.userid})
 };
   	}])
 

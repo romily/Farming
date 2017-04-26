@@ -22,16 +22,9 @@
 							<a data-target="#tab_default_3" data-toggle="tab">
 							Edit Profile </a>
 						</li>
-             <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">CropDetails<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="" ui-sref="cropplantab">CropPlanning</a>
-                            </li>
-                           <!--  <li>
-                                <a href="" ui-sref="cropexpensetab">CropExpense</a>
-                            </li> -->         
-                        </ul>
+             <li>
+                        <a href="" ui-sref="cropplantab({UserId:profileInfo.id})">CropPlanning<b class="caret"></b></a>
+                        
               </li>
                     
 

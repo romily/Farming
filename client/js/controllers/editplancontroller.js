@@ -1,6 +1,8 @@
 angular.module('app').controller('EditPlanController', ['$scope','$stateParams', '$state','EditPlanService',function($scope,$stateParams
 ,$state,EditPlanService) {
   var id=$stateParams.Myid;
+  $scope.userid=$stateParams.UserId;
+  console.log($scope.userid)
 $scope.plan={};
 
 $scope.load=function(){
@@ -86,12 +88,17 @@ else if(($scope.plan.no_beds==undefined || $scope.plan.no_beds==0)&&($scope.plan
 }
 
 EditPlanService.edit($scope.plan,id).then(function(response){
- $state.go('cropplantab')
+ $state.go('cropplantab',{UserId:$scope.plan.userid})
     })
 
    .catch(function (error){
    	console.log("Error in edit record: "+error)
 
    })
+};
+$scope.gotomyprofile=function()
+{
+  console.log($scope.userid)
+  $state.go('userprofile',{id:$scope.userid})
 };
   	}])

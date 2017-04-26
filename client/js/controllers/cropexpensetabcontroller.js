@@ -110,4 +110,7 @@ $scope.search=function(){
   $scope.s=true;
    console.log($scope.s)
 };
+$scope.gotomyprofile=function(){
+	$state.go('userprofile')
+}
 }])

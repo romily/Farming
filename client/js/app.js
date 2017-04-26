@@ -70,7 +70,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
 
       $stateProvider
       .state('editplan', {
-        url: '/editplan/:Myid',
+        url: '/editplan/:UserId/:Myid',
         templateUrl: 'views/editplan.html',
         controller: 'EditPlanController'
       });

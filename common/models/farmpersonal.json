@@ -30,15 +30,15 @@
       "required": true
     },
     "state": {
-      "type": "string",
+      "type": "number",
       "required": true
     },
     "district": {
-      "type": "string",
+      "type": "number",
       "required": true
     },
     "village": {
-      "type": "string",
+      "type": "number",
       "required": true
     },
     "pincode": {

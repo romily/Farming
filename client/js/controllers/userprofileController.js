@@ -3,6 +3,7 @@ angular.module('app').controller('UserprofileController',['$scope','$state','$st
 $scope.init = function(){
 	$scope.getstate();	
 	$scope.getprofile();
+	
 	// $scope.getimage();
 };
 
@@ -10,9 +11,11 @@ $scope.getprofile = function(){
 	if($stateParams.id){
 		userprofileService.getprofile($stateParams.id).then(function(data){
 			$scope.profileInfo = data.data[0];
-			console.log("eniya")
-		    $scope.profileInfo.state_id = $scope.profileInfo.state;
-			console.log($scope.profileInfo.state)			
+			$scope.getdistrict($scope.profileInfo.state);
+			$scope.getvillage($scope.profileInfo.district);
+			//console.log("eniya")
+		    //$scope.profileInfo.state_id = $scope.profileInfo.state;
+			console.log($scope.profileInfo.state);			
 		}).catch(function(data){
 			console.log(data);
 		}); 
@@ -31,6 +34,7 @@ $scope.getstate = function(){
 $scope.getdistrict = function(stateID){
 	userregistration.getdistrict(stateID).then(function(data){
 			$scope.districts = data.data;
+			console.log(data)
 	}).catch(function(data){
 		console.log(data);
 	}); 

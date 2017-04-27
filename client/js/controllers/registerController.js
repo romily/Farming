@@ -51,6 +51,7 @@ $scope.addregister = function(newregister){
 	           file : image,
 	           method : fileUploadName,
 	           type : accountType
+	           
 	       }
    	}).then(function(response) {
         newregister.img = response.data.result.files.file[0].name;

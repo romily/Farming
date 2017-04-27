@@ -1,5 +1,5 @@
 
-angular.module('app').controller('RegController',['$scope','$state' ,'userregistration','Upload', function($scope,$state,userregistration,Upload){
+angular.module('app').controller('RegController',['$scope','$state','$timeout','userregistration','Upload', function($scope,$state,$timeout,userregistration,Upload){
 
  $scope.farmpersonals=[];
 
@@ -72,7 +72,12 @@ $scope.addregister = function(newregister){
             	}else{                    
                     $scope.alertsuccess = true;
             	}
-        	});     
+        	});
+        	 $timeout(function () { 
+		     	$scope.alertsuccess = false;
+		     	$state.reload(); 
+		        },1000) 
+
         }).catch(function(data) {
             console.log(data)
         });

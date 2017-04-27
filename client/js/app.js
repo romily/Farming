@@ -59,6 +59,20 @@ $stateProvider
       });
 
       $stateProvider
+      .state('forgetpassword', {
+        url: '/forgetpassword',
+        templateUrl: 'views/forgetpassword.html'
+       
+      });
+
+      $stateProvider
+      .state('sendemail', {
+        url: '/sendemail',
+        templateUrl: 'views/sendemail.html'
+       
+      });
+
+      $stateProvider
       .state('cropplantab', {
         url: '/cropplantab/:UserId',
         templateUrl: 'views/cropplantab.html',

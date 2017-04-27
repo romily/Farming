@@ -80,7 +80,7 @@
              <b> :</b> {{profileInfo.fathername}} <br>
              <b> :</b> {{profileInfo.address}}<br>
              <b> :</b> {{profileInfo.phoneno}}<br>
-             <b> :</b> {{profileInfo.email}}
+             <b> :</b> {{profileInfo.email}}             
           </div>              
         </div>
       </div>
@@ -258,16 +258,14 @@
 							<div class="col-sm-6 form-group">
 								<label>State</label>								
                 <select id="state"  ng-change="getdistrict(profileInfo.state)" 
-                ng-model="profileInfo.state"  class="form-control"  ng-options="item.state_id as item.state_name for item in states" required>
-                     <!-- <option value="{{profileInfo.state}}">{{profileInfo.state}}</option> -->
-                    <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.state" value="">{{data.stateInfo.state_name}}</option>
+                ng-model="profileInfo.state"  class="form-control"  ng-options="item.state_id as item.state_name for item in states">
                 </select>
+
 						</div>	
               
 							<div class="col-sm-6 form-group">
 								<label>District</label>
-								<select id="district" ng-disabled="!profileInfo.state" ng-change="getvillage(profileInfo.district)" ng-model="profileInfo.district" ng-options="item.district_id as item.district_name for item in districts" class="form-control" required>
-                    <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.district" value="">{{data.districtInfo.district_name}}</option>                         
+								<select id="district" ng-disabled="!profileInfo.state" ng-change="getvillage(profileInfo.district)" ng-model="profileInfo.district" ng-options="item.district_id as item.district_name for item in districts" class="form-control">                         
                 </select>
 							</div>	
 							</div>
@@ -275,10 +273,8 @@
 
 							<div class="col-sm-6 form-group">
 								<label>Village</label>
-								<select id="village"  ng-disabled="!profileInfo.district || !profileInfo.state" ng-model="profileInfo.village" class="form-control" ng-options="item.village_id as item.village_name for item in villages" required>
-                          <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.village" value="">{{data.villageInfo.village_name}}</option>
-                         
-                     </select>
+								<select id="village"  ng-disabled="!profileInfo.district || !profileInfo.state" ng-model="profileInfo.village" class="form-control" ng-options="item.village_id as item.village_name for item in villages">   
+                </select>
 							</div>	
 
 							<div class="col-sm-6 form-group">
@@ -323,25 +319,20 @@
             <!--  <input type="submit" id="LoginButton" class="button" value="Cancel" style="background-color: #8B0000; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" /> -->
        
 
-               </div>					
+               </div>	<br>
+               <div class="alert alert-success" ng-show="alertprofile">
+               <strong>Profile Edited!</strong>Successfully
+               </div>  				
 					</div>
 				</form> 
 				</div>
 	</div>
 	</div>
 
-						</div>
-
-                   
-                       
-
-
-					</div>
+						</div>                
+          </div>
 				</div>
 			</div>
-
-			
-			
 		</div>
 	</div>
 </div>

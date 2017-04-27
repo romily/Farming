@@ -1,9 +1,9 @@
-angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','userauthentication','userregistration','userprofileService',function($scope,$state,$stateParams,userauthentication,userregistration,userprofileService){
+angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','$timeout','userauthentication','userregistration','userprofileService',function($scope,$state,$stateParams,$timeout,userauthentication,userregistration,userprofileService){
 
 $scope.init = function(){
 	$scope.getstate();	
 	$scope.getprofile();
-	$scope.getimage();
+	// $scope.getimage();
 };
 
 $scope.getprofile = function(){
@@ -48,11 +48,14 @@ $scope.landregister=function(newregister){
     console.log(newregister)
     $scope.alert = false;  
     newregister.user_id = $stateParams.id;
-	userprofileService.landregister(newregister).then(function(data) {
-	// $state.reload();  		
+	userprofileService.landregister(newregister).then(function(data) {	  		
     console.log(data)     
-    $scope.alert = true;   
-   	// alert("Landregistered Successfully");     
+    $scope.alert = true;       
+    $timeout(function () { 
+     	$scope.alert = false;
+     	$state.reload(); 
+        },1000) 
+         
     }).catch(function(data) {
       console.log(data)
 	});
@@ -60,11 +63,14 @@ $scope.landregister=function(newregister){
 };
 
 $scope.editprofile=function(profileInfo){
+	$scope.alertprofile = false;
 	userprofileService.editprofile(profileInfo).then(function(data) {
-   		$scope.profileInfo = data;
-   		$state.reload();
-   		console.log(data);
-   	alert("edit Successfully");     
+   		$scope.profileInfo = data;   		 
+   	    $scope.alertprofile = true; 
+   	    $timeout(function () { 
+     	$scope.alertprofile = false;
+     	$state.reload(); 
+        },500)    
     }).catch(function(data) {
       console.log(data)
 	});

@@ -15,9 +15,7 @@ angular.module('app', ['lbServices','ui.router','validation.match','angularFileU
         templateUrl: 'views/reg.html',
         controller: 'RegController'
       });
-
-
-      $stateProvider
+$stateProvider
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',

@@ -26,11 +26,26 @@
   line-height: 1.33;
   border-radius: 35px;
 }
+.cropcontainer{
+  width:100%;
+  padding-left:50px;
+  padding-right:50px;
+  font-size:15px; 
+}
+.btns {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius:7px;
+    padding: 9px 15px;
+}
 
 </style>
 
 </head>
-<div class="container">
+<div class="cropcontainer">
 <!--    <div ng-include src="'views/carousel.html'"></div>-->
     <hr>
     
@@ -59,7 +74,7 @@
                         <th>Land Required</th>
                         <th >Seeding Month</th>
                         <th>Location</th>
-<th colspan="2"><button  class="btn btn-primary btn-block" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th>
+<th colspan="2"><button  class="btns btn-primary " ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th>
 <th><button type="button" class="btn btn-info btn-circle glyphicon glyphicon-plus" ng-click="gotoadd()"></button></th>
                    
                     </tr>
@@ -115,10 +130,11 @@
 </tr>
 </table></div>
 <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg" ng-click="gotomyprofile()">Back</button>
+       <button class="btn btn-primary btn-md" ng-click="gotomyprofile()">Back</button>
+
     </div>
     <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg" ng-click="gotomyexpense()">View My Expenses</button>
+       <button class="btn btn-primary btn-md" ng-click="gotomyexpense()">View My Expenses</button>
     </div>
 </div>
 </div>

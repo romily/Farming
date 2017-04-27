@@ -1,8 +1,8 @@
-angular.module('app').controller('CropExpenseTabController', ['$scope','$stateParams','$state','AddExpenseService',function($scope,$stateParams,$state,AddExpenseService) {
+angular.module('app').controller('CropExpenseTabController', ['$scope','$stateParams','$state','AddExpenseService','$timeout',function($scope,$stateParams,$state,AddExpenseService,$timeout) {
 console.log("CROP Expense TAB CONTROLLER");
 var id=$stateParams.planId;
+$scope.deletesuccess=false;
 $scope.expense={};
-//console.log(f)
 $scope.expense.planid=id;
 $scope.expense.userid=$stateParams.UserId;
 console.log($scope.expense.planid)
@@ -97,7 +97,14 @@ $scope.clear=function(){
 $scope.delete=function(id){
 
 AddExpenseService.deleteExpense(id).then(function(data){
-  $state.reload();
+
+	$scope.deletesuccess=true;
+   $timeout(function () {
+      $scope.deletesuccess = false;
+ $state.reload();
+       }, 2000);
+
+ 
 
 }).catch(function(error){
   console.log("Error in delete expense: "+error)

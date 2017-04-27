@@ -1,7 +1,9 @@
-angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService',function($scope,
-      $state,AddExpenseService) {
+angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService','$timeout',function($scope,
+      $state,AddExpenseService,$timeout) {
 console.log("CROP Expense Category CONTROLLER");
 $scope.expense={};
+$scope.addsuccess=false;
+$scope.addfail=false;
 	$scope.expense=AddExpenseService.getData();
 		
 
@@ -110,9 +112,21 @@ angular.forEach($scope.expense.expense_category,function(value,key){
 
 AddExpenseService.addExpense($scope.expense).then (function(response){
 	console.log("Response from Controller:"+response)
-	$state.go('cropexpensetab',{UserId:$scope.expense.userid})
+
+$scope.addsuccess=true;
+   $timeout(function () {
+      $scope.addsuccess = false;
+$state.go('cropexpensetab',{UserId:$scope.expense.userid})
+    }, 1000);
+
 }).catch (function(error){
 	console.log("Error from Controller:"+error)
+$scope.addfail=true;
+   $timeout(function () {
+      $scope.addfail = false;
+    }, 1000);
+
+
 });
 
 };

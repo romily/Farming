@@ -1,12 +1,16 @@
-angular.module('app').controller('CropPlanTabController',['$scope','$state','$stateParams','AddPlanService','$http',function($scope,$state,$stateParams,AddPlanService,$http) {
-$scope.f=[];
+angular.module('app').controller('CropPlanTabController',['$scope','$state','$stateParams','AddPlanService','$http','$timeout',function($scope,$state,$stateParams,AddPlanService,$http,$timeout) {
+$scope.load=function(){
+  $scope.f=[];
 $scope.id=0;
 $scope.s=false;
+$scope.deleteflag=false;
 $scope.userid=$stateParams.UserId;
 //console.log(id)
 $scope.successstatus=false;
 $scope.errorstatus=false;
 $scope.form=true;
+$scope.viewplan($scope.userid);
+};
 $scope.viewplan=function(id){
 console.log(id)
   AddPlanService.viewPlan(id).then(function(data){
@@ -16,7 +20,7 @@ console.log(id)
   });
 
   };
-$scope.viewplan($scope.userid);
+
 $scope.gotoadd=function(){
   console.log($scope.userid)
     $state.go('addplan',{UserId:$scope.userid})
@@ -79,7 +83,7 @@ else if(($scope.plan.no_beds==undefined || $scope.plan.no_beds==0)&&($scope.plan
       $scope.successstatus=true;
 
       $scope.id=data.data.id;
-      //$state.go('addexpense',{planId:data.data.id});
+      
        }).catch(function(error) {
         console.log("Error in Add Plan: "+error)
         $scope.farm=false;
@@ -95,9 +99,14 @@ $scope.clear=function(){
 };
 
 $scope.delete=function(id){
-
+ 
 AddPlanService.deletePlan(id).then(function(data){
+  $scope.deleteflag=true;
+   $timeout(function () {
+      $scope.deleteflag = false;
   $state.reload();
+    }, 2000);
+  
 
 }).catch(function(error){
   console.log("Error in delete plan: "+error)

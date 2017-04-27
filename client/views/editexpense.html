@@ -36,14 +36,6 @@
               <span style="color:red" ng-show="addForm.activity.$error.pattern">Activity Should not contain digits</span>
   
     </div>
-
- <!--   <div class="form-group col-md-6 col-sm-6">
-            <label for="soiltype">Type Of Soil <span style="color:red">*</span></label>
-             <input type="text" class="form-control input-sm" name="soiltype" placeholder="" required ng-model="plan.soiltype" ng-pattern="/^[a-zA-Z ]+$/"/>
-              <span style="color:red" ng-show="addForm.soiltype.$error.pattern">Soil Type Should not contain digits</span>
-        </span>
-            
-    </div>-->
     <div class="form-group col-md-6 col-sm-6">
             <label for="labour">Labour <span style="color:red">*</label>
             <input type="text" ng-pattern="/[0-9]+$/" class="form-control input-sm" name="labour" required placeholder="" ng-model="expense.labour"/>
@@ -155,6 +147,23 @@
 </form>
 </div>
 </div>
+ <div class="alert alert-success" ng-show="editsuccess">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+               <span class="glyphicon glyphicon-ok"></span> <strong>Success Message</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    Crop Expense Edited Successfully!</p></div>
+
+ <div class="alert alert-danger" ng-show="editfail">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Danger Message</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    Editing Crop 
+                    Expense Fails. Change a few things up and try submitting again.</p>
+            </div>
 <script type="text/javascript">
 
 $('.form_date').datetimepicker({

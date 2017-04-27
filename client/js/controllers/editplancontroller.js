@@ -1,12 +1,13 @@
-angular.module('app').controller('EditPlanController', ['$scope','$stateParams', '$state','EditPlanService',function($scope,$stateParams
-,$state,EditPlanService) {
-  var id=$stateParams.Myid;
-  $scope.userid=$stateParams.UserId;
-  console.log($scope.userid)
-$scope.plan={};
+angular.module('app').controller('EditPlanController', ['$scope','$stateParams', '$state','EditPlanService','$timeout',function($scope,$stateParams
+,$state,EditPlanService,$timeout) {
+ 
 
 $scope.load=function(){
-
+ var id=$stateParams.Myid;
+  $scope.userid=$stateParams.UserId;
+  $scope.editsuccess=false;
+  $scope.editfail=false;
+  $scope.plan={};
   EditPlanService.editplan(id).then (function (data){
 
   $scope.plan=data;
@@ -88,10 +89,21 @@ else if(($scope.plan.no_beds==undefined || $scope.plan.no_beds==0)&&($scope.plan
 }
 
 EditPlanService.edit($scope.plan,id).then(function(response){
- $state.go('cropplantab',{UserId:$scope.plan.userid})
+  $scope.editsuccess=true;
+   $timeout(function () {
+      $scope.editsuccess = false;
+      $state.go('cropplantab',{UserId:$scope.plan.userid})
+       }, 2000);
+  
+ 
     })
 
    .catch(function (error){
+    $scope.editfail=true;
+   $timeout(function () {
+      $scope.editfail = false;
+     // $state.go('cropplantab',{UserId:$scope.plan.userid})
+       }, 2000);
    	console.log("Error in edit record: "+error)
 
    })

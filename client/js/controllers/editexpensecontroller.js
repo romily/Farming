@@ -1,10 +1,13 @@
-angular.module('app').controller('EditExpenseController', ['$scope','$stateParams', '$state','EditExpenseService',function($scope,$stateParams
-,$state,EditExpenseService) {
+angular.module('app').controller('EditExpenseController', ['$scope','$stateParams', '$state','EditExpenseService','$timeout',function($scope,$stateParams
+,$state,EditExpenseService,$timeout) {
 	console.log("I am EditExpense Controller")
 
   var id=$stateParams.Myid;
 $scope.expense={};
 var ref;
+$scope.editsuccess=false;
+$scope.editfail=false;
+
 $scope.load=function(){
 
   EditExpenseService.editexpense(id).then (function (data){
@@ -22,24 +25,7 @@ $scope.cheflag=false;
 $scope.neftflag=false;
 $scope.nbflag=false;
 $scope.paymode=""
-/*$scope.expense.expense_category = []; 
-$scope.list = [
-{id: 1, label: "Seed", amount:0},
- {id: 2, label: "Fertilizer",amount:0}, 
- {id: 3, label: "Pesticides" ,amount:0},
-{id: 4, label: "Soil Test",amount:0},
-{id: 5, label: "Machinery" ,amount:0},
-{id: 6, label: "Labour" ,amount:0},
-{id: 7, label: "Watering" ,amount:0},                         
-{id: 8, label: "Plant Protection" ,amount:0},
-{id: 9, label: "After Harvest",amount:0},                         
-{id: 10, label: "Storage" ,amount:0},
-{id: 11, label: "Other Expenses" ,amount:0}
-];
-console.log($scope.expense.list)
-$scope.f=[false,false,false,false,false,false,false,false,false,false,false]
 
-*/
 $scope.gotoeditexpensecategory=function(data){
 
 
@@ -63,11 +49,25 @@ else
 console.log($scope.expense.reference)
 EditExpenseService.edit($scope.expense,id).then(function(response){
   console.log($scope.expense.userid)
+
+$scope.editsuccess=true;
+   $timeout(function () {
+      $scope.editsuccess = false;
  $state.go('cropexpensetab',{UserId:$scope.expense.userid})
+       }, 2000);
+
+
+
+ 
     })
 
    .catch(function (error){
    	console.log("Error in edit record: "+error)
+    $scope.editfail=true;
+   $timeout(function () {
+      $scope.editfail = false;
+       }, 2000);
+
 
    })
 };

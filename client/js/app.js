@@ -75,7 +75,7 @@ $stateProvider
 
       $stateProvider
       .state('addplan', {
-        url: '/addplan/:UserId',
+        url: '/addplan/:LandId/:UserId',
         templateUrl: 'views/addplan.html',
         controller: 'CropPlanTabController'
       });

@@ -3,7 +3,8 @@ function($state,$q,$http) {
 return ( {
     addPlan : addPlan,
     viewPlan :viewPlan,
-    deletePlan:deletePlan
+    deletePlan:deletePlan,
+    getLandAddress:getLandAddress
 });
 
 function  addPlan(data) {
@@ -23,6 +24,30 @@ function  addPlan(data) {
      });
      return deferred.promise;    
 };
+
+
+
+function getLandAddress(landid)
+{
+    var deferred=$q.defer();
+    $http.get('/api/landregistrations/'+landid).then (function(data){
+        console.log(data)
+ if (data.status === 200) {
+             deferred.resolve(data);
+
+
+         } else {
+             deferred.reject(data);
+         }
+     }).catch(function(data) {
+       deferred.reject(data);
+     });
+     return deferred.promise; 
+};
+
+
+
+
 function viewPlan(id){
     var deferred = $q.defer();
     $http.get('/api/cropplans/?filter[where][userid]='+id)

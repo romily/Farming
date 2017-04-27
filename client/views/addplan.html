@@ -98,7 +98,7 @@ hr.message-inner-separator
 
         <div class="form-group col-md-3 col-sm-3">
             <label for="locations">Location</label>
-            <input type="text" class="form-control input-sm" name="locations" placeholder="" ng-pattern="/^[a-zA-Z]+$/" ng-model="plan.locations"/>
+            <input type="text" disabled class="form-control input-sm" name="locations" placeholder="" ng-pattern="/^[a-zA-Z]+$/" ng-model="plan.locations"/>
             <span style="color:red" ng-show="addForm.locations.$error.pattern">Locations Should not contain digits</span>
         </span>
         </div>
@@ -123,13 +123,13 @@ hr.message-inner-separator
         </div>
         <div class="form-group col-md-12 col-sm-12">
         <div class="form-group col-md-3 col-sm-3">  
-<button class="btn btn-primary btn-lg btn-block" ng-click="clear()">Clear</button>
+<button class="btn btn-primary" ng-click="clear()">Clear</button>
     </div>
     <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg btn-block" ng-click="addplan()">Add Crop Plan</button>
+       <button class="btn btn-primary" ng-click="addplan()">Add Crop Plan</button>
     </div>
      <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-lg " ng-click="gotomyprofile()">Go to My Profile</button>
+       <button class="btn btn-primary" ng-click="gotomyprofile()">Go to My Profile</button>
     </div>
 
 </div>

@@ -1,15 +1,12 @@
 angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService','$timeout',function($scope,
       $state,AddExpenseService,$timeout) {
-console.log("CROP Expense Category CONTROLLER");
-$scope.expense={};
-$scope.addsuccess=false;
-$scope.addfail=false;
+$scope.load=function(){
+	$scope.expense={};
+	$scope.addsuccess=false;
+	$scope.addfail=false;
 	$scope.expense=AddExpenseService.getData();
-		
-
-$scope.f=[false,false,false,false,false,false,false,false,false,false,false]
-angular.forEach($scope.expense.expense_category,function(value,key){
-	
+	$scope.f=[false,false,false,false,false,false,false,false,false,false,false]
+	angular.forEach($scope.expense.expense_category,function(value,key){
 		switch(value.id)
 		{
 			case 1:
@@ -31,7 +28,7 @@ angular.forEach($scope.expense.expense_category,function(value,key){
 			$scope.f[5]=true;
 			break;
 			case 7:
-			$scope.f[6]=true;
+			$scope.f[6]=true;	
 			break;
 			case 8:
 			$scope.f[7]=true;
@@ -47,34 +44,16 @@ angular.forEach($scope.expense.expense_category,function(value,key){
 			break;
 }
 });
+};
+
+
 $scope.addexpensecategory=function(){
-	
-
-	console.log($scope.expense.planid)
-console.log($scope.expense.voucher)
-console.log($scope.expense.activity)
-console.log($scope.expense.date)
-console.log($scope.expense.labour)
-console.log($scope.expense.amount)
-console.log($scope.expense.paidto)
-console.log($scope.expense.spender)
-console.log($scope.expense.chequeno)
-console.log($scope.expense.bank)
-console.log($scope.expense.accno)
-//$scope.expense.reference=document.getElementById('file').files[0].name;
-console.log($scope.expense.reference)
-console.log($scope.expense)
-	
-
-
-angular.forEach($scope.expense.expense_category,function(value,key){
-	console.log(value.label)
+	angular.forEach($scope.expense.expense_category,function(value,key){
 		switch(value.id)
 		{
 			case 1:
 			value.amount=$scope.seed;
 			console.log($scope.expense.expense_category.amount)
-		//	$scope.expense.expense_category[0].label="seed";
 			break;
 			case 2:
 			value.amount=$scope.fertilizer;

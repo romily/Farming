@@ -1,4 +1,4 @@
-angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','userauthentication','userregistration','userprofileService',function($scope,$state,$stateParams,userauthentication,userregistration,userprofileService){
+angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','userauthentication','userregistration','userprofileService','$http',function($scope,$state,$stateParams,userauthentication,userregistration,userprofileService,$http){
 
 $scope.init = function(){
 	$scope.getstate();	
@@ -10,7 +10,7 @@ $scope.getprofile = function(){
 	if($stateParams.id){
 		userprofileService.getprofile($stateParams.id).then(function(data){
 			$scope.profileInfo = data.data[0];
-			console.log("eniya")
+		console.log("eniya")
 		    $scope.profileInfo.state_id = $scope.profileInfo.state;
 			console.log($scope.profileInfo.state)			
 		}).catch(function(data){
@@ -22,7 +22,6 @@ $scope.getprofile = function(){
 $scope.getstate = function(){
 	userregistration.getstate().then(function(data){
 			$scope.states = data.data;
-			// console.log(data.data)
 	}).catch(function(data){
 		console.log(data);
 	}); 
@@ -95,6 +94,9 @@ $scope.deleteland=function(id){
 
 // };
 
-
+$scope.addplan=function(userid,landid)
+{
+	$state.go('addplan',{UserId:userid,LandId:landid})
+}
 
 }])

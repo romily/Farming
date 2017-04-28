@@ -90,9 +90,9 @@ function deletePlanForLand(landid)
 {
     var deferred = $q.defer();
     console.log(landid)
-    $http.delete('/api/cropplans/filter?[landid]='+landid)
+    $http.delete('/api/cropplans?filter[where][landid]='+landid)
     .then(function(response) {
-        console.log(response.data)
+        console.log(response)
    if (response.status === 200) {
         deferred.resolve(response.data);
 

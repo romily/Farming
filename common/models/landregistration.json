@@ -55,6 +55,11 @@
      "type": "belongsTo",
      "model": "village",
      "foreignKey": "village"
+   },
+   "PlanInfo":{
+    "type":"hasMany",
+    "model":"cropplan",
+    "foreignKey":"landid"
    }
   },
   "acls": [],

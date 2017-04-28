@@ -4,7 +4,8 @@ return ( {
     addPlan : addPlan,
     viewPlan :viewPlan,
     deletePlan:deletePlan,
-    getLandAddress:getLandAddress
+    getLandAddress:getLandAddress,
+    deletePlanForLand:deletePlanForLand
 });
 
 function  addPlan(data) {
@@ -83,5 +84,35 @@ function deletePlan(id)
  return deferred.promise;   
 
 };
+
+
+function deletePlanForLand(landid)
+{
+    var deferred = $q.defer();
+    console.log(landid)
+    $http.delete('/api/cropplans/?filter[where][landid]='+landid)
+    .then(function(response) {
+        console.log(response)
+  /*  if (response.status === 200) {
+        deferred.resolve(response.data);
+
+         } else {
+             deferred.reject(response.data);
+             }*/
+         }).catch(function(error) {
+         deferred.reject(response);
+     });
+ return deferred.promise;   
+
+};
+
+
+
+
+
+
+
+
+
 
 }]);

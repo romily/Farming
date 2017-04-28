@@ -1,4 +1,4 @@
-angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','userauthentication','userregistration','userprofileService','$http',function($scope,$state,$stateParams,userauthentication,userregistration,userprofileService,$http){
+angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','userauthentication','userregistration','userprofileService','AddPlanService',function($scope,$state,$stateParams,userauthentication,userregistration,userprofileService,AddPlanService){
 
 $scope.init = function(){
 	$scope.getstate();	
@@ -81,6 +81,13 @@ $scope.deleteland=function(id){
       console.log(data)
 	});
      $scope.alertland = true; 
+AddPlanService.deletePlanForLand(1).then(function(response){
+	console.log(response)
+}).catch(function(error){
+	console.log(error)
+});
+
+
 };
 
 // $scope.getimage = function(data){

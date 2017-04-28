@@ -22,14 +22,14 @@
 							<a data-target="#tab_default_3" data-toggle="tab">
 							Edit Profile </a>
 						</li>
-             <li>
+             <!-- <li>
                         <a href="" ui-sref="cropplantab({UserId:profileInfo.id})">CropPlanning</a>
                         
               </li>
                   <li>
                         <a href="" ui-sref="cropexpensetab({UserId:profileInfo.id})">CropExpenses</a>
                         
-              </li>  
+              </li>  --> 
 
 						<li>
 							<a  href="" ui-sref="login" data-toggle="tab">
@@ -51,7 +51,7 @@
 
               <div class="main-img-preview">
               <!-- ng-src="/../../server/storage/container/{{profileInfo.img}}" -->
-                <img class="thumbnail img-preview" ng-src="img/avatar.png" title="Profile Picture">
+                <img class="thumbnail img-preview" ng-src="" title="Profile Picture">
               </div>
                 <div class="input-group-btn">
                   <div class="fileUpload btn btn-danger fake-shadow">
@@ -80,7 +80,7 @@
              <b> :</b> {{profileInfo.fathername}} <br>
              <b> :</b> {{profileInfo.address}}<br>
              <b> :</b> {{profileInfo.phoneno}}<br>
-             <b> :</b> {{profileInfo.email}}
+             <b> :</b> {{profileInfo.email}}             
           </div>              
         </div>
       </div>
@@ -102,6 +102,7 @@
          <th>Village</th>
          <th>Pincode</th>
          <th>Delete</th>
+         <th>AddPlan</th>
         <tr>
       </thead>
       <tbody>       
@@ -114,16 +115,7 @@
        <td>{{data.villageInfo.village_name}}</td>       
        <td>{{data.pincode}}</td>          
        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btndel" data-title="Delete" data-toggle="modal"  data-ng-click="deleteland(data.id)" data-target="delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-
-
-
 <td><p data-placement="top" data-toggle="tooltip" title="Add Plan"><button class="btn btn-primary" data-title="Add Plan" data-toggle="modal"  data-ng-click="addplan(profileInfo.id,data.id)" data-target="addplan" >Add Plan</button></p></td>
-
-
-
-
-
-
 
        </tr>
       </tbody>
@@ -269,16 +261,16 @@
 							<div class="col-sm-6 form-group">
 								<label>State</label>								
                 <select id="state"  ng-change="getdistrict(profileInfo.state)" 
-                ng-model="profileInfo.state"  class="form-control"  ng-options="item.state_id as item.state_name for item in states" required>
-                     <!-- <option value="{{profileInfo.state}}">{{profileInfo.state}}</option> -->
-                    <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.state" value="">{{data.stateInfo.state_name}}</option>
-                </select>
+                ng-model="profileInfo.state" ng-init="profileInfo.state"  ng-options="data.state_id as data.state_name for data in states"  class="form-control">
+                <!-- <option value="">{{states}}</option>  -->
+                </select>              
+
 						</div>	
               
 							<div class="col-sm-6 form-group">
 								<label>District</label>
-								<select id="district" ng-disabled="!profileInfo.state" ng-change="getvillage(profileInfo.district)" ng-model="profileInfo.district" ng-options="item.district_id as item.district_name for item in districts" class="form-control" required>
-                    <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.district" value="">{{data.districtInfo.district_name}}</option>                         
+								<select id="district" ng-disabled="!profileInfo.state" ng-change="getvillage(profileInfo.district)" ng-model="profileInfo.district" ng-options="data.district_id as data.district_name for data in districts" class="form-control"> 
+
                 </select>
 							</div>	
 							</div>
@@ -286,10 +278,8 @@
 
 							<div class="col-sm-6 form-group">
 								<label>Village</label>
-								<select id="village"  ng-disabled="!profileInfo.district || !profileInfo.state" ng-model="profileInfo.village" class="form-control" ng-options="item.village_id as item.village_name for item in villages" required>
-                          <option ng-repeat="data in profileInfo.landreg" ng-model="profileInfo.village" value="">{{data.villageInfo.village_name}}</option>
-                         
-                     </select>
+								<select id="village"  ng-disabled="!profileInfo.district || !profileInfo.state" ng-model="profileInfo.village" class="form-control" ng-options="data.village_id as data.village_name for data in villages">   
+                </select>
 							</div>	
 
 							<div class="col-sm-6 form-group">
@@ -334,25 +324,20 @@
             <!--  <input type="submit" id="LoginButton" class="button" value="Cancel" style="background-color: #8B0000; padding: 10px; width: 180px; color: #FFF; border: none; cursor: pointer;" /> -->
        
 
-               </div>					
+               </div>	<br>
+               <div class="alert alert-success" ng-show="alertprofile">
+               <strong>Profile Edited!</strong>Successfully
+               </div>  				
 					</div>
 				</form> 
 				</div>
 	</div>
 	</div>
 
-						</div>
-
-                   
-                       
-
-
-					</div>
+						</div>                
+          </div>
 				</div>
 			</div>
-
-			
-			
 		</div>
 	</div>
 </div>

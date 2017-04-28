@@ -1,5 +1,5 @@
 
-angular.module('app').controller('RegController',['$scope','$state' ,'userregistration','Upload', function($scope,$state,userregistration,Upload){
+angular.module('app').controller('RegController',['$scope','$state','$timeout','userregistration','Upload', function($scope,$state,$timeout,userregistration,Upload){
 
  $scope.farmpersonals=[];
 
@@ -51,6 +51,7 @@ $scope.addregister = function(newregister){
 	           file : image,
 	           method : fileUploadName,
 	           type : accountType
+	           
 	       }
    	}).then(function(response) {
         newregister.img = response.data.result.files.file[0].name;
@@ -72,7 +73,12 @@ $scope.addregister = function(newregister){
             	}else{                    
                     $scope.alertsuccess = true;
             	}
-        	});     
+        	});
+        	 $timeout(function () { 
+		     	$scope.alertsuccess = false;
+		     	$state.reload(); 
+		        },1000) 
+
         }).catch(function(data) {
             console.log(data)
         });

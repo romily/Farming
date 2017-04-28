@@ -70,7 +70,7 @@ function viewPlan(id){
 function deletePlan(id)
 {
     var deferred = $q.defer();
-    $http.delete('/api/cropplans/'+id)
+ $http.delete('/api/cropplans/'+id)
     .then(function(response) {
     if (response.status === 200) {
         deferred.resolve(response.data);
@@ -90,17 +90,17 @@ function deletePlanForLand(landid)
 {
     var deferred = $q.defer();
     console.log(landid)
-    $http.delete('/api/cropplans/?filter[where][landid]='+landid)
+    $http.delete('/api/cropplans/filter?[landid]='+landid)
     .then(function(response) {
-        console.log(response)
-  /*  if (response.status === 200) {
+        console.log(response.data)
+   if (response.status === 200) {
         deferred.resolve(response.data);
 
          } else {
              deferred.reject(response.data);
-             }*/
+             }
          }).catch(function(error) {
-         deferred.reject(response);
+         deferred.reject(error.data);
      });
  return deferred.promise;   
 

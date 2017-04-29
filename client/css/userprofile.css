@@ -118,6 +118,22 @@ Licensed under MIT
 .landregister th{
     background-color: #dddddd;
 }
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+  background-color: #6666ff;
+}
+.glyphicon {
+  color:white;
+}
+.glyphicon-trash{
+  size:2px;
+  color:black;
+}
 /*.glyphicon-pencil{
    size:2px;
 }

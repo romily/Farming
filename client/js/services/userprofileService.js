@@ -5,7 +5,8 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
         getprofile:getprofile,
         landregister:landregister, 
         editprofile:editprofile,
-        deleteland:deleteland
+        deleteland:deleteland,
+        uploadimage : uploadimage
         // getimage:getimage    
     }); 
 
@@ -41,7 +42,19 @@ angular.module('app').factory('userprofileService',['$state','$q','$http',functi
             deferred.reject(error);
         })
          return deferred.promise;    
-    };   
+    }; 
+
+    function uploadimage(data) {
+        console.log(data)
+        var deferred = $q.defer();
+        $http.put('/api/farmpersonals/',data).then(function(response) {
+            console.log(response)            
+            deferred.resolve(response);
+        }, function(error){
+            deferred.reject(error);
+        })
+         return deferred.promise;    
+    };    
     
     function  deleteland(id) {
         console.log("veni")        

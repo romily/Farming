@@ -40,7 +40,7 @@
                         <span><i class="glyphicon glyphicon-upload"></i>Upload Image</span>
                         <input id="logo-id" name="img" type="file" class="attachment_upload" ngf-select ng-model="newregister.img" ngf-pattern="'image/*'"
 					           accept=".jpg,.jpeg,.png"
-					           ngf-max-size="20MB" > 
+					           ngf-max-size="20MB" ng-change=uploadimage(newregister) > 
                        
                         <!-- <input type="file" ngf-select ng-model="newregister.files" class="filestyle" name="filename" > -->
                      </div>

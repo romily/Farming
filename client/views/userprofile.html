@@ -51,12 +51,13 @@
 
               <div class="main-img-preview">
               <!-- ng-src="/../../server/storage/container/{{profileInfo.img}}" -->
-                <img class="thumbnail img-preview" ng-src="" title="Profile Picture">
+                <img class="thumbnail img-preview" ng-src="storage/container/{{profileInfo.img}}" title="Profile Picture">
               </div>
                 <div class="input-group-btn">
                   <div class="fileUpload btn btn-danger fake-shadow">
                     <span><i class="glyphicon glyphicon-upload"></i>Edit Picture</span>
-                    <input id="logo-id" name="img" ngf-select type="file" class="attachment_upload" ng-model="img">
+                    <input id="logo-id" name="img" ngf-select type="file" class="attachment_upload" ng-model="profileInfo.img" ng-change=uploadimage(profileInfo)  ngf-pattern="'image/*'" accept=".jpg,.jpeg,.png"
+                     ngf-max-size="10MB">
                   </div>
                 </div>
               
@@ -85,12 +86,13 @@
         </div>
       </div>
 
-     
-               
-
+                
+  <div class="message" ng-show="message">
+    <p>Yet Not Registered please Registered the land</p>
+    </div>
   <div class="landregister">
    <div class="col-lg-12">
-         <h3>Land Information</h3><br>
+         <h3>Land Information</h3><br>          
     <table>
       <thead>
          <tr>
@@ -115,7 +117,7 @@
        <td>{{data.villageInfo.village_name}}</td>       
        <td>{{data.pincode}}</td>          
        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btndel" data-title="Delete" data-toggle="modal"  data-ng-click="deleteland(data.id)" data-target="delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-<td><p data-placement="top" data-toggle="tooltip" title="Add Plan"><button class="btn btn-primary" data-title="Add Plan" data-toggle="modal"  data-ng-click="addplan(profileInfo.id,data.id)" data-target="addplan" >Add Plan</button></p></td>
+<td><p data-placement="top" data-toggle="tooltip" title="Add Plan"><button class="btn btn-default btn-circle btn-lg" data-title="Add Plan" data-toggle="modal"  data-ng-click="addplan(profileInfo.id,data.id)" data-target="addplan" ><i class="glyphicon glyphicon-plus"></i></button></p></td>
 
        </tr>
       </tbody>

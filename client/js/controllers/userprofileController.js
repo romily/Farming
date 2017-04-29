@@ -114,6 +114,11 @@ $scope.deleteland=function(id){
     console.log(id) 
      $scope.alertland = false;  
     // $scope.data.user_id = $stateParams.id;
+    AddPlanService.deletePlanForLand(id).then(function(response){
+	console.log(response)
+}).catch(function(error){
+	console.log(error)
+});
 	userprofileService.deleteland(id).then(function(data) {	
     console.log(data)    	
    	$state.reload()    
@@ -121,11 +126,7 @@ $scope.deleteland=function(id){
       console.log(data)
 	});
      $scope.alertland = true; 
-AddPlanService.deletePlanForLand(1).then(function(response){
-	console.log(response)
-}).catch(function(error){
-	console.log(error)
-});
+
 
 
 };

@@ -1,6 +1,4 @@
 <html>
-
-<!--<div ng-include src="'views/carousel.html'"></div>-->
 <div class="excontainer">
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
@@ -64,9 +62,17 @@
     <span style="color:red" ng-show="addForm.spend.$error.pattern">Name Should not contain digits</span>
 
 </div>
-    
-<div class="form-group col-md-12 col-sm-12">
+    <div class="form-group col-md-6 col-sm-6">
+            <label for="reference" >Reference <span style="color:red">*</span></label>
+<input type="file" id="idfile" name="file" ngf-select required ng-model="expense.reference" ng-change="addreference(expense)"/>
+<span style="color:red" ng-show="addForm.file.$error.dirty">Please Upload reference</span>
+</div>
 <div class="form-group col-md-6 col-sm-6">
+            Select Expense Category<span style="color:red">*</span></label>
+<div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category" ></div>
+ </div>
+
+<div class="form-group col-md-12 col-sm-12">
  <label for="paymentmode">Mode of Payment <span style="color:red">*</span></label>
             <div class="checkrow" required ng-checked="radio(expense.paymode)">
                 <div class="form-group col-md-3 col-sm-3">
@@ -91,20 +97,30 @@
             <label for="Net Banking">Net Banking</label>
         </div></div>
     </div>
-
-</div>
-<div class="form-group col-md-3 col-sm-3">
-            <label for="reference" >Reference <span style="color:red">*</span></label>
-<input type="file" id="idfile" name="file" ngf-select required ng-model="expense.reference" ng-change="addreference(expense)"/>
-<span style="color:red" ng-show="addForm.file.$error.dirty">Please Upload reference</span>
-</div>
+</div></div>
 
 
-<div class="form-group col-md-3 col-sm-3">
-            Select Expense Category<span style="color:red">*</span></label>
-<div ng-dropdown-multiselect="" ng-selected="item(expense.expense_category)" options="list" selected-model="expense.expense_category" ></div>
- </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> baf461fae2f7a5fcd2227fbf415407e923f55981
+
+
 
 <div class="form-group col-md-12 col-sm-12">
     <div class="form-group col-md-6 col-sm-6" ng-show="cheflag">

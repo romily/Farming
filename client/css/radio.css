@@ -63,7 +63,30 @@
     .checkrow{
         padding-left:10px; 
     }
+.addcontainer{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.excontainer{
+    padding-left:80px;
+    padding-right: 80px;
+}
+.cropcontainer{
+  width:100%;
+  padding-left:50px;
+  padding-right:50px;
+  font-size:15px; 
+}
+.btns btn-primary btn-sm{
+    font-size:1px;
 
+}
+.btns {
+    font-size:15px;
+    width:80px;
+    height:40px;
+    border-radius: 7px;
+}
 
 
 

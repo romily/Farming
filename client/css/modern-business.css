@@ -91,3 +91,6 @@ footer {
         height: 70%;
     }
 }
+.panel panel-primary{
+    font-size:1px;
+}

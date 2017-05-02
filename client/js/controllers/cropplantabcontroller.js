@@ -34,6 +34,7 @@ $scope.viewplan=function(id){
 
   };
 
+
 $scope.addplan=function(){
   $scope.plan.userid=$scope.userid;
 

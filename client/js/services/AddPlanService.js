@@ -5,7 +5,7 @@ return ( {
     viewPlan :viewPlan,
     deletePlan:deletePlan,
     getLandAddress:getLandAddress,
-    deletePlanForLand:deletePlanForLand
+   // deletePlanForLand:deletePlanForLand
 });
 
 function  addPlan(data) {
@@ -86,7 +86,7 @@ function deletePlan(id)
 };
 
 
-function deletePlanForLand(landid)
+/*function deletePlanForLand(landid)
 {
     var deferred = $q.defer();
     console.log(landid)
@@ -108,5 +108,5 @@ function deletePlanForLand(landid)
     console.log(error)
  });
  return deferred.promise;
-};
+};*/
 }]);

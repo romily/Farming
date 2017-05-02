@@ -1,4 +1,4 @@
-angular.module('app').controller('CropExpenseTabController', ['$scope','$stateParams','$state','AddExpenseService','$timeout',function($scope,$stateParams,$state,AddExpenseService,$timeout) {
+angular.module('app').controller('CropExpenseTabController', ['$scope','$stateParams','$state','AddExpenseService','$timeout','Upload',function($scope,$stateParams,$state,AddExpenseService,$timeout,Upload) {
 console.log("CROP Expense TAB CONTROLLER");
 var id=$stateParams.planId;
 $scope.deletesuccess=false;
@@ -27,6 +27,8 @@ $scope.list = [
 ];
 console.log($scope.expense.list)
 $scope.f=[false,false,false,false,false,false,false,false,false,false,false]
+
+
 $scope.addexpense=function(selectitems,data){
 $scope.expense.reference=document.getElementById('idfile').files[0].name;
 AddExpenseService.putData(selectitems,data).then(function(data){
@@ -35,41 +37,63 @@ AddExpenseService.putData(selectitems,data).then(function(data){
   }).catch(function(error){
     console.log(error)
   });
+$state.go('expensecategory')
+};
 
-	$state.go('expensecategory')
 
+
+
+$scope.addreference=function(expense)
+{
+var accountType='';
+var img=$scope.expense.reference;
+var fileUploadName='cropexpensetab'
+console.log(fileUploadName)
+Upload.upload({
+	url: '/api/containers/container/upload/?type='+accountType+'&file_upload_name='+fileUploadName,
+	data:{
+		file:img,
+		method:fileUploadName,
+		type:accountType
+	}
+}).then (function(response){
+	console.log(response)
+}).catch (function(error){
+	console.log(error)
+});
 
 
 };
+
 $scope.radio=function(item){
 	switch(item)
 	{
 		
 		case 'Cash':
+			$scope.cheflag=false;
+			$scope.neftflag=false;
+			$scope.nbflag=false;
+			console.log(item)
+			break;
+	case 'Cheque':
+		
+		$scope.neftflag=false;
+		$scope.cheflag=true;
+		$scope.nbflag=false;
+		break;
+	case 'Neft':
+		
+		$scope.cheflag=false;
+		$scope.neftflag=true;
+		$scope.nbflag=false;
+		break;
+	case 'Net Banking':
+		
 		$scope.cheflag=false;
 		$scope.neftflag=false;
-		$scope.nbflag=false;
-		console.log(item)
-	break;
-	case 'Cheque':
-	console.log(item)
-	$scope.neftflag=false;
-	$scope.cheflag=true;
-	$scope.nbflag=false;
-	break;
-	case 'Neft':
-	console.log(item)
-	$scope.cheflag=false;
-	$scope.neftflag=true;
-	$scope.nbflag=false;
-	break;
-	case 'Net Banking':
-	console.log(item)
-	$scope.cheflag=false;
-	$scope.neftflag=false;
-	$scope.nbflag=true;
-	break;
-	//default:
+		$scope.nbflag=true;
+		break;
+		
 }
 };
 

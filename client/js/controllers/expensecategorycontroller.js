@@ -1,5 +1,5 @@
-angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService','$timeout','Upload',function($scope,
-      $state,AddExpenseService,$timeout,Upload) {
+angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService','$timeout',function($scope,
+      $state,AddExpenseService,$timeout) {
 $scope.load=function(){
 	$scope.expense={};
 	$scope.addsuccess=false;
@@ -88,28 +88,6 @@ $scope.addexpensecategory=function(){
 }
 
 });
-
-
-var accountType='';
-var img=$scope.expense.reference;
-console.log(img)
-var fileUploadName='cropexpensetab'
-Upload.upload({
-	url: '/api/containers/container/upload/?type='+accountType+'&file_upload_name='+fileUploadName,
-	data:{
-		file:img,
-		method:fileUploadName,
-		type:accountType
-	}
-}).then (function(response){
-	console.log(response)
-}).catch (function(error){
-	console.log(error)
-});
-
-
-
-
 
 AddExpenseService.addExpense($scope.expense).then (function(response){
 	console.log("Response from Controller:"+response)

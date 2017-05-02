@@ -2,7 +2,7 @@
 
 module.exports = function(Cropplan) {
 	
-	Cropplan.deletePlan=function(landid,cb){
+	/*Cropplan.deletePlan=function(landid,cb){
 
 		var response={};
 		console.log(landid)
@@ -23,6 +23,6 @@ Cropplan.remoteMethod('deletePlan',{
 		type:'[json]',
 		root:'true'
 	}
-});
+});*/
 
 };

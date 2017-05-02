@@ -110,17 +110,17 @@ $scope.uploadimage = function(profileInfo){
   	 });     	 
 };
 
-$scope.deleteland=function(id){
+/*$scope.deleteland=function(id){
     console.log(id) 
      $scope.alertland = false;  
-   /* // $scope.data.user_id = $stateParams.id;
+    // $scope.data.user_id = $stateParams.id;
     AddPlanService.deletePlanForLand(id).then(function(response){
 	//console.log(response)
 }).catch(function(error){
 	console.log(error)
 });
 
-*/
+
 	userprofileService.deleteland(id).then(function(data) {	
     console.log(data)    	
    	$state.reload()    
@@ -131,7 +131,7 @@ $scope.deleteland=function(id){
 
 
 
-};
+};*/
 
 // $scope.getimage = function(data){
 //     console.log(data)   

@@ -1,5 +1,5 @@
 
-angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','userauthentication','userregistration','userprofileService','AddPlanService',function($scope,$state,$stateParams,userauthentication,userregistration,userprofileService,AddPlanService){
+angular.module('app').controller('UserprofileController',['$scope','$state','$stateParams','$timeout','Upload','userauthentication','userregistration','userprofileService','AddPlanService',function($scope,$state,$stateParams,$timeout,Upload,userauthentication,userregistration,userprofileService,AddPlanService){
 
 
 $scope.init = function(){
@@ -52,10 +52,14 @@ $scope.getvillage = function(districtID){
 
 $scope.landregister=function(newregister){
     console.log(newregister)
+    // $scope.message = true;
+    // $scope.table = false;
     $scope.alert = false;  
     newregister.user_id = $stateParams.id;
 	userprofileService.landregister(newregister).then(function(data) {	  		
-    console.log(data)     
+    console.log(data)
+    // $scope.message = false;
+    // $scope.table = true;     
     $scope.alert = true;       
     $timeout(function () { 
      	$scope.alert = false;
@@ -81,6 +85,29 @@ $scope.editprofile=function(profileInfo){
       console.log(data)
 	});
 
+};
+
+$scope.uploadimage = function(profileInfo){
+    var accountType = '';
+	var fileUploadName = 'userprofile'
+    var image = profileInfo.img;
+
+    Upload.upload({
+	    url : '/api/containers/container/upload/?type=' + accountType + '&file_upload_name=' + fileUploadName,
+	       data : {
+	           file : image,
+	           method : fileUploadName,
+	           type : accountType
+	       }
+   	}).then(function(response) {
+         profileInfo.img = response.data.result.files.file[0].name;
+         userprofileService.uploadimage(profileInfo).then(function(data) {
+	         console.log(response) 
+	         console.log(profileInfo.img)	      
+	    }).catch(function(data) {
+            console.log(data)
+        });
+  	 });     	 
 };
 
 $scope.deleteland=function(id){

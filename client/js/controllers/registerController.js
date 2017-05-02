@@ -40,8 +40,8 @@ $scope.getvillage = function(districtID){
 	}); 
 }
 
-$scope.addregister = function(newregister){
-	var accountType = '';
+$scope.uploadimage = function(newregister){
+    var accountType = '';
 	var fileUploadName = 'userprofile'
     var image = newregister.img;
 
@@ -51,10 +51,34 @@ $scope.addregister = function(newregister){
 	           file : image,
 	           method : fileUploadName,
 	           type : accountType
-	           
 	       }
    	}).then(function(response) {
-        newregister.img = response.data.result.files.file[0].name;
+         newregister.img = response.data.result.files.file[0].name;
+        // userregistration.uploadimage(newregister).then(function(data) {
+	         console.log(response) 
+	         console.log(newregister.img)	      
+	    }).catch(function(data) {
+            console.log(data)
+        });
+  	// });     	 
+};
+
+
+$scope.addregister = function(newregister){
+	// var accountType = '';
+	// var fileUploadName = 'userprofile'
+ //    var image = newregister.img;
+
+ //    Upload.upload({
+	//     url : '/api/containers/container/upload/?type=' + accountType + '&file_upload_name=' + fileUploadName,
+	//        data : {
+	//            file : image,
+	//            method : fileUploadName,
+	//            type : accountType
+	           
+	//        }
+ //   	}).then(function(response) {
+ //        newregister.img = response.data.result.files.file[0].name;
         userregistration.addregister(newregister).then(function(data) {
         	$scope.alert = false;
         	$scope.alertemail = false;
@@ -72,18 +96,19 @@ $scope.addregister = function(newregister){
             		$scope.alertuser = true;
             	}else{                    
                     $scope.alertsuccess = true;
+                    $timeout(function () { 
+			     	$scope.alertsuccess = false;
+			     	$state.reload(); 
+			        },1000)
             	}
         	});
-        	 $timeout(function () { 
-		     	$scope.alertsuccess = false;
-		     	$state.reload(); 
-		        },1000) 
+        	  
 
         }).catch(function(data) {
             console.log(data)
         });
         
-  	});     	 
+  	// });     	 
 };
 
 $scope.reset=function(){

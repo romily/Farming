@@ -14,8 +14,9 @@ hr.message-inner-separator
 </script>
 
 <!-- <div ng-include src="'views/carousel.html'"></div>-->
+<div class="addcontainer">
  <div ng-show="form" ng-init="load()">
-<div class="panel panel-primary" style="margin:20px;">
+<div class="panel panel-primary" style="margin:20px; font-size: 16px">
     <div class="panel-heading">
             <h3 class="panel-title">Add Crop Plan</h3>
     </div>
@@ -122,13 +123,13 @@ hr.message-inner-separator
         </div>
         <div class="form-group col-md-12 col-sm-12">
         <div class="form-group col-md-3 col-sm-3">  
-<button class="btn btn-primary" ng-click="clear()">Clear</button>
+<button class="btn btn-primary" ng-click="clear()" style="background-color: #286090; padding: 10px; width: 150px; color: #FFF; border-radius: 7px; cursor: pointer;">Clear</button>
     </div>
     <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary" ng-click="addplan()">Add Crop Plan</button>
+       <button class="btn btn-primary" ng-click="addplan()" style="background-color: #286090; padding: 10px; width: 150px; color: #FFF; border-radius: 7px; cursor: pointer;">Add Crop Plan</button>
     </div>
      <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary" ng-click="gotomyprofile()">Go to My Profile</button>
+       <button class="btn btn-primary" ng-click="gotomyprofile()" style="background-color: #286090; padding: 10px; width: 180px; color: #FFF; border-radius: 7px; cursor: pointer;">Go to My Profile</button>
     </div>
 
 </div>
@@ -149,13 +150,13 @@ hr.message-inner-separator
 
 <div class="form-group col-md-12 col-sm-12">
         <div class="form-group col-md-3 col-sm-3">  
-<button class="btn btn-primary btn-sm" ng-click="addexpense()">Add Crop Expense</button>
+<button class="btn btn-primary btn-sm" ng-click="addexpense()" style="background-color: #286090; padding: 10px; width: 190px; color: #FFF; border-radius: 7px; cursor: pointer;">Add Crop Expense</button>
     </div>
 <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-sm" ng-click="back()">Back</button>
+       <button class="btn btn-primary btn-sm" ng-click="back()" style="background-color: #286090; padding: 10px; width: 100px; color: #FFF; border-radius: 7px; cursor: pointer;">Back</button>
     </div>
     <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary btn-sm " ng-click="gotomyprofile()">Go to My Profile</button>
+       <button class="btn btn-primary btn-sm " ng-click="gotomyprofile()" style="background-color: #286090; padding: 10px; width: 190px; color: #FFF; border-radius: 7px; cursor: pointer;">Go to My Profile</button>
     </div>
 </div>
 </div>
@@ -168,6 +169,7 @@ hr.message-inner-separator
                 <p>
                     Adding Crop 
                     plan Fails. Change a few things up and try submitting again.</p>
+            </div>
             </div>
 
 <script type="text/javascript">

@@ -34,6 +34,7 @@ $scope.viewplan=function(id){
 
   };
 
+
 $scope.addplan=function(){
   $scope.plan.userid=$scope.userid;
 
@@ -99,7 +100,20 @@ $scope.addplan=function(){
 
 
 $scope.clear=function(){
- $scope.plan={};
+ 
+ $scope.plan.cropname="";
+ $scope.plan.croptype="";
+ $scope.plan.seeddate="";
+
+ $scope.plan.maturitydays="";
+ $scope.plan.landrequired="";
+ $scope.plan.no_beds="";
+ $scope.plan.rowperbed="";
+ $scope.plan.soiltype="";
+ $scope.plan.weather="";
+ $scope.plan.seedingmonth="";
+ $scope.plan.transdate="";
+
 };
 
 

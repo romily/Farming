@@ -5,7 +5,7 @@ return ( {
     viewPlan :viewPlan,
     deletePlan:deletePlan,
     getLandAddress:getLandAddress,
-    deletePlanForLand:deletePlanForLand
+   // deletePlanForLand:deletePlanForLand
 });
 
 function  addPlan(data) {
@@ -86,14 +86,17 @@ function deletePlan(id)
 };
 
 
-function deletePlanForLand(landid)
+/*function deletePlanForLand(landid)
 {
     var deferred = $q.defer();
     console.log(landid)
-    $http.delete('/api/cropplans?filter[where][landid]='+landid)
-    .then(function(response) {
-        console.log(response)
-   if (response.status === 200) {
+ var landid="landid="+landid;
+ console.log(landid)
+ $http.get('/api/cropplans/delete-plan-for-land?'+landid).then(function(response){
+    console.log(response)
+    console.log(response.data.data)
+    console.log(response.data.length)
+    if (response.status === 200) {
         deferred.resolve(response.data);
 
          } else {
@@ -101,18 +104,9 @@ function deletePlanForLand(landid)
              }
          }).catch(function(error) {
          deferred.reject(error.data);
-     });
- return deferred.promise;   
-
-};
-
-
-
-
-
-
-
-
-
-
+ }).catch(function(error){
+    console.log(error)
+ });
+ return deferred.promise;
+};*/
 }]);

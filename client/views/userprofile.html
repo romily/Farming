@@ -103,7 +103,7 @@
          <th>District</th>
          <th>Village</th>
          <th>Pincode</th>
-         <th>Delete</th>
+         <th>Land</th>
          <th>AddPlan</th>
         <tr>
       </thead>
@@ -116,10 +116,11 @@
        <td>{{data.districtInfo.district_name}}</td>
        <td>{{data.villageInfo.village_name}}</td>       
        <td>{{data.pincode}}</td>          
-       <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btndel" data-title="Delete" data-toggle="modal"  data-ng-click="deleteland(data.id)" data-target="delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-<td><p data-placement="top" data-toggle="tooltip" title="Add Plan"><button class="btn btn-default btn-circle btn-lg" data-title="Add Plan" data-toggle="modal"  data-ng-click="addplan(profileInfo.id,data.id)" data-target="addplan" ><i class="glyphicon glyphicon-plus"></i></button></p></td>
+      <td><input type="checkbox" ng-model="checked"></td>
+      <!-- <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btndel" data-title="Delete" data-toggle="modal"  data-ng-click="deleteland(data.id)" data-target="delete" ><span class="glyphicon glyphicon-trash"></span></button></p> -->
+      <td><p data-placement="top" data-toggle="tooltip" title="Add Plan"><button class="btn btn-default btn-circle btn-lg" ng-disabled="!checked" data-title="Add Plan" data-toggle="modal"  data-ng-click="addplan(profileInfo.id,data.id)" data-target="addplan" ><i class="glyphicon glyphicon-plus" style="color:white"></i></button></p></td>
 
-       </tr>
+      </tr>
       </tbody>
     </table> <br>
        <div class="alert alert-success" ng-show="alertland">
@@ -347,6 +348,15 @@
 
 
 <script type="text/javascript">
+// $('#check').click(function(){
+     
+//     if($(this).attr('checked') == false){
+//          $('#addplan').attr("disabled","disabled");   
+//     }
+//     else {
+//         $('#addplan').removeAttr('disabled');
+//     }
+// });
   
 $(document).ready(function() {
     var brand = document.getElementById('logo-id');

@@ -141,9 +141,10 @@
 
 			<div class="form-group">
 						<label>EmailAddress<span style="color:red">*</span></label>
-						<input type="email" placeholder="Enter EmailAddress Here.." class="form-control" name="email"  ng-model="newregister.email" required>
+						<input type="email" placeholder="Enter EmailAddress Here.." class="form-control" name="email"  ng-model="newregister.email" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required>
 
 						<span class="help-inline" ng-show="submitted && regform.email.$error.required">Required</span>
+						<span class="help-inline" ng-show="regform.email.$error.pattern">Enter valid Email Address</span>
 			</div>
 			<div class="alert alert-warning" ng-show="alertemail">
 		    Email<strong>Already Exist</strong>

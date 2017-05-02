@@ -147,4 +147,8 @@ $scope.addplan=function(userid,landid)
 	$state.go('addplan',{UserId:userid,LandId:landid})
 }
 
+// $scope.enable=function(){
+
+// }
+
 }])

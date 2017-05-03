@@ -4,6 +4,8 @@ return ( {
     addPlan : addPlan,
     viewPlan :viewPlan,
     deletePlan:deletePlan,
+    viewAllPlans:viewAllPlans,
+    viewAllExpenses:viewAllExpenses,
     getLandAddress:getLandAddress,
    // deletePlanForLand:deletePlanForLand
 });
@@ -109,4 +111,47 @@ function deletePlan(id)
  });
  return deferred.promise;
 };*/
+
+
+
+function viewAllPlans(plan){
+    var deferred = $q.defer();
+    $http.get('/api/cropplans/')
+    .then(function(response)
+    {
+        if (response.status === 200) {
+           
+             deferred.resolve(response.data);
+
+         } else {
+             deferred.reject(response.data);
+             }})
+    .catch(function(error) {
+         deferred.reject(response.data);
+     });
+     return deferred.promise;   
+};
+
+
+function viewAllExpenses(plan){
+    var deferred = $q.defer();
+    $http.get('/api/cropexpenses/')
+    .then(function(response)
+    {
+        if (response.status === 200) {
+           
+             deferred.resolve(response.data);
+
+         } else {
+             deferred.reject(response.data);
+             }})
+    .catch(function(error) {
+         deferred.reject(response.data);
+     });
+     return deferred.promise;   
+};
+
+
+
+
 }]);

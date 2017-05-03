@@ -130,6 +130,19 @@ $stateProvider
         controller: 'CropExpenseTabController'
       });
 
+      $stateProvider
+      .state('cropplan', {
+        url: '/cropplan',
+        templateUrl: 'views/cropplan.html',
+        controller: 'PlanExpenseController'
+      });
+       /*$stateProvider
+      .state('cropexpense', {
+        url: '/cropexpense',
+        templateUrl: 'views/cropexpense.html',
+        controller: 'PlanExpenseController'
+      });*/
+
 
     $urlRouterProvider.otherwise('sam');
   }]);

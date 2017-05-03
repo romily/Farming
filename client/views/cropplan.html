@@ -1,0 +1,53 @@
+<div class="cropcontainer" ng-init="load()">
+
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">View All Crop Plans</h3>
+                
+            </div>
+           <div class="panel-body" >
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                      
+                        <th >Crop Name</th>
+                        <th>Crop Type</th>
+                         <th>Seeding Date</th>
+                        <th>Transplant Date</th>
+                        <th>Soil Type</th>
+                        <th>Weather</th>
+                        <th>No_Beds</th>
+                        <th>Row Per Bed</th>
+                        <th>Row Feet</th>
+                        <th>Maturity Days</th>
+                        <th>Land Required</th>
+                        <th >Seeding Month</th>
+                        <th>Location</th>
+                    </tr>
+                </thead><tbody>
+<tr ng-repeat="p in plan">
+    <td>{{p.cropname}}</td>
+    <td>{{p.croptype}}</td>
+    <td>{{p.seeddate}}</td>
+    <td>{{p.transdate}}</td>
+    <td>{{p.soiltype}}</td>
+    <td>{{p.weather}}</td>
+
+<td>
+                                <div ng-if="p.no_beds==0">####</div>
+                                <div ng-if="p.no_beds!=0">{{p.no_beds}}</div>
+                                </td>
+                            <td><div ng-if="p.rowperbed==0">####</div>
+                                <div ng-if="p.rowperbed!=0">{{p.rowperbed}}</div></td>
+                            <td><div ng-if="p.rowfeet==0">####</div>
+                                <div ng-if="p.rowfeet!=0">{{p.rowfeet}}</div></td>
+                            <td>{{p.maturitydays}}</td>
+                            <td><div ng-if="p.landrequired==0">####</div>
+                                <div ng-if="p.landrequired!=0">{{p.landrequired}}</div></td>
+                            
+                            <td>{{p.seedingmonth}}</td>
+                            <td>{{p.locations}}</td>
+                            </tr>
+</table></div>
+

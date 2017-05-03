@@ -133,6 +133,7 @@ $scope.uploadimage = function(profileInfo){
 
 };*/
 
+
 $scope.addplan=function(userid,landid)
 {
 	$state.go('addplan',{UserId:userid,LandId:landid})

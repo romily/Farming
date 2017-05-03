@@ -6,7 +6,7 @@ $scope.init = function(){
 	$scope.getstate();	
 	$scope.getprofile();
 	
-	// $scope.getimage();
+	
 };
 
 $scope.getprofile = function(){
@@ -132,17 +132,6 @@ $scope.uploadimage = function(profileInfo){
 
 
 };*/
-
-// $scope.getimage = function(data){
-//     console.log(data)   
-//     // $scope.data.user_id = $stateParams.id;
-// 	userprofileService.getimage(data).then(function(data) {		
-//     console.log(data) 
-//    	}).catch(function(data) {
-//       console.log(data)
-// 	});
-
-// };
 
 $scope.addplan=function(userid,landid)
 {

@@ -102,12 +102,12 @@ $stateProvider
       });
     
 
-      $stateProvider
+      /*$stateProvider
       .state('expensecategory', {
         url: '/expensecategory',
         templateUrl: 'views/expensecategory.html',
         controller: 'ExpenseCategoryController'
-      });
+      });*/
 
       $stateProvider
       .state('postquery', {

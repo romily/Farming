@@ -1,4 +1,4 @@
-angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService','$timeout',function($scope,
+/*angular.module('app').controller('ExpenseCategoryController', ['$scope', '$state','AddExpenseService','$timeout',function($scope,
       $state,AddExpenseService,$timeout) {
 $scope.load=function(){
 	$scope.expense={};
@@ -109,4 +109,4 @@ $scope.addfail=true;
 });
 
 };
-}])
+}])*/

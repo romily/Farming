@@ -6,23 +6,24 @@
             <h3>Farmers Login</h3>
           </div>
         </header><br>
-        <form  ng-submit="login(newregister)">
+        <form  name="logform" ng-submit="login(newregister)">
           <div class="wallpaper">
             <img src="img/avatar.png" alt="imagen-usuario" title="Usuario"/>
           </div>
           <div class="ti">
             <label>Username</label><br>
-            <input type="text" name="username" id="username" class="fail" ng-model="newregister.username" placeholder="Username"/>
+            <input type="text" name="username" id="username" class="fail" ng-model="newregister.username" placeholder="Username" required/>
+           
           </div>
           <div class="ti">
             <label>Password</label><br>
-            <input type="password" name="password" id="password" class="fail" ng-model="newregister.password" placeholder="Password" />
+            <input type="password" name="password" id="password" class="fail" ng-model="newregister.password" placeholder="Password" required />
           </div>
           <div ng-if="(statusCode == 400)" class="alert alert-danger text-center ">{{statusMessage}}</div>
           <div ng-if="(statusCode == 200)" class="alert alert-success text-center">{{statusMessage}}</div>
           <div class="ti">
-            <input type="submit" name="login" id="login" value="Login"  />
-            <a href="" ui-sref="sendemail" ><b>Forgot password?</b></a>
+            <input type="submit" name="login" id="login" value="Login" />
+            <!-- <a href="" ui-sref="sendemail" ><b>Forgot password?</b></a> -->
           </div>
         </form>
       </div>

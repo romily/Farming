@@ -31,11 +31,33 @@ $scope.gotoeditexpensecategory=function(data){
 };
 
 
+$scope.addreference=function(expense)
+{
+var accountType='';
+var img=$scope.expense.reference;
+var fileUploadName='cropexpensetab'
+console.log(fileUploadName)
+Upload.upload({
+  url: '/api/containers/container/upload/?type='+accountType+'&file_upload_name='+fileUploadName,
+  data:{
+    file:img,
+    method:fileUploadName,
+    type:accountType
+  }
+}).then (function(response){
+  console.log(response)
+}).catch (function(error){
+  console.log(error)
+});
+};
+
+
 $scope.edit=function(id){
   if(document.getElementById('idfile').files[0]==undefined)
     $scope.expense.reference=$scope.expense.reference;
   else
     $scope.expense.reference=document.getElementById('idfile').files[0].name;
+
   EditExpenseService.edit($scope.expense,id).then(function(response){
   $scope.editsuccess=true;
   $timeout(function () {

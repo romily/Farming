@@ -11,31 +11,57 @@
             <table class="table">
                 <thead>
                       
-                         <th >Plan Id</th>
-                        <th>Voucher No</th>
-                         <th>Date</th>
+                         <tr>
+                      
+                        <th >Plan Id</th>
+                       <!--  <th>Voucher No</th> -->
+                        <th>Date</th>
                         <th>Activity</th>
                         <th>Labour</th>
                         <th>Amount</th>
-                        <th>Paid To</th>
-                        <th>Spender</th>
-                        <th>Payment Mode</th>
-                        <th>reference</th>
+                        <!-- <th>Paid To</th> -->
+                        <!-- <th>Spender</th> -->
+                        <!-- <th>Payment Mode</th> -->
+                        <!-- <th>reference</th> -->
+<!-- <th><button  class="btn btn-primary btn-block" ng-click="search()" style="background-color: #286090; padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th> -->
+<th>Expense Details</th>
+<th colspan="2">Actions</th>
+</tr>
+</thead>
+<tbody>
 
-                    </tr>
-                </thead><tbody>
-<tr ng-repeat="e in expense">
-    <td>{{e.planid}}</td>
-  <td>{{e.voucher}}</td>
-  <td>{{e.date}}</td>
-  <td>{{e.activity}}</td>
-  <td>{{e.labour}}</td>
-  <td>{{e.amount}}</td>
-  <td>{{e.paidto}}</td>
-  <td>{{e.spender}}</td>
-  <td>{{e.paymode}}</td>
-  <td>{{e.reference}}</td>
+<div>
+  
+<!-- <tr ng-show="s">
+  <td><input class="form-control input-sm" ng-model="f.planid"></td>
+  <td><input  class="form-control input-sm" ng-model="f.voucher"></td>
+  <td><input class="form-control input-sm" ng-model="f.date"></td>
+  <td><input class="form-control input-sm" ng-model="f.activity"></td>
+  <td><input class="form-control input-sm" ng-model="f.labour"></td>
+  <td><input class="form-control input-sm" ng-model="f.amount"></td>
+  <td><input class="form-control input-sm" ng-model="f.paidto"></td>
+  <td><input class="form-control input-sm" ng-model="f.spender"></td>
+  <td><input class="form-control input-sm" ng-model="f.paymentmode"></td>
+  <td><input class="form-control input-sm" ng-model="f.reference"></td>
+
+</tr> -->
+</div>
+<tr ng-repeat="r in records | filter:f">
+  <td>{{r.planid}}</td>
+  <!-- <td>{{r.voucher}}</td>-->
+  <td>{{r.date}}</td> 
+  <td>{{r.activity}}</td>
+  <td>{{r.labour}}</td>
+  <td>{{r.amount}}</td>
+  <!-- <td>{{r.paidto}}</td>
+  <td>{{r.spender}}</td>
+  <td>{{r.paymode}}</td>
+  <td>{{r.reference}}</td> -->
+   <!-- <td>{{r.expense_category}}</td> -->
+   <td ng-show="hide">
+   <button class="btn btn-default" ng-click="viewexpensedetails()" style="background-color: #286090; padding: 10px; width: 50px; color: #FFF; border-radius: 2px; cursor: pointer;"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+  <td ng-show="show"><div ng-repeat="l in r.expense_category">{{l.label}}: {{l.amount}}</div>
+<button class="btn btn-xs" ng-click="hideexpensedetails()" style="background-color: #286090; padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;"><span class="glyphicon glyphicon-eye-close"></span></button></td>
+  <!-- <td>{{r.expense_category.amount}}</td> -->
                             </tr>
 </table></div>
-
- -->

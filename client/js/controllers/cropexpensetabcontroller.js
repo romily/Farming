@@ -11,6 +11,8 @@ $scope.cheflag=false;
 $scope.neftflag=false;
 $scope.nbflag=false;
 $scope.paymode=""
+$scope.show=false;
+$scope.hide=true;
 $scope.expense.expense_category = []; 
 $scope.list = [
 {id: 1, label: "Seed", amount:0},
@@ -301,6 +303,18 @@ $scope.gotomyprofile=function(){
 };
 $scope.gotoviewplan=function(){
 $state.go('cropplantab',{UserId:$scope.expense.userid})
+
+};
+$scope.viewexpensedetails=function(){
+	$scope.hide=false;
+	$scope.show=true;
+
+};
+
+$scope.hideexpensedetails=function(){
+	$scope.show=false;
+	$scope.hide=true;
+	
 
 };
 }])

@@ -46,9 +46,6 @@
 
 </head>
 <div class="cropcontainer" ng-init="load()">
-
-    <hr>
-    
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
@@ -74,11 +71,7 @@
                         <th>Land Required</th>
                         <th >Seeding Month</th>
                         <th>Location</th>
-
-<th colspan="2"><button  class="btn btn-primary " ng-click="search()" style="background-color: #286090; padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></th>
-
-                   
-                    </tr>
+                        <th colspan="2">Actions</th></tr>
                 </thead><tbody>
 
 <div>
@@ -121,21 +114,27 @@
 							
 							<td>{{r.seedingmonth}}</td>
 							<td>{{r.locations}}</td>
-					   <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ng-click="editgo(r.id)" data-title="Edit" data-toggle="modal" data-target="#edit" style="background-color: #286090; padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;"> <span class="glyphicon glyphicon-pencil"></span></button></p></td>
+					   <td><button class="btn btn-primary btn-xs" ng-click="editgo(r.id)" style="background-color: #286090; padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;"> <span class="glyphicon glyphicon-pencil"></span></button></p></td>
 
               <td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" ng-click="delete(r.id)"  data-toggle="modal" data-target="#delete" style="background-color: rgb(139, 0, 0); padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+            <td><button class="btn btn-danger btn-xs" data-title="Delete" ng-click="delete(r.id)" style="background-color: rgb(139, 0, 0); padding: 10px; width: 50px; color: #FFF; border-radius: 7px; cursor: pointer;" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
           </td>
 
 
 </tr>
 </table></div>
-<div class="form-group col-md-1 col-sm-1">  
-       <button class="btn btn-primary" ng-click="gotomyprofile()" style="background-color: #286090; padding: 10px; width: 80px; color: #FFF; border-radius: 7px; cursor: pointer;">Back</button>
-    </div>
-    <div class="form-group col-md-3 col-sm-3">  
-       <button class="btn btn-primary" ng-click="gotomyexpense()" style="background-color: #286090; padding: 10px; width: 200px; color: #FFF; border-radius: 7px; cursor: pointer;" >View My Expenses</button>    
-    </div>
+<!-- <div class="form-group col-md-12 col-sm-12">  
+  <div class="form-group col-md-4 col-sm-4"> -->
+       <button class="btn btn-primary btn-sm" ng-click="gotomyprofile()" style="background-color: #286090; padding: 10px; width: 80px; color: #FFF; border-radius: 7px; cursor: pointer;">Back</button>
+    <!-- </div> -->
+    <!-- <div class="form-group col-md-4 col-sm-4">   -->
+       <button class="btn btn-primary btn-sm" ng-click="gotomyexpense()" style="background-color: #286090; padding: 10px; width: 200px; color: #FFF; border-radius: 7px; cursor: pointer;" >View My Expenses</button>    
+    <!-- </div> -->
+<!-- <div class="form-group col-md-4 col-sm-4">   -->
+<button  class="btn btn-primary btn-sm " ng-click="search()" style="background-color: #286090; padding: 10px; width: 80px; color: #FFF; border-radius: 7px; cursor: pointer;" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<!-- </div> -->
+
+
 </div>
 </div>
  <div ng-show="deleteflag">

@@ -64,7 +64,7 @@ $scope.landregister=function(newregister){
     $timeout(function () { 
      	$scope.alert = false;
      	$state.reload(); 
-        },1000) 
+        },500) 
          
     }).catch(function(data) {
       console.log(data)

@@ -98,7 +98,7 @@ $scope.addregister = function(newregister){
                     $scope.alertsuccess = true;
                     $timeout(function () { 
 			     	$scope.alertsuccess = false;
-			     	$state.reload(); 
+			     	$state.go('login'); 
 			        },1000)
             	}
         	});
